@@ -1,0 +1,15 @@
+.tagBox {
+  display: flex;
+  width: 120px;
+  justify-content: space-around;
+}
+.new,
+.halooween {
+  border-radius: 40%;
+  border: 1px solid rgb(130, 165, 59);
+  color: rgb(130, 165, 59);
+  font-size: 15px;
+  width: 50px;
+  text-align: center;
+  padding: 3px;
+}
