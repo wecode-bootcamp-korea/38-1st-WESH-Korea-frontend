@@ -2,18 +2,23 @@ import React, { useState, useEffect } from 'react';
 import './SignIn.scss';
 
 const SignIn = () => {
-  const [loginInfo, setLoginInfo] = useState([]);
+  const [loginInfo, setLoginInfo] = useState({
+    email: '',
+    password: '',
+  });
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
+  const handleInputValue = e => {
+    setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value });
+    console.log(loginInfo);
+    // const { name, value } = e.target;  // 위와 같음. 구조분해할당....잘 모르겠음. 공부.
+    // setInfo({ ...info, [name]: value });
+  };
   const loginOnSubmit = e => {
     e.preventDefault();
-    const loginData = [
-      ...loginInfo,
-      {
-        email: loginEmail,
-        password: loginPassword,
-      },
-    ];
+    loginInfo.email.length > 4 && loginInfo.password.length > 8
+      ? console.log('a')
+      : console.log('b');
   };
 
   return (
@@ -23,18 +28,16 @@ const SignIn = () => {
         <form onSubmit={loginOnSubmit}>
           <input
             className="email"
+            name="email"
             placeholder="아이디"
-            onChange={e => {
-              setLoginEmail(e.target.value);
-            }}
+            onChange={handleInputValue}
           />
           <input
             className="password"
+            name="password"
             placeholder="비밀번호"
             type="password"
-            onChange={e => {
-              setLoginPassword(e.target.value);
-            }}
+            onChange={handleInputValue}
           />
           <button className="login">로그인</button>
         </form>
