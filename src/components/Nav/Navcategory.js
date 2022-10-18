@@ -1,7 +1,7 @@
 import React from 'react';
 import './Navcategory.scss';
 
-const Navcategori = props => {
-  return <div className="mock">{props.categori}</div>;
+const Navcategory = props => {
+  return <div className="mock">{props.category}</div>;
 };
-export default Navcategori;
+export default Navcategory;

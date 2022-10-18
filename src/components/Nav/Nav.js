@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Navcategori from './Navcategory';
+import Navcategory from './Navcategory';
 import './Nav.scss';
 import { Link } from 'react-router-dom';
 
@@ -18,12 +18,12 @@ const Nav = () => {
     setStyle('navMenuListHover');
   };
   return (
-    <main>
+    <div className="nav">
       <div className="navBox">
         <div className="navCenter">
           <div className="navTop">
             <div className="logo">WESH</div>
-            <ul className="categori">
+            <ul className="category">
               <li className="li" onMouseEnter={hover}>
                 제품
               </li>
@@ -64,14 +64,14 @@ const Nav = () => {
               {data &&
                 data.map(e => (
                   <>
-                    <Navcategori categori={e.categori} />
+                    <Navcategory category={e.category} />
                   </>
                 ))}
             </div>
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 export default Nav;
