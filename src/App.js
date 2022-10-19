@@ -1,8 +1,7 @@
-import React from "react";
+import React from 'react';
 
-const App=()=> {
-  return (<>ddd</>
-  );
-}
+const App = () => {
+  return <>ddd</>;
+};
 
 export default App;
