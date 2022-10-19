@@ -1,20 +1,20 @@
 .nav {
   display: flex;
 
-  .navBox {
+  .nav-box {
     display: flex;
     flex-direction: row;
     justify-content: center;
     width: 100%;
 
-    .navCenter {
+    .nav-center {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       width: 90%;
       margin-top: 30px;
 
-      .navTop {
+      .nav-top {
         display: flex;
         width: 100%;
         justify-content: center;
@@ -42,7 +42,7 @@
           cursor: pointer;
         }
 
-        .navRight {
+        .nav-right {
           display: flex;
           justify-content: space-evenly;
           align-items: center;
@@ -50,23 +50,23 @@
         }
       }
 
-      .navMenuList {
+      .nav-menu-list {
         display: flex;
         justify-content: flex-end;
         margin-top: 30px;
       }
 
-      .navMenuListHover {
+      .nav-menu-list-hover {
         display: none;
       }
 
-      .navMenu {
+      .nav-menu {
         display: flex;
         flex-direction: column;
         width: 75px;
       }
 
-      .lilist {
+      .li-list {
         margin-top: 25px;
         display: flex;
         justify-content: center;
@@ -75,7 +75,7 @@
         color: black;
       }
 
-      .navMock {
+      .nav-mock {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
