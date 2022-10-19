@@ -25,19 +25,16 @@
       align-items: center;
       margin-bottom: 20px;
 
-      .title-left,
-      .title-right {
-        margin: 0px 220px;
-      }
-
       .title-left {
         font-size: 32px;
         font-weight: 700;
+        margin-right: 250px;
       }
 
       .title-right {
         font-size: 16px;
         color: rgb(119, 119, 119);
+        margin-left: 250px;
       }
     }
 

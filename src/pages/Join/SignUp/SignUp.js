@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './SignUp.scss';
+import { useEffect } from 'react';
 
 const SignUp = () => {
   // const [email, setEmail] = useState('');
@@ -9,21 +10,45 @@ const SignUp = () => {
   // const [phonenumber, setPhonenumber] = useState('');
   const [info, setInfo] = useState({
     email: '',
-    username: '',
+    name: '',
     password: '',
     checkPassword: '',
-    phone: '',
+    phone_number: '',
   });
+
   const handleInputValue = e => {
     setInfo({ ...info, [e.target.name]: e.target.value });
-    console.log(info);
     // const { name, value } = e.target;  // 위와 같음. 구조분해할당....잘 모르겠음. 공부.
     // setInfo({ ...info, [name]: value });
+  };
+  // const validation = () => {
+  //   info.email.length>4 && info.password.length>8 ? true : false;
+  // }
+  const connect = () => {
+    fetch('http://10.58.52.207:8000/users/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(info),
+    }); //요청
+  };
+
+  const validation = () => {
+    const patternPhone = /^(?:(010-\d{4})|(01[1|6|7|8|9]-\d{3,4}))-(\d{4})$/;
+    const patternEmail =
+      /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+    const patternPassword =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+    patternEmail.test(info.email) &&
+    patternPassword.test(info.password) &&
+    patternPhone.test(info.phone_number) &&
+    info.password === info.checkPassword
+      ? connect()
+      : alert('정보를 확인해주세요!');
   };
 
   const onSubmit = e => {
     e.preventDefault();
-    console.log(info);
+    validation();
   };
 
   return (
@@ -37,26 +62,26 @@ const SignUp = () => {
         <div className="contents">
           <form onSubmit={onSubmit}>
             <div className="email-wrapper">
-              <label for="email-input">아이디 </label>
+              <label>아이디 </label>
               <input
                 className="email-input"
                 name="email"
-                placeholder="영문 또는 여문 및 숫자 4자리 이상"
+                placeholder="영문 또는 영문 및 숫자 4자리 이상"
                 onChange={handleInputValue}
               />
             </div>
             <div className="password-wrapper">
-              <label for="password-input">비밀번호 </label>
+              <label>비밀번호 </label>
               <input
                 className="password-input"
                 name="password"
-                placeholder="영문 대소문자 및 숫자 중 2개 이상 조합, 8자리 이상"
+                placeholder="영문 대문자, 소문자, 숫자, 특수문자 포함, 8글자 이상"
                 type="password"
                 onChange={handleInputValue}
               />
             </div>
             <div className="check-password-wrapper">
-              <label for="check-password-input">비밀번호 확인 </label>
+              <label>비밀번호 확인 </label>
               <input
                 className="check-password-input"
                 name="checkPassword"
@@ -65,19 +90,20 @@ const SignUp = () => {
               />
             </div>
             <div className="name-wrapper">
-              <label for="name-input">이름 </label>
+              <label>이름 </label>
               <input
                 className="name-input"
-                name="username"
+                name="name"
                 onChange={handleInputValue}
               />
             </div>
             <div className="phonenumber-wrapper">
-              <label for="phonenumber-input">휴대전화 </label>
+              <label>휴대전화 </label>
               <input
                 className="phonenumber-input"
-                name="phone"
+                name="phone_number"
                 onChange={handleInputValue}
+                placeholder="000-0000-0000 형태로 입력해주세요"
               />
             </div>
             <div className="join-wrapper">
