@@ -1,13 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Tag from './Tag';
 import './Product.scss';
-import { Link } from 'react-router-dom';
 
 const Product = ({ id, title, price, img, tag }) => {
   return (
-    <div className="mainpage">
-      <div className="listBox">
-        <div className="listItemBox">
+    <div className="product-list-box">
+      <div className="list-box">
+        <div className="list-item-box">
           <Link to="/productdetail">
             <img src={img} className="img" />
           </Link>

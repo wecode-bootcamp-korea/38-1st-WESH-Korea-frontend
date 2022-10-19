@@ -32,8 +32,9 @@ const ProductList = () => {
     searchParams.set('start', (pageNumber - 1) * 10);
     setSearchPhams(searchParams);
   };
+
   return (
-    <>
+    <div>
       <Banner />
       <div className="list-page">
         <div className="menu-bar">
@@ -88,7 +89,7 @@ const ProductList = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default ProductList;

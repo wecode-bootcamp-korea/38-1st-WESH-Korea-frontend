@@ -16,6 +16,7 @@ const Banner = () => {
       <img
         className="banner"
         src="https://www.lush.co.kr/upload/CATEGORY/2_20211215134805.jpg"
+        alr="banner-image"
       />
       <div className="banner-commnet">
         <div className="banner-title">SKIN</div>
