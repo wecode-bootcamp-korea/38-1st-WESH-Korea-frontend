@@ -1,0 +1,27 @@
+.bannerBox {
+  height: -70%;
+}
+
+.banner {
+  width: 100%;
+  height: 400px;
+}
+
+.bannerCommnet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  top: 50%;
+  left: 50%;
+  transform: translate(0, -220%);
+
+  .bannerTitle {
+    position: relative;
+    font-size: 100px;
+  }
+
+  .bannerMessage {
+    font-size: 20px;
+  }
+}
