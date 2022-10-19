@@ -11,50 +11,60 @@ const SignIn = () => {
     setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value });
   };
 
-  const validation = () => {
-    const patternEmail =
-      /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
-    const patternPassword =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
-    patternEmail.test(info.email) &&
-    patternPassword.test(info.password) &&
-    patternPhone.test(info.phone_number) &&
-    info.password === info.checkPassword
-      ? connect()
-      : alert('정보를 확인해주세요!');
+  const connect = () => {
+    fetch('login api주소', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ loginInfo }),
+    })
+      .then(response => {
+        if (response.ok === true) {
+          return response.json();
+        }
+        throw new Error('통신실패!');
+      })
+      .catch(error => console.log(error))
+      .then(data => {
+        if (data.message === 'SUCCESS') {
+          localStorage.setItem('token', data.token);
+          alert('로그인 성공');
+        } else if (data.message === 'INVALID_USER_ID') {
+          alert('아이디 혹은 비밀번호를 확인 해 주세요');
+        }
+      });
   };
 
-  const loginOnSubmit = e => {
+  const validation = e => {
     e.preventDefault();
-    loginInfo.email.length > 4 && loginInfo.password.length > 8
-      ? console.log('a')
-      : console.log('b');
+    !loginInfo.email || !loginInfo.password ? console.log('b') : connect();
   };
 
   return (
     <div className="signIn">
       <div className="contents">
         <div className="title"> 로그인</div>
-        <form onSubmit={loginOnSubmit}>
+        <form className="login-form" onSubmit={validation}>
           <input
-            className="email"
+            className="login-input"
             name="email"
             placeholder="아이디"
             onChange={handleInputValue}
           />
           <input
-            className="password"
+            className="login-input"
             name="password"
             placeholder="비밀번호"
             type="password"
             onChange={handleInputValue}
           />
-          <button className="login">로그인</button>
+          <button className="login-button">로그인</button>
         </form>
         <div className="etc">
-          <div className="join">회원가입</div>
-          <div className="wecode">위코드</div>
-          <div className="justcode">저스트코드</div>
+          <div className="etc-tag">회원가입</div>
+          <div className="etc-tag">위코드</div>
+          <div className="etc-tag">저스트코드</div>
         </div>
         <div className="cannot">
           <div className="never">네이버 아이디로 로그인(준비중)</div>

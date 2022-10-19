@@ -3,37 +3,38 @@
   justify-content: center;
 
   .contents {
-    margin-top: 200px;
+    margin-top: 170px;
     display: flex;
     flex-direction: column;
 
     .title {
+      display: flex;
+      justify-content: center;
       font-size: 32px;
       font-weight: 700;
       margin-bottom: 45px;
     }
 
-    form {
+    .login-form {
       display: flex;
       flex-direction: column;
     }
 
-    input {
+    .login-input {
       width: 328px;
       height: 48px;
       outline: none;
       border: 1px solid rgb(182, 182, 182);
     }
 
-    div,
-    input,
-    button {
+    .login-input,
+    .login-button {
       margin-top: 10px;
       display: flex;
       justify-content: center;
     }
 
-    button {
+    .login-button {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -48,9 +49,7 @@
     .etc {
       display: flex;
 
-      .join,
-      .wecode,
-      .justcode {
+      .etc-tag {
         text-decoration: underline;
         color: gray;
         margin: 25px;
@@ -69,6 +68,7 @@
         display: flex;
         align-items: center;
         opacity: 50%;
+        margin-top: 10px;
       }
 
       .gakao {
@@ -78,6 +78,7 @@
         height: 64px;
         display: flex;
         align-items: center;
+        margin-top: 10px;
       }
     }
   }
