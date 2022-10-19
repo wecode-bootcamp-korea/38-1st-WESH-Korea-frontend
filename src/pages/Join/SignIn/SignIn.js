@@ -6,14 +6,11 @@ const SignIn = () => {
     email: '',
     password: '',
   });
-  const [loginEmail, setLoginEmail] = useState('');
-  const [loginPassword, setLoginPassword] = useState('');
+
   const handleInputValue = e => {
     setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value });
-    console.log(loginInfo);
-    // const { name, value } = e.target;  // 위와 같음. 구조분해할당....잘 모르겠음. 공부.
-    // setInfo({ ...info, [name]: value });
   };
+
   const loginOnSubmit = e => {
     e.preventDefault();
     loginInfo.email.length > 4 && loginInfo.password.length > 8
