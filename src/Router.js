@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import App from './App';
 import ProductList from './pages/ProductList/ProductList';
 import Nav from './components/Nav/Nav';
+import App from './App';
+
 const Router = () => {
   return (
     <BrowserRouter>

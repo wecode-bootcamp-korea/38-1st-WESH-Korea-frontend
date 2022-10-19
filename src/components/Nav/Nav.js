@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Navcategory from './Navcategory';
 import './Nav.scss';
-import { Link } from 'react-router-dom';
 
 const Nav = () => {
   const [data, setData] = useState([]);
-  const [style, setStyle] = useState('navMenuListHover');
+  const [tab, setTab] = useState('navMenuListHover');
   useEffect(() => {
     fetch('/data/data.json')
       .then(res => res.json())
       .then(res => setData(res));
   }, []);
   const hover = e => {
-    setStyle('navMenuList');
+    setTab('navMenuList');
   };
   const leave = e => {
-    setStyle('navMenuListHover');
+    setTab('navMenuListHover');
   };
   return (
     <div className="nav">
@@ -38,7 +38,7 @@ const Nav = () => {
               <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/account.svg" />
             </div>
           </div>
-          <div className={style} onMouseEnter={hover} onMouseLeave={leave}>
+          <div className={tab} onMouseEnter={hover} onMouseLeave={leave}>
             <ul className="navMenu">
               <Link to="/">
                 <li className="lilist">전체상품</li>
