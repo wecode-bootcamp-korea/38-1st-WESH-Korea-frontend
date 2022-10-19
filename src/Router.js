@@ -1,10 +1,14 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ProductList from './pages/ProductList/ProductList';
+import Nav from './components/Nav/Nav';
 import App from './App';
+
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
+        <Route path="/" element={<ProductList />} />
+        <Route path="/nav" element={<Nav />} />
       </Routes>
     </BrowserRouter>
   );
