@@ -38,7 +38,7 @@ const SignIn = () => {
 
   const validation = e => {
     e.preventDefault();
-    !loginInfo.email || !loginInfo.password ? console.log('b') : connect();
+    loginInfo.email || loginInfo.password ? connect() : console.log('b');
   };
 
   return (
