@@ -7,7 +7,7 @@
   height: 400px;
 }
 
-.bannerCommnet {
+.banner-commnet {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,12 +16,12 @@
   left: 50%;
   transform: translate(0, -220%);
 
-  .bannerTitle {
+  .banner-title {
     position: relative;
     font-size: 100px;
   }
 
-  .bannerMessage {
+  .banner-message {
     font-size: 20px;
   }
 }

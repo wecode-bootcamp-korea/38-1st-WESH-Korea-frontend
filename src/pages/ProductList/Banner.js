@@ -17,9 +17,9 @@ const Banner = () => {
         className="banner"
         src="https://www.lush.co.kr/upload/CATEGORY/2_20211215134805.jpg"
       />
-      <div className="bannerCommnet">
-        <div className="bannerTitle">SKIN</div>
-        <div className="bannerMessage">
+      <div className="banner-commnet">
+        <div className="banner-title">SKIN</div>
+        <div className="banner-message">
           누구나 좋아하는 인기 제품을 만나 보세요!
         </div>
       </div>

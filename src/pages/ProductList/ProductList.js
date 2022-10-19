@@ -10,7 +10,7 @@ const ProductList = () => {
   const [searchParams, setSearchPhams] = useSearchParams();
 
   useEffect(() => {
-    fetch(`/data/jung/data.json
+    fetch(`/data/jung/productlist/data.json
     `)
       .then(res => res.json())
       .then(res => setData(res));
@@ -23,7 +23,7 @@ const ProductList = () => {
   // [start,limit]
 
   useEffect(() => {
-    fetch('/data/jung/tag.json')
+    fetch('/data/jung/productlist/tag.json')
       .then(res => res.json())
       .then(res => setTag(res));
   }, []);
@@ -35,8 +35,8 @@ const ProductList = () => {
   return (
     <>
       <Banner />
-      <div className="listPage">
-        <div className="menuBar">
+      <div className="list-page">
+        <div className="menu-bar">
           <div className="filter">
             <div>전체</div>
             <div>BEST 50</div>
@@ -53,7 +53,7 @@ const ProductList = () => {
             <option>신상품순</option>
           </select>
         </div>
-        <div className="pageBox">
+        <div className="page-box">
           {data.map(e => (
             <Product
               key={e.id}
@@ -63,7 +63,7 @@ const ProductList = () => {
               tag={tag}
             />
           ))}
-          <div className="buttonClick">
+          <div className="button-click">
             <button onclick={() => goPage(1)} className="btn">
               1
             </button>
