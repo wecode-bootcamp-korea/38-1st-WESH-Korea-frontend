@@ -11,6 +11,19 @@ const SignIn = () => {
     setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value });
   };
 
+  const validation = () => {
+    const patternEmail =
+      /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+    const patternPassword =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+    patternEmail.test(info.email) &&
+    patternPassword.test(info.password) &&
+    patternPhone.test(info.phone_number) &&
+    info.password === info.checkPassword
+      ? connect()
+      : alert('정보를 확인해주세요!');
+  };
+
   const loginOnSubmit = e => {
     e.preventDefault();
     loginInfo.email.length > 4 && loginInfo.password.length > 8
