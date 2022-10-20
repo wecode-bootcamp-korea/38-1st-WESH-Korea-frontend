@@ -136,11 +136,6 @@
       }
     }
 
-    .top-img:hover {
-      transform: scale(1.05);
-      transition: 0.5s ease-in;
-    }
-
     .bottom {
       display: flex;
       flex-direction: column;
@@ -174,6 +169,7 @@
       display: flex;
 
       li {
+        font-size: 25px;
         width: 100%;
         text-align: center;
         border-bottom: 1px solid black;

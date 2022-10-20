@@ -8,8 +8,8 @@ const ProductTab = () => {
   const [detail, setDetail] = useState([]);
   const [count, setCount] = useState(1);
   const [price, setPrice] = useState(0);
-  const [heart, setHeart] = useState('♡');
-  const [currentTab, setCurrentTab] = useState('제품정보');
+  const [heart, setHeart] = useState('🖤');
+  const [currentTab, setCurrentTab] = useState('info');
 
   useEffect(() => {
     fetch(`/data/productdetail/detaildata.json
@@ -36,7 +36,7 @@ const ProductTab = () => {
   };
 
   const onHeart = () => {
-    heart === '♡' ? setHeart('♥︎') : setHeart('♡');
+    heart === '🖤' ? setHeart('❤️') : setHeart('🖤');
   };
 
   return (

@@ -1,4 +1,4 @@
-.bottom-review-box {
+.product-list-review-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,6 +10,7 @@
     width: 150px;
     height: 150px;
   }
+
   .review-star {
     display: flex;
     align-items: center;
@@ -18,15 +19,18 @@
     height: 30px;
     width: 100px;
   }
+
   .review-comment {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 200px;
+
     .review-title-box {
       display: flex;
     }
   }
+
   .review-title {
     display: flex;
     flex-direction: column;
@@ -37,6 +41,7 @@
     width: 100px;
     border-right: 1px dashed gray;
   }
+
   .review-message {
     width: 500px;
     font-size: 20px;

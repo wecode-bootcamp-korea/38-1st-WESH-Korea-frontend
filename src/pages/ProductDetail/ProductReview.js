@@ -10,7 +10,6 @@ const ProductReview = () => {
       .then(res => res.json())
       .then(res => setReviewData(res));
   }, []);
-  console.log(reviewData);
 
   return (
     <div className="review">

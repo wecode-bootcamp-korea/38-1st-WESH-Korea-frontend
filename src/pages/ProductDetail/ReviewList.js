@@ -14,7 +14,7 @@ const ReviewList = () => {
     <>
       {review.map(review => {
         return (
-          <div className="bottom-review-box">
+          <div className="product-list-review-box">
             <div className="review-comment">
               <div className="review-title-box">
                 <div className="review-title">
