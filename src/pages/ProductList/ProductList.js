@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Product from './Product/Product';
 import Banner from './Banner';
+import Nav from '../../components/Nav/Nav';
 import './ProductList.scss';
 
 const ProductList = () => {
@@ -35,62 +36,63 @@ const ProductList = () => {
   };
 
   return (
-    <div className="product-list">
-      <Banner />
-      <div className="list-page">
-        <div className="menu-bar">
-          <div className="filter">
-            <div>전체</div>
-            <div>BEST 50</div>
-            <div>국내제조</div>
-            <div>네이키드</div>
-            <div>러쉬 아트 큐레이션</div>
+    <>
+      <Nav />
+      <div className="product-list">
+        <Banner />
+        <div className="list-page">
+          <div className="menu-bar">
+            <div className="filter">
+              <div className="all">전체</div>
+              <div className="perfume">향수</div>
+              <div className="lotion">로션</div>
+              <div className="oil">오일</div>
+              <div className="soap">비누</div>
+            </div>
+            <select class="order">
+              <option className="order-best">인기순</option>
+              <option className="order-low">낮은 가격순</option>
+              <option className="order-high">높은 가격순</option>
+              <option className="order-review">리뷰 많은순</option>
+            </select>
           </div>
-          <select class="order">
-            <option>추천순</option>
-            <option>인기순</option>
-            <option>낮은 가격순</option>
-            <option>높은 가격순</option>
-            <option>리뷰많은순</option>
-            <option>신상품순</option>
-          </select>
-        </div>
-        <div className="page-box">
-          {data.map(e => (
-            <Product
-              key={e.id}
-              title={e.title}
-              img={e.img}
-              price={e.price}
-              tag={tag}
-            />
-          ))}
-          <div className="button-click">
-            <button onclick={() => goPage(1)} className="btn">
-              1
-            </button>
-            <button onclick={() => goPage(2)} className="btn">
-              2
-            </button>
-            <button onclick={() => goPage(3)} className="btn">
-              3
-            </button>
-            <button onclick={() => goPage(4)} className="btn">
-              4
-            </button>
-            <button onclick={() => goPage(5)} className="btn">
-              5
-            </button>
-            <button onclick={() => goPage(5)} className="btn">
-              ◀️
-            </button>
-            <button onclick={() => goPage(5)} className="btn">
-              ▶️
-            </button>
+          <div className="page-box">
+            {data.map(e => (
+              <Product
+                key={e.id}
+                title={e.title}
+                img={e.img}
+                price={e.price}
+                tag={tag}
+              />
+            ))}
+            <div className="button-click">
+              <button onclick={() => goPage(1)} className="btn">
+                1
+              </button>
+              <button onclick={() => goPage(2)} className="btn">
+                2
+              </button>
+              <button onclick={() => goPage(3)} className="btn">
+                3
+              </button>
+              <button onclick={() => goPage(4)} className="btn">
+                4
+              </button>
+              <button onclick={() => goPage(5)} className="btn">
+                5
+              </button>
+              <button onclick={() => goPage(5)} className="btn">
+                ◀️
+              </button>
+              <button onclick={() => goPage(5)} className="btn">
+                ▶️
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
