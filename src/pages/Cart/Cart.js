@@ -84,7 +84,7 @@ const Cart = () => {
             쇼핑 계속하기
           </button>
           <button className="black-button" type="button">
-            주문하기
+            주문하기.
           </button>
         </div>
       </div>
