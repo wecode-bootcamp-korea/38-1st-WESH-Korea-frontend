@@ -2,15 +2,14 @@ import React, { useEffect, useRef, useState } from 'react';
 import Nav from '../../components/Nav/Nav';
 import Thumbnail from './ThumbNail';
 import Best from './Best';
-
 import './MainPage.scss';
 
-const Mainpagetop = () => {
-  const [data, setData] = useState([]);
+const Mainpage = () => {
+  const [eventData, setEventData] = useState([]);
   const [best, setBest] = useState([]);
-  const [index, setIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const timeoutRef = useRef(null);
-  const delay = 5000;
+  const DELAY_TIME = 5000;
 
   function resetTimeout() {
     if (timeoutRef.current) {
@@ -22,40 +21,43 @@ const Mainpagetop = () => {
     resetTimeout();
     timeoutRef.current = setTimeout(
       () =>
-        setIndex(prevIndex =>
-          prevIndex === data.length - 1 ? 0 : prevIndex + 1
+        setCurrentIndex(prevIndex =>
+          prevIndex === eventData.length - 1 ? 0 : prevIndex + 1
         ),
-      delay
+      DELAY_TIME
     );
     return () => {
       resetTimeout();
     };
-  }, [index]);
+  }, [currentIndex]);
 
   useEffect(() => {
-    fetch('/data/mainpagetop/main.json')
+    fetch('/data/mainpage/main.json')
       .then(res => res.json())
-      .then(res => setData(res));
+      .then(res => setEventData(res));
   }, []);
 
   useEffect(() => {
-    fetch('/data/mainpagetop/best.json')
+    fetch('/data/mainpage/best.json')
       .then(res => res.json())
       .then(res => setBest(res));
   }, []);
+
   return (
     <>
       <Nav />
-      <div className="mainpage">
+      <div className="mainpage-top">
         <div className="main-center">
           <div className="main-center-top">
             <div className="thumbnail-box">
               <div className="thumbnail-slide">
                 <div
                   className="thumbnail"
-                  style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
+                  style={{
+                    transform: `translate3d(${-currentIndex * 100}%, 0, 0)`,
+                  }}
                 >
-                  {data.map(data => (
+                  {eventData.map(data => (
                     <Thumbnail key={data.id} img={data.eventimg} />
                   ))}
                 </div>
@@ -63,12 +65,14 @@ const Mainpagetop = () => {
             </div>
             <div className="slideBox">
               <div className="slideshowDots">
-                {data.map((_, idx) => (
+                {eventData.map((_, idx) => (
                   <div
                     key={idx}
-                    className={`slideshowDot${index === idx ? ' active' : ''}`}
+                    className={`slideshowDot${
+                      currentIndex === idx ? ' active' : ''
+                    }`}
                     onClick={() => {
-                      setIndex(idx);
+                      setCurrentIndex(idx);
                     }}
                   ></div>
                 ))}
@@ -76,7 +80,7 @@ const Mainpagetop = () => {
             </div>
           </div>
           <div className="main-middle">
-            <div className="best">
+            <div className="best-tag-box">
               <ul className="best-tag">
                 <div className="tag-margin">#슬리피기프트</div>
                 <div className="tag-margin">#네이키드</div>
@@ -118,7 +122,7 @@ const Mainpagetop = () => {
               </div>
               <div className="message">
                 동물실험을 하지 않은 <div className="point">정직한</div> 재료를
-                사용하여{' '}
+                사용하여
               </div>
               <div className="message">
                 <div className="point">모든 제품</div>을 손으로 만듭니다."
@@ -139,18 +143,4 @@ const Mainpagetop = () => {
   );
 };
 
-export default Mainpagetop;
-const tagdata = [
-  {
-    id: 0,
-    tag: '#슬리피기프트',
-  },
-  {
-    id: 1,
-    tag: '#네이키드',
-  },
-  {
-    id: 2,
-    tag: '#신선한 재료',
-  },
-];
+export default Mainpage;
