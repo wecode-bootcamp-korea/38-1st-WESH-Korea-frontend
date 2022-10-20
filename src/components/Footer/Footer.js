@@ -40,7 +40,9 @@ const Footer = () => {
                 ></img>
               </li>
               {FOOTER_SNS_IMG.map(logo => {
-                return <img src={logo.image} alt="logo-image" />;
+                return (
+                  <img src={logo.image} key={logo.id} alt={'logo-image'} />
+                );
               })}
             </ul>
           </div>
@@ -93,6 +95,7 @@ export default Footer;
 
 const FOOTER_SNS_IMG = [
   {
+    id: 1,
     name: 'instagram',
     link: 'https://www.instagram.com/',
     image:
@@ -100,21 +103,24 @@ const FOOTER_SNS_IMG = [
   },
 
   {
-    id: 'youtube',
+    id: 2,
+    name: 'youtube',
     link: 'https://www.youtube.com/user/',
     image:
       'https://www.lush.co.kr/content/renewal/mobile/images/ico/ico_youtube.svg',
   },
 
   {
-    id: 'kakao',
+    id: 3,
+    name: 'kakao',
     link: 'https://pf.kakao.com/',
     image:
       'https://www.lush.co.kr/content/renewal/mobile/images/ico/ico_kakao.svg',
   },
 
   {
-    id: 'naver',
+    id: 4,
+    name: 'naver',
     link: 'https://m.post.naver.com/',
     image:
       'https://www.lush.co.kr/content/renewal/mobile/images/ico/ico_naver.svg',
