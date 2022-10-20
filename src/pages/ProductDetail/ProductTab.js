@@ -14,6 +14,11 @@ const ProductTab = () => {
       .then(res => setData(res[0]));
   }, []);
 
+  const mappingObje = {
+    info: <ProductInfo />,
+    review: <ProductReview />,
+  };
+
   return (
     <>
       {data && (
@@ -33,13 +38,10 @@ const ProductTab = () => {
           </div>
           <div className="menuTab">
             <ul className="tabs">
-              {tabArr.map((tab, index) => (
-                <li key={index} onClick={() => setCurrentTab(tab)}>
-                  {tab}
-                </li>
-              ))}
+              <li onClick={() => setCurrentTab('info')}>제품정보</li>
+              <li onClick={() => setCurrentTab('review')}>제품리뷰</li>
             </ul>
-            <div className="contents">{mappingObj[currentTab]}</div>
+            <div className="contents">{mappingObje[currentTab]}</div>
           </div>
         </div>
       )}
@@ -47,9 +49,3 @@ const ProductTab = () => {
   );
 };
 export default ProductTab;
-
-const tabArr = ['제품정보', '제품리뷰'];
-const mappingObj = {
-  제품정보: <ProductInfo />,
-  제품리뷰: <ProductReview />,
-};
