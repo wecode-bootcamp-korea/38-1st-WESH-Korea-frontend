@@ -1,14 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ProductList from './pages/ProductList/ProductList';
 import Nav from './components/Nav/Nav';
-import App from './App';
+import Mainpage from './pages/MainPage/MainPage';
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<ProductList />} />
         <Route path="/nav" element={<Nav />} />
+        <Route path="/" element={<Mainpage />} />
       </Routes>
     </BrowserRouter>
   );

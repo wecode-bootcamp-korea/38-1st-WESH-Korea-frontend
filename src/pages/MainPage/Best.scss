@@ -1,0 +1,19 @@
+.best-item-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .best-item-img {
+    width: 220px;
+    height: 250px;
+  }
+
+  .best-title {
+    margin-top: 10px;
+  }
+
+  .best-price {
+    margin-top: 10px;
+  }
+}
