@@ -24,8 +24,47 @@
         font-size: 50px;
       }
 
-      .banner-price {
-        font-size: 40px;
+      .banner-price-box {
+        display: flex;
+        justify-content: center;
+        border-top: 1px solid gray;
+        border-bottom: 1px solid gray;
+        padding: 13px 0 13px 0;
+        width: 100%;
+        .banner-price-box-width {
+          display: flex;
+          justify-content: flex-end;
+          width: 300px;
+
+          .banner-price {
+            font-size: 40px;
+          }
+
+          .button-box {
+            display: flex;
+            width: 150px;
+            justify-content: flex-end;
+            align-items: center;
+
+            .count {
+              font-size: 20px;
+            }
+
+            .plus {
+              font-size: 25px;
+              background-color: rgb(255, 255, 255);
+              border: 1px solid rgb(255, 255, 255);
+            }
+
+            .mius {
+              margin-left: 3px;
+              width: 27px;
+              font-size: 25px;
+              background-color: rgb(255, 255, 255);
+              border: 1px solid rgb(255, 255, 255);
+            }
+          }
+        }
       }
 
       .banner-detail {
