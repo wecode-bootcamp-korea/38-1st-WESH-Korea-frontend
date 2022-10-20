@@ -10,10 +10,12 @@ const ProductDetail = () => {
   //     .then(res => res.json())
   //     .then(res => setData(res));
   // }, []);
+
   return (
     <div>
       <ProductTab />
     </div>
   );
 };
+
 export default ProductDetail;

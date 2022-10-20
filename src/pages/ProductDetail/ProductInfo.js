@@ -5,7 +5,7 @@ const ProductInfo = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch(`/data/jung/productdetail/detaildata.json
+    fetch(`/data/productdetail/detaildata.json
       `)
       .then(res => res.json())
       .then(res => setData(res[0]));

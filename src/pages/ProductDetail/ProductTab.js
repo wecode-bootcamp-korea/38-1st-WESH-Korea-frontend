@@ -8,7 +8,7 @@ const ProductTab = () => {
   const [currentTab, setCurrentTab] = useState('제품정보');
 
   useEffect(() => {
-    fetch(`/data/jung/productdetail/detaildata.json
+    fetch(`/data/productdetail/detaildata.json
       `)
       .then(res => res.json())
       .then(res => setData(res[0]));
@@ -20,7 +20,7 @@ const ProductTab = () => {
   };
 
   return (
-    <>
+    <div className="product-tab">
       {data && (
         <div className="Product-tabBox">
           <div className="top">
@@ -45,7 +45,7 @@ const ProductTab = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 export default ProductTab;
