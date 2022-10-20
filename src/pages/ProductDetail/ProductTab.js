@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import ProductInfo from './ProductInfo';
 import ProductReview from './ProductReview';
 import './ProductTab.scss';
@@ -7,6 +8,7 @@ const ProductTab = () => {
   const [detail, setDetail] = useState([]);
   const [count, setCount] = useState(1);
   const [price, setPrice] = useState(0);
+  const [heart, setHeart] = useState('♡');
   const [currentTab, setCurrentTab] = useState('제품정보');
 
   useEffect(() => {
@@ -24,12 +26,17 @@ const ProductTab = () => {
   const up = () => {
     setCount(count + 1);
   };
+
   const down = () => {
     count !== 1 && setCount(count - 1);
   };
 
   const buyClick = () => {
     setPrice(detail[0].price * count);
+  };
+
+  const onHeart = () => {
+    heart === '♡' ? setHeart('♥︎') : setHeart('♡');
   };
 
   return (
@@ -62,9 +69,19 @@ const ProductTab = () => {
                     </div>
                   </div>
                 </div>
+                <div className="all-price-box">
+                  <div className="all-price-word">총 합계 금액</div>
+                  <div className="all-price">
+                    ￦ {detailInfo.price * count} 원
+                  </div>
+                </div>
                 <div className="banner-payment">
-                  <button className="heart">♡</button>
-                  <button className="bag">☗</button>
+                  <button className="heart" onClick={onHeart}>
+                    {heart}
+                  </button>
+                  <button className="bag">
+                    <Link to="/">✓</Link>
+                  </button>
                   <button className="buy" onClick={buyClick}>
                     바로구매
                   </button>

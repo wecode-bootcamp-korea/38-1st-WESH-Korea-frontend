@@ -2,20 +2,30 @@ import React, { useEffect, useState } from 'react';
 import './ProductInfo.scss';
 
 const ProductInfo = () => {
-  const [data, setData] = useState([]);
+  const [info, setInfo] = useState([]);
 
   useEffect(() => {
     fetch(`/data/productdetail/detaildata.json
       `)
       .then(res => res.json())
-      .then(res => setData(res[0]));
+      .then(res => setInfo(res));
   }, []);
 
   return (
-    <div className="bottom">
-      <img src={data.img} className="bottom-img" alt="data-detail-image" />
-      <div className="usage">{data.usage}</div>
-    </div>
+    <>
+      {info.map(infoData => {
+        return (
+          <div className="bottom-info">
+            <img
+              src={infoData.img}
+              className="bottom-info-img"
+              alt="data-detail-image"
+            />
+            <div className="usage">{infoData.usage}</div>
+          </div>
+        );
+      })}
+    </>
   );
 };
 export default ProductInfo;
