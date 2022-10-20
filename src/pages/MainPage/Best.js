@@ -4,7 +4,7 @@ import './Best.scss';
 
 const Best = ({ id, bestImg, bestTitle, bestPrice, best }) => {
   return (
-    <div className="best-item-box">
+    <div className="Best">
       <img className="best-item-img" src={bestImg} alt={best} />
       <div className="best-title">{bestTitle}</div>
       <div className=" best-price">{bestPrice}</div>

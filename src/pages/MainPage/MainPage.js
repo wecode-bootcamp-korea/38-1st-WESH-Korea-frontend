@@ -46,7 +46,7 @@ const Mainpagetop = () => {
   return (
     <>
       <Nav />
-      <div className="main-page">
+      <div className="mainpage">
         <div className="main-center">
           <div className="main-center-top">
             <div className="thumbnail-box">
