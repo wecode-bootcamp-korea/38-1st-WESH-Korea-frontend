@@ -1,11 +1,43 @@
 .bottom-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   .bottom-info-img {
     width: 800px;
     height: 600px;
+    border-radius: 20px;
     transform: translate(0, -20px);
   }
   .usage {
+    color: gray;
     margin-top: 30px;
-    font-size: 30px;
+    font-size: 40px;
+  }
+
+  .star-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+    .info-message {
+      margin-top: 30px;
+      font-size: 50px;
+      color: rgba(49, 45, 45, 0.726);
+    }
+    .info-review {
+      margin-top: 30px;
+      font-size: 30px;
+    }
+  }
+  .info-bottom-box {
+    margin: 50px 0 50px;
+  }
+  .info-bottom-img {
+    border-radius: 10px;
+    width: 1600px;
+    height: 700px;
+    margin: 20px 0 20px;
   }
 }
