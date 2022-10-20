@@ -13,7 +13,7 @@ const Product = ({ id, title, price, img, tag }) => {
           </Link>
           <div className="tag">
             {tag.map(e => (
-              <Tag new={e.new} vegan={e.vegan} />
+              <Tag tagnew={e.new} tagvegan={e.vegan} />
             ))}
           </div>
           <div className="title">{title}</div>

@@ -1,11 +1,11 @@
 import React from 'react';
 import './Tag.scss';
 
-const Tag = props => {
+const Tag = ({ tagnew, tagvegan }) => {
   return (
     <div className="tag-box">
-      <div className="new">{props.new}</div>
-      <div className="halooween">{props.vegan}</div>
+      <div className="new">{tagnew}</div>
+      <div className="vegan">{tagvegan}</div>
     </div>
   );
 };

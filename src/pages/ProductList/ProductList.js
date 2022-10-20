@@ -10,7 +10,7 @@ const ProductList = () => {
   const [searchParams, setSearchPhams] = useSearchParams();
 
   useEffect(() => {
-    fetch(`/data/jung/productlist/data.json
+    fetch(`/data/productlist/data.json
     `)
       .then(res => res.json())
       .then(res => setData(res));
@@ -23,10 +23,11 @@ const ProductList = () => {
   // [start,limit]
 
   useEffect(() => {
-    fetch('/data/jung/productlist/tag.json')
+    fetch('/data/productlist/tag.json')
       .then(res => res.json())
       .then(res => setTag(res));
   }, []);
+
   const goPage = pageNumber => {
     searchParams.set('limit', 10);
     searchParams.set('start', (pageNumber - 1) * 10);
@@ -34,7 +35,7 @@ const ProductList = () => {
   };
 
   return (
-    <div>
+    <div className="product-list">
       <Banner />
       <div className="list-page">
         <div className="menu-bar">
@@ -92,4 +93,5 @@ const ProductList = () => {
     </div>
   );
 };
+
 export default ProductList;
