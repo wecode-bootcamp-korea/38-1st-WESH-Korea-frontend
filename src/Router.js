@@ -1,9 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import SignIn from './pages/Join/SignIn/SignIn';
-import ProductList from './pages/ProductList/ProductList';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import MainPage from './pages/MainPage/MainPage';
+import Orderlist from './components/Orderlist/Orderlist';
+import Cart from './pages/Cart/Cart';
+import ProductList from './pages/ProductList/ProductList';
 import Nav from './components/Nav/Nav';
 
 const Router = () => {
@@ -15,6 +17,8 @@ const Router = () => {
         <Route path="/productlist" element={<ProductList />} />
         <Route path="/productDetail" element={<ProductDetail />} />
         <Route path="/mainPage" element={<MainPage />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/orderlist" element={<Orderlist />} />
       </Routes>
     </BrowserRouter>
   );
