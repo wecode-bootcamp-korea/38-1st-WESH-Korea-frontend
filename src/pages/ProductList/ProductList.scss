@@ -18,6 +18,11 @@
       display: flex;
       justify-content: space-evenly;
       width: 450px;
+
+      .link {
+        text-decoration: none;
+        color: black;
+      }
     }
 
     .order {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useSearchParams } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import Product from './Product/Product';
 import Banner from './Banner';
 import Nav from '../../components/Nav/Nav';
@@ -36,11 +36,46 @@ const ProductList = () => {
         <div className="list-page">
           <div className="menu-bar">
             <div className="filter">
-              <div className="all">전체</div>
-              <div className="perfume">향수</div>
-              <div className="lotion">로션</div>
-              <div className="oil">오일</div>
-              <div className="soap">비누</div>
+              <div className="all">
+                <Link
+                  to={'/productlist/all?limit=16&offset=0'}
+                  className="link"
+                >
+                  전체
+                </Link>
+              </div>
+              <div className="perfume">
+                <Link
+                  to={'/productlist/perfume?limit=16&offset=0'}
+                  className="link"
+                >
+                  향수
+                </Link>
+              </div>
+              <div className="lotion">
+                <Link
+                  to={'/productlist/lotion?limit=16&offset=0'}
+                  className="link"
+                >
+                  로션
+                </Link>
+              </div>
+              <div className="oil">
+                <Link
+                  to={'/productlist/oil?limit=16&offset=0'}
+                  className="link"
+                >
+                  오일
+                </Link>
+              </div>
+              <div className="soap">
+                <Link
+                  to={'/productlist/soap?limit=16&offset=0'}
+                  className="link"
+                >
+                  비누
+                </Link>
+              </div>
             </div>
             <select class="order">
               <option className="order-best">인기순</option>
@@ -56,7 +91,7 @@ const ProductList = () => {
                 title={e.title}
                 img={e.img}
                 price={e.price}
-                tag={tag}
+                tag={e.tags}
               />
             ))}
           </div>

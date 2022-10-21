@@ -4,6 +4,7 @@ import Tag from './Tag';
 import './Product.scss';
 
 const Product = ({ id, title, price, img, tag }) => {
+  console.log(tag.includes('NEW'));
   return (
     <div className="product-list-box">
       <div className="list-box">
@@ -12,9 +13,7 @@ const Product = ({ id, title, price, img, tag }) => {
             <img src={img} className="img" />
           </Link>
           <div className="tag">
-            {tag.map(e => (
-              <Tag tagnew={e.new} tagvegan={e.vegan} />
-            ))}
+            {tag.includes('NEW') ? <Tag tagnew={tag[0]} /> : null}
           </div>
           <div className="title">{title}</div>
           <div className="price">{price.slice(0, price.length - 4)} 원</div>
