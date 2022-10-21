@@ -10,28 +10,31 @@ const ProductList = () => {
   const [tag, setTag] = useState([]);
   const [searchParams, setSearchPhams] = useSearchParams();
 
-  useEffect(() => {
-    fetch(`/data/productlist/data.json
-    `)
-      .then(res => res.json())
-      .then(res => setData(res));
-  }, []);
+  // useEffect(() => {
+  //   fetch(`/data/productlist/data.json
+  //   `)
+  //     .then(res => res.json())
+  //     .then(res => setData(res));
+  // }, []);
 
   // FIXME
-  // const limit = searchParams.get('limit');
-  // const start = searchParams.get('start');
-  // /?start=${start}&limit=${limit}
-  // [start,limit]
+  const limit = searchParams.get('limit');
+  const offset = searchParams.get('offset');
+  // /?offset=${offset}&limit=${limit}
+  // [offset,limit]
 
   useEffect(() => {
-    fetch('/data/productlist/tag.json')
+    fetch(
+      `http://10.58.52.93:3000/productlist/all?offset=${offset}&limit=${limit}`
+    )
       .then(res => res.json())
-      .then(res => setTag(res));
-  }, []);
+      .then(res => console.log(res.data));
+  }, [offset, limit]);
 
   const goPage = pageNumber => {
-    searchParams.set('limit', 10);
-    searchParams.set('start', (pageNumber - 1) * 10);
+    console.log(1);
+    searchParams.set('limit', 16);
+    searchParams.set('offset', (pageNumber - 1) * 16);
     setSearchPhams(searchParams);
   };
 
@@ -66,29 +69,26 @@ const ProductList = () => {
                 tag={tag}
               />
             ))}
-            <div className="button-click">
-              <button onclick={() => goPage(1)} className="btn">
-                1
-              </button>
-              <button onclick={() => goPage(2)} className="btn">
-                2
-              </button>
-              <button onclick={() => goPage(3)} className="btn">
-                3
-              </button>
-              <button onclick={() => goPage(4)} className="btn">
-                4
-              </button>
-              <button onclick={() => goPage(5)} className="btn">
-                5
-              </button>
-              <button onclick={() => goPage(5)} className="btn">
-                ◀️
-              </button>
-              <button onclick={() => goPage(5)} className="btn">
-                ▶️
-              </button>
-            </div>
+          </div>
+          <div className="button-click">
+            <button onClick={() => goPage(1)} className="btn">
+              1
+            </button>
+            <button onClick={() => goPage(2)} className="btn">
+              2
+            </button>
+            <button onClick={() => goPage(3)} className="btn">
+              3
+            </button>
+            <button onClick={() => goPage(4)} className="btn">
+              4
+            </button>
+            <button onClick={() => goPage(5)} className="btn">
+              ◀️
+            </button>
+            <button onClick={() => goPage(5)} className="btn">
+              ▶️
+            </button>
           </div>
         </div>
       </div>

@@ -40,24 +40,24 @@ const Nav = () => {
           </div>
           <div className={tab} onMouseEnter={hover} onMouseLeave={leave}>
             <ul className="nav-menu">
-              <Link to="/">
+              <Link to="productlist/all?limit=16&offset=0">
                 <li className="li-list">전체상품</li>
               </Link>
 
-              <Link to="/">
-                <li className="li-list">스킨</li>
+              <Link to="productlist/soap?limit=16&offset=0">
+                <li className="li-list">비누</li>
               </Link>
 
-              <Link to="/">
+              <Link to="productlist/lotion?limit=16&offset=0">
                 <li className="li-list">로션</li>
               </Link>
 
-              <Link to="/">
+              <Link to="productlist/oil?limit=16&offset=0">
                 <li className="li-list">오일</li>
               </Link>
 
-              <Link to="/">
-                <li className="li-list">샴푸</li>
+              <Link to="productlist/perfume?limit=16&offset=0">
+                <li className="li-list">향수</li>
               </Link>
             </ul>
             <div className="nav-mock">

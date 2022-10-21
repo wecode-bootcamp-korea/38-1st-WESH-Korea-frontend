@@ -17,7 +17,7 @@ const Product = ({ id, title, price, img, tag }) => {
             ))}
           </div>
           <div className="title">{title}</div>
-          <div className="price">{price}</div>
+          <div className="price">{price.slice(0, price.length - 4)} 원</div>
         </div>
       </div>
     </div>
