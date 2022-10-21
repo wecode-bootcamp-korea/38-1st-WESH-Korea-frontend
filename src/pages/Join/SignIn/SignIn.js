@@ -19,21 +19,23 @@ const SignIn = () => {
       },
       body: JSON.stringify({ loginInfo }),
     })
-      .then(response => {
-        if (response.ok === true) {
-          return response.json();
-        }
-        throw new Error('통신실패!');
-      })
-      .catch(error => console.log(error))
-      .then(data => {
-        if (data.message === 'SUCCESS') {
-          localStorage.setItem('token', data.token);
-          alert('로그인 성공');
-        } else if (data.message === 'INVALID_USER_ID') {
-          alert('아이디 혹은 비밀번호를 확인 해 주세요');
-        }
-      });
+      .then(response => response.json())
+      .then(data => console.log(data));
+    // .then(response => {
+    //   if (response.ok === true) {
+    //     return response.json();
+    //   }
+    //   throw new Error('통신실패!');
+    // })
+    // .then(data => {
+    //   if (data.data) {
+    //     localStorage.setItem('token', data.data);
+    //     alert('로그인 성공');
+    //   } else {
+    //     alert('아이디 혹은 비밀번호를 확인 해 주세요');
+    //   }
+    // })
+    // .catch(error => console.log(error));
   };
 
   const validation = e => {
