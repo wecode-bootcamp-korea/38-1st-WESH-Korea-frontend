@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './SignIn.scss';
 
 const SignIn = () => {
@@ -17,28 +17,25 @@ const SignIn = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ loginInfo }),
+      body: JSON.stringify(loginInfo),
     })
-      .then(response => response.json())
-      .then(data => console.log(data));
-    // .then(response => {
-    //   if (response.ok === true) {
-    //     return response.json();
-    //   }
-    //   throw new Error('통신실패!');
-    // })
-    // .then(data => {
-    //   if (data.data) {
-    //     localStorage.setItem('token', data.data);
-    //     alert('로그인 성공');
-    //   } else {
-    //     alert('아이디 혹은 비밀번호를 확인 해 주세요');
-    //   }
-    // })
-    // .catch(error => console.log(error));
+      .then(response => {
+        if (response.ok === true) {
+          return response.json();
+        }
+        throw new Error('통신실패!');
+      })
+      .then(data => {
+        if (data.data) {
+          localStorage.setItem('token', data.data);
+          alert('로그인 성공');
+        } else {
+          alert('아이디 혹은 비밀번호를 확인 해 주세요');
+        }
+      });
   };
 
-  const validation = e => {
+  const validateAndGo = e => {
     e.preventDefault();
     loginInfo.email || loginInfo.password
       ? connect()
@@ -49,7 +46,7 @@ const SignIn = () => {
     <div className="signIn">
       <div className="contents">
         <div className="title"> 로그인</div>
-        <form className="login-form" onSubmit={validation}>
+        <form className="login-form" onSubmit={validateAndGo}>
           <input
             className="login-input"
             name="email"
