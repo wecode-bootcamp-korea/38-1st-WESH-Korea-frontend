@@ -4,7 +4,7 @@ import './Footer.scss';
 const Footer = () => {
   return (
     <div className="footerWrap">
-      <footer className="footerInner">
+      <div className="footerInner">
         <div className="footerMainWrap">
           <div className="footerLeftSide">
             <input
@@ -86,7 +86,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </footer>
+      </div>
     </div>
   );
 };
