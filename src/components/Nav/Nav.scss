@@ -67,6 +67,10 @@
         display: flex;
         flex-direction: column;
         width: 75px;
+
+        .nav-link {
+          text-decoration: none;
+        }
       }
 
       .li-list {
@@ -78,9 +82,6 @@
         color: black;
       }
 
-      a {
-        text-decoration: none;
-      }
       .nav-mock {
         display: flex;
         flex-direction: column;

@@ -45,23 +45,32 @@ const Nav = () => {
           </div>
           <div className={tab} onMouseEnter={hover} onMouseLeave={leave}>
             <ul className="nav-menu">
-              <Link to="productlist/all?limit=16&offset=0">
+              <Link to="productlist/all?limit=16&offset=0" className="nav-link">
                 <li className="li-list">전체상품</li>
               </Link>
 
-              <Link to="productlist/soap?limit=16&offset=0">
+              <Link
+                to="productlist/soap?limit=16&offset=0"
+                className="nav-link"
+              >
                 <li className="li-list">비누</li>
               </Link>
 
-              <Link to="productlist/lotion?limit=16&offset=0">
+              <Link
+                to="productlist/lotion?limit=16&offset=0"
+                className="nav-link"
+              >
                 <li className="li-list">로션</li>
               </Link>
 
-              <Link to="productlist/oil?limit=16&offset=0">
+              <Link to="productlist/oil?limit=16&offset=0" className="nav-link">
                 <li className="li-list">오일</li>
               </Link>
 
-              <Link to="productlist/perfume?limit=16&offset=0">
+              <Link
+                to="productlist/perfume?limit=16&offset=0"
+                className="nav-link"
+              >
                 <li className="li-list">향수</li>
               </Link>
             </ul>
