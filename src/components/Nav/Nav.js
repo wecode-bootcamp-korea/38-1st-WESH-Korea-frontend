@@ -35,8 +35,12 @@ const Nav = () => {
             </ul>
             <div className="nav-right">
               <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/search.svg" />
-              <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/bag.svg" />
-              <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/account.svg" />
+              <Link to="/cart">
+                <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/bag.svg" />
+              </Link>
+              <Link to="/signin">
+                <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/account.svg" />
+              </Link>
             </div>
           </div>
           <div className={tab} onMouseEnter={hover} onMouseLeave={leave}>
