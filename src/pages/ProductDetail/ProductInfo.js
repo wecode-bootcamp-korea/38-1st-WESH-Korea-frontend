@@ -46,7 +46,7 @@ const ProductInfo = () => {
                   <div className="star">★★★★★</div>
                   <div className="info-message"># 전국 1등 상품</div>
                   <div className="info-review">
-                    * WESH 직원 맴버들이 작성한 리뷰입니다.
+                    * WESH 맴버들이 작성한 리뷰입니다.
                   </div>
                 </div>
                 <div className="info-review-star-box">
