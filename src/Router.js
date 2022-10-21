@@ -1,17 +1,20 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import SignIn from './pages/Join/SignIn/SignIn';
+
 import SignUp from './pages/Join/SignUp/SignUp';
-import ProductList from './pages/ProductList/ProductList';
 import Nav from './components/Nav/Nav';
+import ProductList from './pages/ProductList/ProductList';
+import ProductDetail from './pages/ProductDetail/ProductDetail';
+import MainPage from './pages/MainPage/MainPage';
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/" element={<ProductList />} />
-        <Route path="/nav" element={<Nav />} />
+        <Route path="/" element={<Nav />} />
+        <Route path="/productlist" element={<ProductList />} />
+        <Route path="/productDetail" element={<ProductDetail />} />
+        <Route path="/mainPage" element={<MainPage />} />
       </Routes>
     </BrowserRouter>
   );

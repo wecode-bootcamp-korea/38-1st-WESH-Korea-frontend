@@ -1,0 +1,196 @@
+.product-tab {
+  margin-top: 100px;
+
+  .Product-tabBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .top {
+      width: 1250px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      .top-img {
+        width: 600px;
+        transition: all 0.3s linear;
+        border-radius: 10px;
+      }
+
+      .right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 430px;
+
+        .banner-title {
+          font-size: 50px;
+        }
+
+        .banner-price-box {
+          display: flex;
+          justify-content: flex-end;
+          border-top: 1px solid gray;
+          border-bottom: 1px solid gray;
+          padding: 13px 0 13px 0;
+          width: 100%;
+
+          .banner-price-box-width {
+            display: flex;
+            justify-content: flex-end;
+            width: 300px;
+            margin-right: 10px;
+
+            .banner-price {
+              font-size: 40px;
+            }
+
+            .button-box {
+              display: flex;
+              width: 150px;
+              justify-content: flex-end;
+              align-items: center;
+
+              .count {
+                font-size: 20px;
+              }
+
+              .plus {
+                font-size: 25px;
+                background-color: rgb(255, 255, 255);
+                border: 1px solid rgb(255, 255, 255);
+              }
+
+              .mius {
+                margin-left: 3px;
+                width: 27px;
+                font-size: 25px;
+                background-color: rgb(255, 255, 255);
+                border: 1px solid rgb(255, 255, 255);
+              }
+            }
+          }
+        }
+
+        .all-price-box {
+          display: flex;
+          width: 90%;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .banner-detail {
+          text-align: center;
+          font-size: 25px;
+          width: 530px;
+        }
+
+        .banner-payment {
+          display: flex;
+          justify-content: space-around;
+          width: 600px;
+
+          .heart {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid gray;
+            padding: 20px;
+            width: 60px;
+            height: 60px;
+            font-size: 20px;
+            text-align: center;
+          }
+
+          .bag {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid gray;
+            font-size: 20px;
+            padding: 20px;
+            width: 60px;
+            height: 60px;
+          }
+
+          a {
+            text-decoration: none;
+          }
+
+          .buy {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            color: white;
+            font-size: 20px;
+            padding: 25px;
+            width: 450px;
+            height: 60px;
+          }
+        }
+      }
+    }
+
+    .bottom {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .bottom-img {
+        width: 800px;
+      }
+
+      .usage {
+        font-size: 30px;
+        margin-bottom: 70px;
+        transform: translate(0, -50px);
+      }
+    }
+  }
+
+  .menuTab {
+    width: 60%;
+    margin: 50px auto;
+    font-size: 30px;
+    text-align: center;
+    color: gray;
+
+    .title {
+      color: gray;
+    }
+
+    .tabs {
+      display: flex;
+
+      li {
+        font-size: 25px;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid black;
+        padding: 20px;
+        cursor: pointer;
+        color: gray;
+
+        &:hover {
+          color: black;
+        }
+      }
+    }
+
+    .contents {
+      display: flex;
+      justify-content: center;
+      font-size: 100px;
+      padding: 100px;
+      color: black;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+    }
+  }
+}
