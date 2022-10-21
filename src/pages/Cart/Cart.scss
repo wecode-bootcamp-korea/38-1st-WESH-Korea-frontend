@@ -49,6 +49,7 @@
     display: block;
     width: 100%;
     height: 300px;
+    border-bottom: 1px solid black;
     text-align: center;
 
     .table-data {
@@ -67,10 +68,22 @@
   justify-content: space-around;
   width: 100%;
   height: 65px;
-  border-bottom: 1px solid #eee;
+  margin-top: 30px;
+  border-top: none;
 
   .btn-normal-list {
-    margin: 250px;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid black;
+    border-bottom: 2px solid black;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
   }
 }
 
@@ -84,12 +97,10 @@
 
 .card-table-head {
   height: 40px;
-  border-top: 1px solid #222;
   color: #757575;
   font-size: 16px;
-
   .table-row {
-    margin-top: 10px;
+    margin-top: 15px;
   }
 }
 

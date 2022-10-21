@@ -5,7 +5,7 @@ const Orderlist = () => {
   return (
     <div>
       <table>
-        <thead className="table-head">
+        <thead className="order-head">
           <tr className="list-top">
             <th>
               <input type="checkbox" />
@@ -25,6 +25,7 @@ const Orderlist = () => {
               <img
                 className="img-one"
                 src="https://cdn.pixabay.com/photo/2019/09/25/20/24/nowyjork-4504629__480.jpg"
+                alt="img"
               />
             </td>
             <td className="product-name">
