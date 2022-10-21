@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 import Product from './Product/Product';
 import Banner from './Banner';
 import Nav from '../../components/Nav/Nav';
@@ -9,30 +9,20 @@ const ProductList = () => {
   const [data, setData] = useState([]);
   const [tag, setTag] = useState([]);
   const [searchParams, setSearchPhams] = useSearchParams();
-
-  // useEffect(() => {
-  //   fetch(`/data/productlist/data.json
-  //   `)
-  //     .then(res => res.json())
-  //     .then(res => setData(res));
-  // }, []);
-
-  // FIXME
   const limit = searchParams.get('limit');
   const offset = searchParams.get('offset');
-  // /?offset=${offset}&limit=${limit}
-  // [offset,limit]
+  const params = useParams();
+  const categoryData = params.categories;
 
   useEffect(() => {
     fetch(
-      `http://10.58.52.93:3000/productlist/all?offset=${offset}&limit=${limit}`
+      `http://10.58.52.93:3000/productlist/${categoryData}?offset=${offset}&limit=${limit}`
     )
       .then(res => res.json())
-      .then(res => console.log(res.data));
+      .then(res => setData(res.data));
   }, [offset, limit]);
 
   const goPage = pageNumber => {
-    console.log(1);
     searchParams.set('limit', 16);
     searchParams.set('offset', (pageNumber - 1) * 16);
     setSearchPhams(searchParams);
