@@ -12,7 +12,7 @@ const SignIn = () => {
   };
 
   const connect = () => {
-    fetch('login api주소', {
+    fetch('http://10.58.52.111:8000/user/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -38,7 +38,9 @@ const SignIn = () => {
 
   const validation = e => {
     e.preventDefault();
-    loginInfo.email || loginInfo.password ? connect() : console.log('b');
+    loginInfo.email || loginInfo.password
+      ? connect()
+      : alert('ID, Password를 입력해주세요.');
   };
 
   return (
