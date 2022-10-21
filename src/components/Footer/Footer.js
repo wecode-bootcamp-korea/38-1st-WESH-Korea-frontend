@@ -4,6 +4,7 @@ import './Footer.scss';
 const Footer = () => {
   return (
     <div className="footerWrap">
+      <div className="top-footer">38th-1st-Wesh</div>
       <div className="footerInner">
         <div className="footerMainWrap">
           <div className="footerLeftSide">
