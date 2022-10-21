@@ -2,6 +2,9 @@
   display: flex;
 
   .nav-box {
+    position: fixed;
+    background-color: rgb(255, 255, 255);
+    z-index: 999;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -75,6 +78,9 @@
         color: black;
       }
 
+      a {
+        text-decoration: none;
+      }
       .nav-mock {
         display: flex;
         flex-direction: column;

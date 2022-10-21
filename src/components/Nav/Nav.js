@@ -5,7 +5,7 @@ import './Nav.scss';
 
 const Nav = () => {
   const [data, setData] = useState([]);
-  const [tab, setTab] = useState('nav-menu-listHover');
+  const [tab, setTab] = useState('nav-menu-list-hover');
   useEffect(() => {
     fetch('/data/data.json')
       .then(res => res.json())

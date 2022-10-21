@@ -3,6 +3,7 @@ import Nav from '../../components/Nav/Nav';
 import Thumbnail from './ThumbNail';
 import Best from './Best';
 import './MainPage.scss';
+import { Link } from 'react-router-dom';
 
 const Mainpage = () => {
   const [eventData, setEventData] = useState([]);
@@ -94,7 +95,9 @@ const Mainpage = () => {
                 />
               </div>
               <div className="best-item-list-box">
-                <div className="best-best">BEST →</div>
+                <div className="best-best">
+                  <Link to="/productlist/all"></Link>BEST →
+                </div>
                 <div className="best-item-list">
                   {best.map(best => (
                     <Best
