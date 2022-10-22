@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import ProductInfo from './ProductInfo';
 import ProductReview from './ProductReview';
 import './ProductTab.scss';
@@ -10,17 +10,23 @@ const ProductTab = () => {
   const [price, setPrice] = useState(0);
   const [heart, setHeart] = useState('🖤');
   const [currentTab, setCurrentTab] = useState('info');
-
+  const { id } = useParams();
   useEffect(() => {
     fetch(`/data/productdetail/detaildata.json
       `)
       .then(res => res.json())
       .then(res => setDetail(res));
   }, []);
+  // useEffect(() => {
+  //   fetch(`${id}
+  //     `)
+  //     .then(res => res.json())
+  //     .then(res => setDetail(res));
+  // }, []);
 
   const mappingObje = {
     info: <ProductInfo />,
-    review: <ProductReview />,
+    review: <ProductReview reviewData={detail} />,
   };
 
   const up = () => {
@@ -82,9 +88,14 @@ const ProductTab = () => {
                   <button className="bag">
                     <Link to="/">✓</Link>
                   </button>
-                  <button className="buy" onClick={buyClick}>
+                  <Link
+                    to="/"
+                    className="buy"
+                    onClick={buyClick}
+                    state={{ price: `${price}` }}
+                  >
                     바로구매
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

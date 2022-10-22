@@ -9,7 +9,6 @@ const ReviewList = () => {
       .then(res => res.json())
       .then(res => setReview(res));
   }, []);
-
   return (
     <>
       {review.map(review => {
@@ -17,8 +16,8 @@ const ReviewList = () => {
           <div className="product-list-review-box">
             <div className="review-comment">
               <div className="review-title-box">
-                <div className="review-title">
-                  {review.title}
+                <div className="review-time">
+                  {review.time.slice(0, 10)}
                   <div className="review-star">★★★★★</div>
                 </div>
               </div>
