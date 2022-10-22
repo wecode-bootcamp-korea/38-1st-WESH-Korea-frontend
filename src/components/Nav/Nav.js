@@ -21,6 +21,11 @@ const Nav = () => {
   return (
     <div className="nav">
       <div className="nav-box">
+        <div className="nav-event-box">
+          <div className="nav-event">
+            위시 상품 구매하고 무시무시한 과제 받기!
+          </div>
+        </div>
         <div className="nav-center">
           <div className="nav-top">
             <Link to="/" className="logo">

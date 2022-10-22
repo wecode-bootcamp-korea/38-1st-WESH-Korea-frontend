@@ -2,6 +2,16 @@
 .nav {
   display: flex;
 
+  .nav-event-box {
+    position: fixed;
+    background-color: orange;
+    text-align: center;
+    height: 20px;
+    width: 100%;
+    .nav-event {
+      margin-top: 3px;
+    }
+  }
   .nav-box {
     position: fixed;
     background-color: rgb(255, 255, 255);
@@ -19,6 +29,7 @@
       margin: 20px 0 10px;
 
       .nav-top {
+        margin-top: 10px;
         display: flex;
         width: 100%;
         justify-content: center;
