@@ -9,6 +9,7 @@ import Nav from './components/Nav/Nav';
 const Router = () => {
   return (
     <BrowserRouter>
+      <Nav />
       <Routes>
         <Route path="/signin" element={<SignIn />} />
         <Route path="/" element={<Nav />} />

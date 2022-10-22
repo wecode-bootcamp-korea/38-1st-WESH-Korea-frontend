@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 import './SignIn.scss';
 
 const SignIn = () => {
@@ -29,6 +30,7 @@ const SignIn = () => {
         if (data.data) {
           localStorage.setItem('token', data.data);
           alert('로그인 성공');
+          Navigate('/mainPage', { replace: true });
         } else {
           alert('아이디 혹은 비밀번호를 확인 해 주세요');
         }
