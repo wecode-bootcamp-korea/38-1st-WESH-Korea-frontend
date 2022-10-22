@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './SignUp.scss';
-import Nav from '../../../components/Nav/Nav';
 import { useEffect } from 'react';
 
 const SignUp = () => {
@@ -44,72 +43,67 @@ const SignUp = () => {
   };
 
   return (
-    <>
-      <Nav />
-      <div className="signup">
-        <div className="wrapper">
-          <div className="big-title">회원가입</div>
-          <div className="title">
-            <div className="title-left">기본정보</div>
-            <div className="title-right">
-              모든 정보를 정확하게 입력해주세요.
+    <div className="signup">
+      <div className="wrapper">
+        <div className="big-title">회원가입</div>
+        <div className="title">
+          <div className="title-left">기본정보</div>
+          <div className="title-right">모든 정보를 정확하게 입력해주세요.</div>
+        </div>
+        <div className="contents">
+          <form className="input-form" onSubmit={onSubmit}>
+            <div className="email-wrapper">
+              <label className="join-label">아이디 </label>
+              <input
+                className="info-input"
+                name="email"
+                placeholder="영문 또는 영문 및 숫자 4자리 이상"
+                onChange={handleInputValue}
+              />
             </div>
-          </div>
-          <div className="contents">
-            <form className="input-form" onSubmit={onSubmit}>
-              <div className="email-wrapper">
-                <label className="join-label">아이디 </label>
-                <input
-                  className="info-input"
-                  name="email"
-                  placeholder="영문 또는 영문 및 숫자 4자리 이상"
-                  onChange={handleInputValue}
-                />
-              </div>
-              <div className="password-wrapper">
-                <label className="join-label">비밀번호 </label>
-                <input
-                  className="info-input"
-                  name="password"
-                  placeholder="영문 대문자, 소문자, 숫자, 특수문자 포함, 8글자 이상"
-                  type="password"
-                  onChange={handleInputValue}
-                />
-              </div>
-              <div className="check-password-wrapper">
-                <label className="join-label">비밀번호 확인 </label>
-                <input
-                  className="info-input"
-                  name="checkPassword"
-                  type="password"
-                  onChange={handleInputValue}
-                />
-              </div>
-              <div className="name-wrapper">
-                <label className="join-label">이름 </label>
-                <input
-                  className="info-input"
-                  name="name"
-                  onChange={handleInputValue}
-                />
-              </div>
-              <div className="phonenumber-wrapper">
-                <label className="join-label">휴대전화 </label>
-                <input
-                  className="info-input"
-                  name="phone_number"
-                  onChange={handleInputValue}
-                  placeholder="000-0000-0000 형태로 입력해주세요"
-                />
-              </div>
-              <div className="join-wrapper">
-                <button className="join-button">회원가입</button>
-              </div>
-            </form>
-          </div>
+            <div className="password-wrapper">
+              <label className="join-label">비밀번호 </label>
+              <input
+                className="info-input"
+                name="password"
+                placeholder="영문 대문자, 소문자, 숫자, 특수문자 포함, 8글자 이상"
+                type="password"
+                onChange={handleInputValue}
+              />
+            </div>
+            <div className="check-password-wrapper">
+              <label className="join-label">비밀번호 확인 </label>
+              <input
+                className="info-input"
+                name="checkPassword"
+                type="password"
+                onChange={handleInputValue}
+              />
+            </div>
+            <div className="name-wrapper">
+              <label className="join-label">이름 </label>
+              <input
+                className="info-input"
+                name="name"
+                onChange={handleInputValue}
+              />
+            </div>
+            <div className="phonenumber-wrapper">
+              <label className="join-label">휴대전화 </label>
+              <input
+                className="info-input"
+                name="phone_number"
+                onChange={handleInputValue}
+                placeholder="000-0000-0000 형태로 입력해주세요"
+              />
+            </div>
+            <div className="join-wrapper">
+              <button className="join-button">회원가입</button>
+            </div>
+          </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

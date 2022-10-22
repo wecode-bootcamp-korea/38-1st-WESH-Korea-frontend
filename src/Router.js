@@ -9,9 +9,9 @@ import MainPage from './pages/MainPage/MainPage';
 const Router = () => {
   return (
     <BrowserRouter>
+      <Nav />
       <Routes>
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/" element={<Nav />} />
         <Route path="/productlist" element={<ProductList />} />
         <Route path="/productDetail" element={<ProductDetail />} />
         <Route path="/mainPage" element={<MainPage />} />
