@@ -3,6 +3,7 @@ import Nav from '../../components/Nav/Nav';
 import Thumbnail from './ThumbNail';
 import Best from './Best';
 import './MainPage.scss';
+import { Link } from 'react-router-dom';
 
 const Mainpage = () => {
   const [eventData, setEventData] = useState([]);
@@ -94,7 +95,9 @@ const Mainpage = () => {
                 />
               </div>
               <div className="best-item-list-box">
-                <div className="best-best">BEST →</div>
+                <div className="best-best">
+                  <Link to="productlist/all?limit=16&offset=0">BEST →</Link>
+                </div>
                 <div className="best-item-list">
                   {best.map(best => (
                     <Best
@@ -118,7 +121,7 @@ const Mainpage = () => {
             </div>
             <div className="message-box">
               <div className="message">
-                "<div className="point">러쉬</div>는 자연에서 얻은 신선한 재료와
+                "<div className="point">위쉬</div>는 자연에서 얻은 신선한 재료와
               </div>
               <div className="message">
                 동물실험을 하지 않은 <div className="point">정직한</div> 재료를

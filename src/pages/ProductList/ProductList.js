@@ -34,8 +34,8 @@ const ProductList = () => {
 
   return (
     <>
-      {/* <Nav />
-      <div className="product-list">
+      <Nav />
+      {/* <div className="product-list">
         <Banner />
         <div className="list-page">
           <div className="menu-bar">

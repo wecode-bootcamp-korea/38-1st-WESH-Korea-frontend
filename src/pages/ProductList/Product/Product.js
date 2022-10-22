@@ -8,7 +8,7 @@ const Product = ({ id, title, price, img, tag }) => {
     <div className="product-list-box">
       <div className="list-box">
         <div className="list-item-box">
-          <Link to="/productdetail">
+          <Link to={`/productdetail${id}`}>
             <img src={img} className="img" />
           </Link>
           <div className="tag">

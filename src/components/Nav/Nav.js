@@ -5,8 +5,7 @@ import './Nav.scss';
 
 const Nav = () => {
   const [data, setData] = useState([]);
-  const [tab, setTab] = useState('nav-menu-listHover');
-
+  const [tab, setTab] = useState('nav-menu-list-hover');
   useEffect(() => {
     fetch('/data/data.json')
       .then(res => res.json())
@@ -24,9 +23,7 @@ const Nav = () => {
       <div className="nav-box">
         <div className="nav-center">
           <div className="nav-top">
-            <Link to="/" className="logo">
-              WESH
-            </Link>
+            <div className="logo">WESH</div>
             <ul className="category">
               <li className="li" onMouseEnter={hover}>
                 제품
@@ -38,43 +35,45 @@ const Nav = () => {
             </ul>
             <div className="nav-right">
               <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/search.svg" />
-              <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/bag.svg" />
-              <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/account.svg" />
+              <Link to="/cart">
+                <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/bag.svg" />
+              </Link>
+              <Link to="/signin">
+                <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/account.svg" />
+              </Link>
             </div>
           </div>
           <div className={tab} onMouseEnter={hover} onMouseLeave={leave}>
-            <div className="nav-menu">
-              <Link
-                to={`/productlist/all?offset=0&limit=16`}
-                className="li-list"
-              >
-                전체상품
+            <ul className="nav-menu">
+              <Link to="productlist/all?limit=16&offset=0" className="nav-link">
+                <li className="li-list">전체상품</li>
               </Link>
+
               <Link
-                to={`/productlist/soap?offset=0&limit=16`}
-                className="li-list"
+                to="productlist/soap?limit=16&offset=0"
+                className="nav-link"
               >
-                비누
+                <li className="li-list">비누</li>
               </Link>
+
               <Link
-                to={`/productlist/lotion?offset=0&limit=16`}
-                className="li-list"
+                to="productlist/lotion?limit=16&offset=0"
+                className="nav-link"
               >
-                로션
+                <li className="li-list">로션</li>
               </Link>
+
+              <Link to="productlist/oil?limit=16&offset=0" className="nav-link">
+                <li className="li-list">오일</li>
+              </Link>
+
               <Link
-                to={`/productlist/oil?offset=0&limit=16`}
-                className="li-list"
+                to="productlist/perfume?limit=16&offset=0"
+                className="nav-link"
               >
-                오일
+                <li className="li-list">향수</li>
               </Link>
-              <Link
-                to={`/productlist/perfume?offset=0&limit=16`}
-                className="li-list"
-              >
-                향수
-              </Link>
-            </div>
+            </ul>
             <div className="nav-mock">
               {data &&
                 data.map(e => (
