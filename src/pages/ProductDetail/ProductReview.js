@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import ReviewList from './ReviewList';
 import './ProductReview.scss';
 
-const ProductReview = ({ reviewData }) => {
+const ProductReview = props => {
   return (
     <div className="review">
-      {reviewData.map(reviewData => (
+      {props.review.map(reviewData => (
         <ReviewList review={reviewData} />
       ))}
     </div>

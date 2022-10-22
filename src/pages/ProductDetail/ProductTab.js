@@ -12,15 +12,17 @@ const ProductTab = () => {
   const [currentTab, setCurrentTab] = useState('info');
   const { id } = useParams();
   useEffect(() => {
-    fetch(`http://10.58.52.245:8000/product/2
+    fetch(`http://10.58.52.245:8000/product/4
       `)
       .then(res => res.json())
       .then(res => setDetail(res.detailPageData));
   }, []);
-  console.log(detail);
+
+  // console.log(detail.slice(1, detail.length));
+
   const mappingObje = {
-    info: <ProductInfo />,
-    review: <ProductReview reviewData={detail} />,
+    info: <ProductInfo info={detail[0]} />,
+    review: <ProductReview review={detail.slice(1, detail.length)} />,
   };
 
   const up = () => {
