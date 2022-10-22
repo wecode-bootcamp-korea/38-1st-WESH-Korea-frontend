@@ -12,18 +12,12 @@ const ProductTab = () => {
   const [currentTab, setCurrentTab] = useState('info');
   const { id } = useParams();
   useEffect(() => {
-    fetch(`/data/productdetail/detaildata.json
-      `)
-      .then(res => res.json())
-      .then(res => setDetail(res));
-  }, []);
-  useEffect(() => {
     fetch(`http://10.58.52.245:8000/product/2
       `)
       .then(res => res.json())
-      .then(res => setDetail(res));
+      .then(res => setDetail(res.detailPageData));
   }, []);
-
+  console.log(detail);
   const mappingObje = {
     info: <ProductInfo />,
     review: <ProductReview reviewData={detail} />,
@@ -47,68 +41,56 @@ const ProductTab = () => {
 
   return (
     <div className="product-tab">
-      {detail.map(detailInfo => {
-        return (
-          <div key={detailInfo.id} className="Product-tabBox">
-            <div className="top">
-              <img
-                src={detailInfo.img}
-                className="top-img"
-                alt="data-main-image"
-              />
-              <div className="right">
-                <div className="banner-detail">{detailInfo.detail}</div>
-                <div className="banner-title">{detailInfo.title}</div>
-                <div className="banner-price-box">
-                  <div className="banner-price-box-width">
-                    <div className="banner-price">
-                      {detailInfo.price * count}
-                    </div>
-                    <div className="button-box">
-                      <button className="plus" onClick={up}>
-                        +
-                      </button>
-                      <div className="count">{count}</div>
-                      <button className="mius" onClick={down}>
-                        -
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div className="all-price-box">
-                  <div className="all-price-word">총 합계 금액</div>
-                  <div className="all-price">
-                    ￦ {detailInfo.price * count} 원
-                  </div>
-                </div>
-                <div className="banner-payment">
-                  <button className="heart" onClick={onHeart}>
-                    {heart}
+      <div className="Product-tabBox">
+        <div className="top">
+          <img src={detail[0].img} className="top-img" alt="data-main-image" />
+          <div className="right">
+            <div className="banner-detail">{detail[0].detail}</div>
+            <div className="banner-title">{detail[0].title}</div>
+            <div className="banner-price-box">
+              <div className="banner-price-box-width">
+                <div className="banner-price">{detail[0].price * count}</div>
+                <div className="button-box">
+                  <button className="plus" onClick={up}>
+                    +
                   </button>
-                  <button className="bag">
-                    <Link to="/">✓</Link>
+                  <div className="count">{count}</div>
+                  <button className="mius" onClick={down}>
+                    -
                   </button>
-                  <Link
-                    to="/"
-                    className="buy"
-                    onClick={buyClick}
-                    state={{ price: `${price}` }}
-                  >
-                    바로구매
-                  </Link>
                 </div>
               </div>
             </div>
-            <div className="menuTab">
-              <ul className="tabs">
-                <li onClick={() => setCurrentTab('info')}>제품정보</li>
-                <li onClick={() => setCurrentTab('review')}>제품리뷰</li>
-              </ul>
-              <div className="contents">{mappingObje[currentTab]}</div>
+            <div className="all-price-box">
+              <div className="all-price-word">총 합계 금액</div>
+              <div className="all-price">￦ {detail[0].price * count} 원</div>
+            </div>
+            <div className="banner-payment">
+              <button className="heart" onClick={onHeart}>
+                {heart}
+              </button>
+              <button className="bag">
+                <Link to="/">✓</Link>
+              </button>
+              <Link
+                to="/"
+                className="buy"
+                onClick={buyClick}
+                state={{ price: `${price}` }}
+              >
+                바로구매
+              </Link>
             </div>
           </div>
-        );
-      })}
+        </div>
+        <div className="menuTab">
+          <ul className="tabs">
+            <li onClick={() => setCurrentTab('info')}>제품정보</li>
+            <li onClick={() => setCurrentTab('review')}>제품리뷰</li>
+          </ul>
+          <div className="contents">{mappingObje[currentTab]}</div>
+        </div>
+      </div>
     </div>
   );
 };
