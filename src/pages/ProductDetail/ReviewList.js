@@ -8,9 +8,9 @@ const ReviewList = props => {
       <div className="product-list-review-box">
         <div className="review-comment">
           <div className="review-title-box">
+            <div className="review-star">★★★★★</div>
             <div className="review-time">
               {props.review.created_at.slice(0, 10)}
-              <div className="review-star">★★★★★</div>
             </div>
           </div>
           <div className="review-message">{props.review.content}</div>
