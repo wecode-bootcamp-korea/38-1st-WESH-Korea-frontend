@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
 .banner {
   margin-top: 20px;
 
@@ -16,6 +18,7 @@
     transform: translate(0, -180%);
 
     .banner-title {
+      font-family: 'Kaushan Script', cursive;
       position: relative;
       font-size: 130px;
     }
