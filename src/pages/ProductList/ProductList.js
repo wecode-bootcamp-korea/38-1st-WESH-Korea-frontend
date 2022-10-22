@@ -31,6 +31,7 @@ const ProductList = () => {
     searchParams.set('offset', (pageNumber - 1) * 16);
     setSearchPhams(searchParams);
   };
+
   return (
     <>
       <Nav />

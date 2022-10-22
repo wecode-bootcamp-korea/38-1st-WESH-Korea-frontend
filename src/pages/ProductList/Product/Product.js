@@ -4,7 +4,6 @@ import Tag from './Tag';
 import './Product.scss';
 
 const Product = ({ id, title, price, img, tag }) => {
-  console.log(tag.includes('NEW'));
   return (
     <div className="product-list-box">
       <div className="list-box">
