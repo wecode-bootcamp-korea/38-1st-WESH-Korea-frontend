@@ -6,6 +6,7 @@ import './Nav.scss';
 const Nav = () => {
   const [data, setData] = useState([]);
   const [tab, setTab] = useState('nav-menu-listHover');
+
   useEffect(() => {
     fetch('/data/data.json')
       .then(res => res.json())
@@ -23,7 +24,9 @@ const Nav = () => {
       <div className="nav-box">
         <div className="nav-center">
           <div className="nav-top">
-            <div className="logo">WESH</div>
+            <Link to="/" className="logo">
+              WESH
+            </Link>
             <ul className="category">
               <li className="li" onMouseEnter={hover}>
                 제품
@@ -40,27 +43,38 @@ const Nav = () => {
             </div>
           </div>
           <div className={tab} onMouseEnter={hover} onMouseLeave={leave}>
-            <ul className="nav-menu">
-              <Link to="/">
-                <li className="li-list">전체상품</li>
+            <div className="nav-menu">
+              <Link
+                to={`/productlist/all?offset=0&limit=16`}
+                className="li-list"
+              >
+                전체상품
               </Link>
-
-              <Link to="/">
-                <li className="li-list">스킨</li>
+              <Link
+                to={`/productlist/soap?offset=0&limit=16`}
+                className="li-list"
+              >
+                비누
               </Link>
-
-              <Link to="/">
-                <li className="li-list">로션</li>
+              <Link
+                to={`/productlist/lotion?offset=0&limit=16`}
+                className="li-list"
+              >
+                로션
               </Link>
-
-              <Link to="/">
-                <li className="li-list">오일</li>
+              <Link
+                to={`/productlist/oil?offset=0&limit=16`}
+                className="li-list"
+              >
+                오일
               </Link>
-
-              <Link to="/">
-                <li className="li-list">샴푸</li>
+              <Link
+                to={`/productlist/perfume?offset=0&limit=16`}
+                className="li-list"
+              >
+                향수
               </Link>
-            </ul>
+            </div>
             <div className="nav-mock">
               {data &&
                 data.map(e => (

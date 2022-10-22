@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React, { useEffect, useMemo, useState } from 'react';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import ProductInfo from './ProductInfo';
 import ProductReview from './ProductReview';
 import './ProductTab.scss';
@@ -11,12 +11,13 @@ const ProductTab = () => {
   const [heart, setHeart] = useState('🖤');
   const [currentTab, setCurrentTab] = useState('info');
   const { id } = useParams();
-  useEffect(() => {
-    fetch(`http://10.58.52.245:8000/product/4
+  const location = useLocation();
+  useMemo(() => {
+    fetch(`http://10.58.52.245:8000/product/${id}
       `)
       .then(res => res.json())
       .then(res => setDetail(res.detailPageData));
-  }, []);
+  }, [location]);
 
   // console.log(detail.slice(1, detail.length));
 

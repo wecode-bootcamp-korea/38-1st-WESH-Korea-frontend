@@ -1,0 +1,19 @@
+.tag-box {
+  display: flex;
+  width: 120px;
+  justify-content: center;
+
+  .tag-box-list {
+    width: 100%;
+    padding: 3px;
+    border: 1px solid rgb(255, 102, 0);
+    border-radius: 40%;
+  }
+
+  .new {
+    color: rgb(255, 102, 0);
+    font-size: 15px;
+    width: 100%;
+    text-align: center;
+  }
+}
