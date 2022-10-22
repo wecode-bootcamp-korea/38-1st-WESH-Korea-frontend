@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
+
 .bottom-info {
   display: flex;
   flex-direction: column;
@@ -25,6 +27,7 @@
       width: 800px;
       font-size: 20px;
       margin: 20px 0 20px;
+      font-family: 'Gowun Batang', serif;
 
       span {
         margin: 0 10px 0 10px;
@@ -55,6 +58,7 @@
       align-items: center;
       flex-direction: column;
       width: 500px;
+      font-family: 'Gowun Batang', serif;
 
       .info-message-box {
         width: 300px;
@@ -65,7 +69,7 @@
 
         .info-message {
           margin-top: 30px;
-          font-size: 50px;
+          font-size: 43px;
           text-align: left;
           color: black;
         }
@@ -115,6 +119,8 @@
       }
 
       .usage-box {
+        font-family: 'Gowun Batang', serif;
+
         .usage {
           color: rgb(55, 55, 55);
           font-size: 20px;
@@ -142,6 +148,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    font-family: 'Gowun Batang', serif;
 
     .usage {
       color: rgb(55, 55, 55);
