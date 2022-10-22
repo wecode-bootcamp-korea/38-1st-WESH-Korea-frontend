@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Nav from '../../components/Nav/Nav';
+import Footer from '../../components/Footer/Footer';
 import Thumbnail from './ThumbNail';
 import Best from './Best';
 import './MainPage.scss';
@@ -134,14 +135,17 @@ const Mainpage = () => {
           </div>
         </div>
       </div>
-      <div className="bottom-logo">WESH</div>
-      <div className="main-bottom">
-        <img
-          src="https://images.unsplash.com/photo-1541256996761-85df2efaa164?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-          alt="bath bomb"
-          className="main-bottom-img"
-        />
+      <div className="bottom-logo-box">
+        <div className="bottom-logo">WESH</div>
+        <div className="main-bottom">
+          <img
+            src="https://images.unsplash.com/photo-1541256996761-85df2efaa164?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+            alt="bath bomb"
+            className="main-bottom-img"
+          />
+        </div>
       </div>
+      <Footer />
     </>
   );
 };
