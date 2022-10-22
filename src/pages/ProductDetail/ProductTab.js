@@ -17,12 +17,12 @@ const ProductTab = () => {
       .then(res => res.json())
       .then(res => setDetail(res));
   }, []);
-  // useEffect(() => {
-  //   fetch(`${id}
-  //     `)
-  //     .then(res => res.json())
-  //     .then(res => setDetail(res));
-  // }, []);
+  useEffect(() => {
+    fetch(`http://10.58.52.245:8000/product/2
+      `)
+      .then(res => res.json())
+      .then(res => setDetail(res));
+  }, []);
 
   const mappingObje = {
     info: <ProductInfo />,
