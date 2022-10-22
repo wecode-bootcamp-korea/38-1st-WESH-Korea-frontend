@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Nav from '../../../components/Nav/Nav';
+import Footer from '../../../components/Footer/Footer';
 import './SignIn.scss';
+import { Link } from 'react-router-dom';
 
 const SignIn = () => {
   const [loginInfo, setLoginInfo] = useState({
@@ -66,7 +68,9 @@ const SignIn = () => {
             <button className="login-button">로그인</button>
           </form>
           <div className="etc">
-            <div className="etc-tag">회원가입</div>
+            <Link to="/SignUp" className="etc-tag">
+              회원가입
+            </Link>
             <div className="etc-tag">위코드</div>
             <div className="etc-tag">저스트코드</div>
           </div>
@@ -76,6 +80,7 @@ const SignIn = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

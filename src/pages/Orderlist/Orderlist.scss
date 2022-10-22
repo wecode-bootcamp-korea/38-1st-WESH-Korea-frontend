@@ -1,0 +1,29 @@
+.list-top {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.order-test {
+  display: flex;
+  margin-top: 20px;
+
+  .img-one {
+    width: 100px;
+    height: 100px;
+
+    .box-tag {
+      color: #535353;
+    }
+  }
+}
+
+.check,
+.product-name,
+.button-left,
+.quantity,
+.button-right,
+.price,
+.total {
+  margin-top: 45px;
+}
