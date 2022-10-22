@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Link,
   useNavigate,
@@ -12,7 +12,6 @@ import './ProductList.scss';
 
 const ProductList = () => {
   const [data, setData] = useState([]);
-  const [num, setNum] = useState('');
   const [searchParams, setSearchPhams] = useSearchParams();
   const limit = searchParams.get('limit');
   const offset = searchParams.get('offset');
@@ -25,55 +24,13 @@ const ProductList = () => {
     )
       .then(res => res.json())
       .then(res => setData(res.data));
-  }, [offset, limit]);
+  }, [offset, limit, categoryData]);
 
   const goPage = pageNumber => {
     searchParams.set('limit', 16);
     searchParams.set('offset', (pageNumber - 1) * 16);
     setSearchPhams(searchParams);
   };
-
-  const goCategoryAll = () => {
-    window.location.replace('/productlist/all?limit=16&offset=0');
-  };
-  const navigateSoap = useNavigate();
-  const goToSoap = () => {
-    navigateSoap('/productlist/soap?limit=16&offset=0');
-  };
-  const [searchParamsSoap, setSearchPhamsSoap] = useSearchParams();
-  const goCategorySoap = () => {
-    setSearchPhamsSoap({});
-    goToSoap();
-  };
-  const navigateLotion = useNavigate();
-  const goToLotion = () => {
-    navigateLotion('/productlist/lotion?limit=16&offset=0');
-  };
-  const [searchParamsLotion, setSearchPhamsLotion] = useSearchParams();
-  const goCategoryLotion = () => {
-    setSearchPhamsLotion({});
-    goToLotion();
-  };
-  const navigateOil = useNavigate();
-  const goToOil = () => {
-    navigateOil('/productlist/oil?limit=16&offset=0');
-  };
-  const [searchParamsOil, setSearchPhamsOil] = useSearchParams();
-  const goCategoryOil = () => {
-    setSearchPhamsOil({});
-    goToOil();
-  };
-  const navigatePerfume = useNavigate();
-  const goToPerfume = () => {
-    navigatePerfume('/productlist/perfume?limit=16&offset=0');
-  };
-  const [searchParamsPerfume, setSearchPhamsPerfume] = useSearchParams();
-  const goCategoryPerfume = () => {
-    setSearchPhamsPerfume({});
-    goToPerfume();
-  };
-  const [, updatestate] = useState();
-  const update = useCallback(() => updatestate({}), []);
   return (
     <>
       <Nav />
@@ -83,25 +40,36 @@ const ProductList = () => {
           <div className="menu-bar">
             <div className="filter">
               <div className="all">
-                <button className="link" onClick={goCategoryAll}>
+                <Link
+                  to={`/productlist/all?offset=0&limit=16`}
+                  className="link"
+                >
                   전체상품
-                </button>
-                <button className="link" onClick={goCategorySoap}>
+                </Link>
+                <Link
+                  to={`/productlist/soap?offset=0&limit=16`}
+                  className="link"
+                >
                   비누
-                </button>
-              </div>
-              <div className="lotion">
-                <button className="link" onClick={goCategoryLotion}>
+                </Link>
+                <Link
+                  to={`/productlist/lotion?offset=0&limit=16`}
+                  className="link"
+                >
                   로션
-                </button>
-                <button className="link" onClick={goCategoryOil}>
+                </Link>
+                <Link
+                  to={`/productlist/oil?offset=0&limit=16`}
+                  className="link"
+                >
                   오일
-                </button>
-              </div>
-              <div className="soap">
-                <button className="link" onClick={goCategoryPerfume}>
+                </Link>
+                <Link
+                  to={`/productlist/perfume?offset=0&limit=16`}
+                  className="link"
+                >
                   향수
-                </button>
+                </Link>
               </div>
             </div>
             <select class="order">
@@ -112,7 +80,7 @@ const ProductList = () => {
             </select>
           </div>
           <div className="page-box">
-            {data.map(e => (
+            {data.slice(1, 16).map(e => (
               <Product
                 key={e.id}
                 id={e.id}
@@ -121,11 +89,13 @@ const ProductList = () => {
                 price={e.price}
                 tag={e.tags}
                 category={e.category}
-                num={num}
               />
             ))}
           </div>
           <div className="button-click">
+            <button onClick={() => goPage(1)} className="btn">
+              ◀️◀️
+            </button>
             <button onClick={() => goPage(1)} className="btn">
               1
             </button>
@@ -138,11 +108,9 @@ const ProductList = () => {
             <button onClick={() => goPage(4)} className="btn">
               4
             </button>
-            <button onClick={() => goPage(5)} className="btn">
-              ◀️
-            </button>
-            <button onClick={() => goPage(5)} className="btn">
-              ▶️
+
+            <button onClick={() => goPage(4)} className="btn">
+              ▶▶
             </button>
           </div>
         </div>

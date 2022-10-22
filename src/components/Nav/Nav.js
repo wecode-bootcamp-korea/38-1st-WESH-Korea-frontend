@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Navcategory from './Navcategory';
 import './Nav.scss';
 
 const Nav = () => {
   const [data, setData] = useState([]);
   const [tab, setTab] = useState('nav-menu-listHover');
+
   useEffect(() => {
     fetch('/data/data.json')
       .then(res => res.json())
@@ -17,58 +18,15 @@ const Nav = () => {
   const leave = e => {
     setTab('nav-menu-list-hover');
   };
-  const navigateAll = useNavigate();
-  const goToAll = () => {
-    navigateAll('/productlist/all?limit=16&offset=0');
-  };
-  const [searchParamsAll, setSearchPhamsAll] = useSearchParams();
-  const goCategoryAll = () => {
-    setSearchPhamsAll({});
-    goToAll();
-  };
-  const navigateSoap = useNavigate();
-  const goToSoap = () => {
-    navigateSoap('/productlist/soap?limit=16&offset=0');
-  };
-  const [searchParamsSoap, setSearchPhamsSoap] = useSearchParams();
-  const goCategorySoap = () => {
-    setSearchPhamsSoap({});
-    goToSoap();
-  };
-  const navigateLotion = useNavigate();
-  const goToLotion = () => {
-    navigateLotion('/productlist/lotion?limit=16&offset=0');
-  };
-  const [searchParamsLotion, setSearchPhamsLotion] = useSearchParams();
-  const goCategoryLotion = () => {
-    setSearchPhamsLotion({});
-    goToLotion();
-  };
-  const navigateOil = useNavigate();
-  const goToOil = () => {
-    navigateOil('/productlist/oil?limit=16&offset=0');
-  };
-  const [searchParamsOil, setSearchPhamsOil] = useSearchParams();
-  const goCategoryOil = () => {
-    setSearchPhamsOil({});
-    goToOil();
-  };
-  const navigatePerfume = useNavigate();
-  const goToPerfume = () => {
-    navigatePerfume('/productlist/perfume?limit=16&offset=0');
-  };
-  const [searchParamsPerfume, setSearchPhamsPerfume] = useSearchParams();
-  const goCategoryPerfume = () => {
-    setSearchPhamsPerfume({});
-    goToPerfume();
-  };
 
   return (
     <div className="nav">
       <div className="nav-box">
         <div className="nav-center">
           <div className="nav-top">
-            <div className="logo">WESH</div>
+            <Link to="/" className="logo">
+              WESH
+            </Link>
             <ul className="category">
               <li className="li" onMouseEnter={hover}>
                 제품
@@ -85,23 +43,38 @@ const Nav = () => {
             </div>
           </div>
           <div className={tab} onMouseEnter={hover} onMouseLeave={leave}>
-            <ul className="nav-menu">
-              <button className="li-list" onClick={goCategoryAll}>
+            <div className="nav-menu">
+              <Link
+                to={`/productlist/all?offset=0&limit=16`}
+                className="li-list"
+              >
                 전체상품
-              </button>
-              <button className="li-list" onClick={goCategorySoap}>
+              </Link>
+              <Link
+                to={`/productlist/soap?offset=0&limit=16`}
+                className="li-list"
+              >
                 비누
-              </button>
-              <button className="li-list" onClick={goCategoryLotion}>
+              </Link>
+              <Link
+                to={`/productlist/lotion?offset=0&limit=16`}
+                className="li-list"
+              >
                 로션
-              </button>
-              <button className="li-list" onClick={goCategoryOil}>
+              </Link>
+              <Link
+                to={`/productlist/oil?offset=0&limit=16`}
+                className="li-list"
+              >
                 오일
-              </button>
-              <button className="li-list" onClick={goCategoryPerfume}>
+              </Link>
+              <Link
+                to={`/productlist/perfume?offset=0&limit=16`}
+                className="li-list"
+              >
                 향수
-              </button>
-            </ul>
+              </Link>
+            </div>
             <div className="nav-mock">
               {data &&
                 data.map(e => (
