@@ -23,7 +23,9 @@ const Nav = () => {
       <div className="nav-box">
         <div className="nav-center">
           <div className="nav-top">
-            <div className="logo">WESH</div>
+            <Link to="/" className="logo">
+              WESH
+            </Link>
             <ul className="category">
               <li className="li" onMouseEnter={hover}>
                 제품
