@@ -25,7 +25,6 @@
 
 .info-list {
   width: 150px;
-  // height: 100px;
   margin-top: 10px;
   margin-left: 20px;
   padding: 20px;
@@ -116,6 +115,20 @@
   border-bottom: 1px solid #eee;
   font-size: 18px;
 
+  > li {
+    position: relative;
+    width: 100%;
+    text-align: center;
+  }
+
+  > li:not(:nth-child(n + 6))::after {
+    content: '>';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    color: #757575;
+  }
+
   li > p {
     margin-bottom: 10px;
   }
@@ -131,10 +144,15 @@
     color: #757575;
   }
 }
+
 .delete > ul > li > div > span:first-child {
+  margin-top: 5px;
+  margin-bottom: 7px;
+  color: #757575;
   font-size: 14px;
   text-decoration: none;
 }
+
 .user-info {
   margin: 20px;
 

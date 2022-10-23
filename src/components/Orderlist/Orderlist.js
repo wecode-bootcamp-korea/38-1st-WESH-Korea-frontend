@@ -1,50 +1,71 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Orderlist.scss';
 
-const Orderlist = () => {
+const Orderlist = ({
+  orderproduct,
+  checkedCount,
+  checkProduct,
+  totalPrice,
+  setTotalPrice,
+}) => {
+  const { product_name, product_quantity, product_price, product_img } =
+    orderproduct;
+  const [totalProductPrice, setTotalProductPrice] = useState(product_price);
+  const [isChecked, setIsChecked] = useState(false);
+  const [num, setNum] = useState(0);
+  const [disabled, setDisabled] = useState(false);
+
+  const sumTotalPrice = () => {};
+  // console.log(checkedCount);
+
+  // plus 버튼
+  const plus = () => {
+    setTotalProductPrice(prev => prev + product_price);
+    setTotalPrice(totalPrice => totalPrice + product_price);
+    setNum(prev => prev + 1);
+  };
+
+  // minus 버튼
+  const minus = () => {
+    if (totalPrice > 0) {
+      setTotalProductPrice(prev => prev - product_price);
+      setTotalPrice(totalPrice => totalPrice - product_price);
+    }
+    setNum(prev => prev - 1);
+  };
+
   return (
-    <div>
-      <table>
-        <thead className="order-head">
-          <tr className="list-top">
-            <th>
-              <input type="checkbox" />
-            </th>
-            <th>제품 정보</th>
-            <th>수량</th>
-            <th>금액</th>
-            <th>합계금액</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr className="order-test">
-            <td className="check">
-              <input className="box-tag" type="checkbox" />
-            </td>
-            <td className="img-test">
-              <img
-                className="img-one"
-                src="https://cdn.pixabay.com/photo/2019/09/25/20/24/nowyjork-4504629__480.jpg"
-                alt="img"
-              />
-            </td>
-            <td className="product-name">
-              <span>이름</span>
-            </td>
-            <td className="button-left">
-              <button type="button">-</button>
-            </td>
-            <td className="quantity">
-              <input type="text" defaultValue="1" />
-            </td>
-            <td className="button-right">
-              <button type="button">+</button>
-            </td>
-            <td className="price">￦22,000</td>
-            <td className="total">￦22,000</td>
-          </tr>
-        </tbody>
-      </table>
+    <div className="order-list">
+      <input type="checkbox" className="box-tag" onClick={checkProduct} />
+      <div className="product-info">
+        <img
+          src="https://cdn.pixabay.com/photo/2019/11/23/08/09/sunscreen-4646527_1280.png"
+          alt="test"
+          className="img-one"
+        />
+        <span className="product_name">{product_name}</span>
+      </div>
+      <div className="quantity-btn">
+        <button
+          type="button"
+          className="button-left"
+          disabled={num === 0 ? true : false}
+          onClick={minus}
+        >
+          -
+        </button>
+        <input className="quantity" type="text" value={num} />
+        <button type="button" className="button-right" onClick={plus}>
+          +
+        </button>
+      </div>
+
+      <div className="product_price">
+        <span className="price">￦ {product_price}</span>
+      </div>
+      <div className="total_price">
+        <span className="total">￦ {totalProductPrice}</span>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,16 @@
+[
+  {
+    "product_id": 1,
+    "product_name": "배스밤",
+    "product_quantity": "5",
+    "product_price": 50000,
+    "product_img": "https://cdn.pixabay.com/photo/2022/10/16/13/53/early-morning-7525151_1280.jpg"
+  },
+  {
+    "product_id": 2,
+    "product_name": "배스밤",
+    "product_quantity": "5",
+    "product_price": 40000,
+    "product_img": "https://cdn.pixabay.com/photo/2022/10/16/13/53/early-morning-7525151_1280.jpg"
+  }
+]

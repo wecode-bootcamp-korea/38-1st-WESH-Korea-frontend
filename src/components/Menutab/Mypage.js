@@ -1,6 +1,4 @@
 import React from 'react';
-import { AiFillGift } from 'react-icons/ai';
-import { AiOutlineMessage } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import './Mypage.scss';
 
@@ -30,7 +28,7 @@ const Mypage = () => {
             <div className="mypage-benefit">
               <div className="coupon">
                 <div className="icon-one">
-                  <AiFillGift />
+                  <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/ico_gift.svg" />
                 </div>
                 <p>혜택</p>
                 <p className="benefit-strong">
@@ -39,7 +37,7 @@ const Mypage = () => {
               </div>
               <div className="qna">
                 <div className="icon-two">
-                  <AiOutlineMessage />
+                  <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/ico_question.svg" />
                 </div>
 
                 <p>문의</p>
@@ -63,55 +61,56 @@ const Mypage = () => {
             최근 30일 내에 진행중인 주문정보입니다.
           </span>
         </div>
-        <ul className="ship-flex">
-          <li>
-            <p>입금대기</p>
-            <span>0</span>
-          </li>
-          <li>
-            <p>결제완료</p>
-            <span>0</span>
-          </li>
-          <li>
-            <p>배송준비중</p>
-            <span>0</span>
-          </li>
-          <li>
-            <p>배송중</p>
-            <span>0</span>
-          </li>
-          <li>
-            <p>배송완료</p>
-            <span>0</span>
-          </li>
-          <li>
-            <p>구매확정</p>
-            <span>0</span>
-          </li>
-
-          <li className="delete">
-            <ul>
-              <li className="delete-one">
-                <div>
-                  <span>취소</span>
-                  <span>0</span>
-                </div>
-              </li>
-              <li className="delete-two">
-                <div>
-                  <span>교환</span>
-                  <span>0</span>
-                </div>
-              </li>
-              <li className="delete-three">
-                <div>
-                  <span>반품</span>
-                  <span>0</span>
-                </div>
-              </li>
-            </ul>
-          </li>
-        </ul>
+        <div className="order-ing">
+          <ul className="ship-flex">
+            <li>
+              <p>입금대기</p>
+              <span>0</span>
+            </li>
+            <li>
+              <p>결제완료</p>
+              <span>0</span>
+            </li>
+            <li>
+              <p>배송준비중</p>
+              <span>0</span>
+            </li>
+            <li>
+              <p>배송중</p>
+              <span>0</span>
+            </li>
+            <li>
+              <p>배송완료</p>
+              <span>0</span>
+            </li>
+            <li>
+              <p>구매확정</p>
+              <span>0</span>
+            </li>
+            <li className="delete">
+              <ul>
+                <li className="delete-one">
+                  <div>
+                    <span>취소</span>
+                    <span>0</span>
+                  </div>
+                </li>
+                <li className="delete-two">
+                  <div>
+                    <span>교환</span>
+                    <span>0</span>
+                  </div>
+                </li>
+                <li className="delete-three">
+                  <div>
+                    <span>반품</span>
+                    <span>0</span>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
