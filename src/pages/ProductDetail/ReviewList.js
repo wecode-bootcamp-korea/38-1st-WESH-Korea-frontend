@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './ReviewList.scss';
 
 const ReviewList = props => {
+  console.log(props.review);
   return (
     <>
       <div className="product-list-review-box">
@@ -14,11 +15,13 @@ const ReviewList = props => {
           </div>
           <div className="review-message">{props.review.content}</div>
         </div>
-        <img
-          src={props.review.img}
-          className="bottom-review-img"
-          alt="data-review-image"
-        />
+        <div className="bottom-review-img-box">
+          <img
+            src={props.review.img}
+            className="bottom-review-img"
+            alt="data-review-image"
+          />
+        </div>
       </div>
     </>
   );

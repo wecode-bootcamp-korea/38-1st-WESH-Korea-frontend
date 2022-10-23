@@ -6,9 +6,17 @@
   border-bottom: 1px solid black;
   margin-bottom: 1px;
 
-  .bottom-review-img {
+  .bottom-review-img-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 150px;
     height: 150px;
+
+    .bottom-review-img {
+      width: 140px;
+      height: 140px;
+    }
   }
 
   .review-star {
@@ -28,6 +36,7 @@
 
     .review-title-box {
       display: flex;
+      flex-direction: column;
     }
   }
 
@@ -37,7 +46,6 @@
     align-items: center;
     justify-content: center;
     font-size: 15px;
-    height: 200px;
     width: 100px;
     border-right: 1px dashed gray;
   }
@@ -45,6 +53,5 @@
   .review-message {
     width: 500px;
     font-size: 20px;
-    padding: 10px;
   }
 }

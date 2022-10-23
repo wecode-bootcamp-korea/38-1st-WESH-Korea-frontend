@@ -24,7 +24,7 @@ const Mainpage = () => {
       clearTimeout(timeoutRef.current);
     }
   }
-
+  console.log(eventData.bestProducts);
   useEffect(() => {
     resetTimeout();
     timeoutRef.current = setTimeout(
@@ -154,7 +154,7 @@ const Mainpage = () => {
                   >
                     {eventData.bestProducts.map(best => (
                       <Best
-                        key={best.id}
+                        id={best.id}
                         img={best.img}
                         title={best.title}
                         price={best.price}
