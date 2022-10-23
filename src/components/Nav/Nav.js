@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navcategory from './Navcategory';
+
 import './Nav.scss';
 
 const Nav = () => {
