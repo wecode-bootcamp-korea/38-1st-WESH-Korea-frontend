@@ -30,7 +30,7 @@ const Mainpage = () => {
     timeoutRef.current = setTimeout(
       () =>
         setCurrentIndex(prevIndex =>
-          prevIndex === eventData.length - 1 ? 0 : prevIndex + 1
+          prevIndex === eventData['eventImgs'].length - 1 ? 0 : prevIndex + 1
         ),
       DELAY_TIME
     );
@@ -116,7 +116,7 @@ const Mainpage = () => {
               </div>
             </div>
             <div className="slideBox">
-              {/* <div className="slideshowDots">
+              <div className="slideshowDots">
                 {eventData.eventImgs.map((_, idx) => (
                   <div
                     key={idx}
@@ -128,7 +128,7 @@ const Mainpage = () => {
                     }}
                   ></div>
                 ))}
-              </div> */}
+              </div>
             </div>
           </div>
           <div className="main-middle">
