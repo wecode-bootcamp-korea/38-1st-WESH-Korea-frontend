@@ -2,16 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import './ProductInfo.scss';
 
-const ProductInfo = props => {
-  const [info, setInfo] = useState([]);
-
-  useEffect(() => {
-    fetch(`/data/productdetail/detaildata.json
-      `)
-      .then(res => res.json())
-      .then(res => setInfo(res));
-  }, []);
-
+const ProductInfo = ({ info }) => {
   return (
     <div className="product-info-box">
       <div className="bottom-info">
@@ -24,7 +15,7 @@ const ProductInfo = props => {
         <div className="video-detail-box">
           <div className="video-detail">
             위시 <span>최고의</span> 제품!
-            <div className="pointer"> #{props.info.title}</div>
+            <div className="pointer"> #{info.title}</div>
           </div>
           <div className="video-detail">
             우리는 동물 실험을 하지 <span>않는</span> 회사와 거래를 하고,
@@ -36,7 +27,7 @@ const ProductInfo = props => {
         </div>
         <div className="info-img-box">
           <img
-            src={props.info.img}
+            src={info.img}
             className="bottom-info-img"
             alt="data-detail-image"
           />
@@ -61,7 +52,7 @@ const ProductInfo = props => {
           <div className="info-bottom-usage-box">
             <div className="usage-box">
               <div className="usage-comment">사용 방법</div>
-              <div className="usage">{props.info.manual}</div>
+              <div className="usage">{info.manual}</div>
             </div>
             <img
               alt="info-usage-img"

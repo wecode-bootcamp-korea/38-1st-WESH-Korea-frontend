@@ -1,21 +1,19 @@
 import './ReviewList.scss';
 
-const ReviewList = props => {
+const ReviewList = ({ review }) => {
   return (
     <>
       <div className="product-list-review-box">
         <div className="review-comment">
           <div className="review-title-box">
             <div className="review-star">★★★★★</div>
-            <div className="review-time">
-              {props.review.created_at.slice(0, 10)}
-            </div>
+            <div className="review-time">{review.created_at.slice(0, 10)}</div>
           </div>
-          <div className="review-message">{props.review.content}</div>
+          <div className="review-message">{review.content}</div>
         </div>
         <div className="bottom-review-img-box">
           <img
-            src={props.review.img}
+            src={review.img}
             className="bottom-review-img"
             alt="data-review-image"
           />

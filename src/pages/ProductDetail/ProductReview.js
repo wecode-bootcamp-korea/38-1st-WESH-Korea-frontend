@@ -2,10 +2,10 @@ import ReviewList from './ReviewList';
 
 import './ProductReview.scss';
 
-const ProductReview = props => {
+const ProductReview = ({ review }) => {
   return (
     <div className="review">
-      {props.review.map(reviewData => (
+      {review.map(reviewData => (
         <ReviewList review={reviewData} />
       ))}
     </div>
