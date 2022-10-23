@@ -7,6 +7,7 @@ const Orderlist = ({
   checkProduct,
   totalPrice,
   setTotalPrice,
+  orderData,
 }) => {
   const { product_name, product_quantity, product_price, product_img } =
     orderproduct;
@@ -17,11 +18,11 @@ const Orderlist = ({
 
   const sumTotalPrice = () => {};
   // console.log(checkedCount);
-
+  console.log(orderData);
   // plus 버튼
   const plus = () => {
-    setTotalProductPrice(prev => prev + product_price);
-    setTotalPrice(totalPrice => totalPrice + product_price);
+    setTotalProductPrice(prev => parseInt(prev) + parseInt(product_price));
+    setTotalPrice(totalPrice => parseInt(totalPrice) + parseInt(product_price));
     setNum(prev => prev + 1);
   };
 
@@ -54,14 +55,16 @@ const Orderlist = ({
         >
           -
         </button>
-        <input className="quantity" type="text" value={num} />
+        <input className="quantity" type="text" value={orderData + num} />
         <button type="button" className="button-right" onClick={plus}>
           +
         </button>
       </div>
 
       <div className="product_price">
-        <span className="price">￦ {product_price}</span>
+        <span className="price">
+          ￦ {product_price.slice(0, product_price.length - 4)}
+        </span>
       </div>
       <div className="total_price">
         <span className="total">￦ {totalProductPrice}</span>

@@ -28,11 +28,16 @@ const Normal = () => {
   };
 
   useEffect(() => {
-    fetch('./data/cart.json')
+    fetch('http://10.58.52.172:8000/cart', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: localStorage.getItem('token'),
+      },
+    })
       .then(res => res.json())
-      .then(res => setOrderData(res));
+      .then(res => setOrderData(res.data));
   }, []);
-
   return (
     <div className="cart-page">
       <div className="wrap">
@@ -65,6 +70,7 @@ const Normal = () => {
                         checkProduct={checkProduct}
                         setTotalPrice={setTotalPrice}
                         totalPrice={totalPrice}
+                        orderData={orderproduct.product_quantity}
                       />
                     );
                   })}
