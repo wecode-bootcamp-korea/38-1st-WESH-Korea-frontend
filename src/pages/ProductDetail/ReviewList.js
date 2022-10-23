@@ -1,37 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import './ReviewList.scss';
 
-const ReviewList = () => {
-  const [review, setReview] = useState([]);
-  useEffect(() => {
-    fetch(`/data/productdetail/data.json
-      `)
-      .then(res => res.json())
-      .then(res => setReview(res));
-  }, []);
-
+const ReviewList = props => {
+  console.log(props.review);
   return (
     <>
-      {review.map(review => {
-        return (
-          <div className="product-list-review-box">
-            <div className="review-comment">
-              <div className="review-title-box">
-                <div className="review-title">
-                  {review.title}
-                  <div className="review-star">★★★★★</div>
-                </div>
-              </div>
-              <div className="review-message">제품리뷰</div>
+      <div className="product-list-review-box">
+        <div className="review-comment">
+          <div className="review-title-box">
+            <div className="review-star">★★★★★</div>
+            <div className="review-time">
+              {props.review.created_at.slice(0, 10)}
             </div>
-            <img
-              src={review.img}
-              className="bottom-review-img"
-              alt="data-review-image"
-            />
           </div>
-        );
-      })}
+          <div className="review-message">{props.review.content}</div>
+        </div>
+        <div className="bottom-review-img-box">
+          <img
+            src={props.review.img}
+            className="bottom-review-img"
+            alt="data-review-image"
+          />
+        </div>
+      </div>
     </>
   );
 };
