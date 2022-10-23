@@ -88,7 +88,7 @@ const ProductList = () => {
                 title={e.title}
                 img={e.img}
                 price={e.price}
-                tag={e.tags}
+                tag={e.tag}
                 category={e.category}
               />
             ))}
