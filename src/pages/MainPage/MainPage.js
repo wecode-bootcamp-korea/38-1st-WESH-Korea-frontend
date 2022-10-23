@@ -14,7 +14,7 @@ const Mainpage = () => {
   const DELAY_TIME = 5000;
 
   useEffect(() => {
-    fetch('http://10.58.52.245:8000/')
+    fetch('http://10.58.52.112:8000/')
       .then(res => res.json())
       .then(res => setEventData(res.data));
   }, []);
@@ -92,7 +92,9 @@ const Mainpage = () => {
   };
   const delay = 100;
   const onThrottleDragMove = throttle(onDragMove, delay);
-
+  console.log(eventData.eventImgs);
+  // console.log(eventData.data);
+  // console.log(eventData.data[0].eventImgs);
   return (
     <>
       <Nav />
@@ -107,15 +109,15 @@ const Mainpage = () => {
                     transform: `translate3d(${-currentIndex * 100}%, 0, 0)`,
                   }}
                 >
-                  {eventData.slice(0, 5).map(data => (
+                  {eventData.eventImgs.map(data => (
                     <Thumbnail key={data.id} img={data.img} />
                   ))}
                 </div>
               </div>
             </div>
             <div className="slideBox">
-              <div className="slideshowDots">
-                {eventData.slice(0, 5).map((_, idx) => (
+              {/* <div className="slideshowDots">
+                {eventData.eventImgs.map((_, idx) => (
                   <div
                     key={idx}
                     className={`slideshowDot${
@@ -126,7 +128,7 @@ const Mainpage = () => {
                     }}
                   ></div>
                 ))}
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="main-middle">
@@ -155,12 +157,12 @@ const Mainpage = () => {
                   onMouseLeave={onDragEnd}
                   ref={scrollRef}
                 >
-                  {eventData.slice(5, eventData.length + 1).map(best => (
+                  {eventData.bestProducts.map(best => (
                     <Best
                       key={best.id}
-                      bestImg={best.bestImg}
-                      bestTitle={best.bestTitle}
-                      bestPrice={best.bestPrice}
+                      img={best.img}
+                      title={best.title}
+                      price={best.price}
                     />
                   ))}
                 </div>
