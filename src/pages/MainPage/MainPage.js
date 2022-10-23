@@ -13,6 +13,12 @@ const Mainpage = () => {
   const timeoutRef = useRef(null);
   const DELAY_TIME = 5000;
 
+  useEffect(() => {
+    fetch('http://10.58.52.245:8000/')
+      .then(res => res.json())
+      .then(res => setEventData(res.data));
+  }, []);
+
   function resetTimeout() {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -59,15 +65,15 @@ const Mainpage = () => {
                     transform: `translate3d(${-currentIndex * 100}%, 0, 0)`,
                   }}
                 >
-                  {eventData.map(data => (
-                    <Thumbnail key={data.id} img={data.eventimg} />
+                  {eventData.slice(0, 5).map(data => (
+                    <Thumbnail key={data.id} img={data.img} />
                   ))}
                 </div>
               </div>
             </div>
             <div className="slideBox">
               <div className="slideshowDots">
-                {eventData.map((_, idx) => (
+                {eventData.slice(0, 5).map((_, idx) => (
                   <div
                     key={idx}
                     className={`slideshowDot${
@@ -100,7 +106,7 @@ const Mainpage = () => {
                   <Link to="productlist/all?limit=16&offset=0">BEST →</Link>
                 </div>
                 <div className="best-item-list">
-                  {best.map(best => (
+                  {eventData.slice(5, eventData.length + 1).map(best => (
                     <Best
                       key={best.id}
                       bestImg={best.bestImg}
