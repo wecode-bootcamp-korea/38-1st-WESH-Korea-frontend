@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Mypage.scss';
 
-const Mypage = () => {
+const Mypage = ({ orderData }) => {
   return (
     <div className="cart-page">
       <div className="wrap">

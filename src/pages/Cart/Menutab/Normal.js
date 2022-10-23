@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import '../Orderlist/Orderlist';
 import Orderlist from '../Orderlist/Orderlist';
-const Normal = () => {
-  const [orderData, setOrderData] = useState([]);
+const Normal = ({ orderData }) => {
   const [checkedCount, setCheckedCount] = useState(0);
   const [isCheckAll, setIsCheckAll] = useState(false);
   const [checkedArr, setCheckedArr] = useState([]);
@@ -10,7 +8,6 @@ const Normal = () => {
   const [totalPrice, setTotalPrice] = useState(0);
 
   const checkProduct = e => {
-    //  console.log(e.target.checked);
     const { checked } = e.target;
     checked
       ? setCheckedCount(count => count + 1)
@@ -27,17 +24,6 @@ const Normal = () => {
     }
   };
 
-  useEffect(() => {
-    fetch('http://10.58.52.172:8000/cart', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: localStorage.getItem('token'),
-      },
-    })
-      .then(res => res.json())
-      .then(res => setOrderData(res.data));
-  }, []);
   return (
     <div className="cart-page">
       <div className="wrap">

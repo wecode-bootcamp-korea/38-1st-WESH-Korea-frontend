@@ -1,14 +1,26 @@
-import React, { useState } from 'react';
-import Normal from '../../components/Menutab/Normal';
-import Mypage from '../../components/Menutab/Mypage';
+import React, { useEffect, useState } from 'react';
+import Normal from '../Cart/Menutab/Normal';
+import Mypage from '../Cart/Menutab/Mypage';
 import './Cart.scss';
 import Nav from '../../components/Nav/Nav';
 
 const Cart = () => {
+  const [orderData, setOrderData] = useState([]);
+  useEffect(() => {
+    fetch('http://10.58.52.172:8000/cart', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: localStorage.getItem('token'),
+      },
+    })
+      .then(res => res.json())
+      .then(res => setOrderData(res.data));
+  }, []);
   const [currentTab, setCurrentTab] = useState('normal');
   const obj = {
-    normal: <Normal />,
-    page: <Mypage />,
+    normal: <Normal orderData={orderData} />,
+    page: <Mypage orderData={orderData} />,
   };
   return (
     <>
