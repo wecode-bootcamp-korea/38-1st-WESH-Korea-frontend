@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './SignIn.scss';
 
 const SignIn = () => {
+  const navigate = useNavigate();
+
   const [loginInfo, setLoginInfo] = useState({
     email: '',
     password: '',
@@ -29,8 +31,7 @@ const SignIn = () => {
       .then(data => {
         if (data.data) {
           localStorage.setItem('token', data.data);
-          alert('로그인 성공');
-          Navigate('/mainPage', { replace: true });
+          navigate('/mainPage', { replace: true });
         } else {
           alert('아이디 혹은 비밀번호를 확인 해 주세요');
         }
@@ -65,9 +66,15 @@ const SignIn = () => {
           <button className="login-button">로그인</button>
         </form>
         <div className="etc">
-          <div className="etc-tag">회원가입</div>
-          <div className="etc-tag">위코드</div>
-          <div className="etc-tag">저스트코드</div>
+          <a className="etc-tag" onClick={() => navigate('/productlist')}>
+            회원가입
+          </a>
+          <a className="etc-tag" href="https://www.wecode.co.kr">
+            위코드
+          </a>
+          <a className="etc-tag" href="https://www.just-code.co.kr">
+            저스트코드
+          </a>
         </div>
         <div className="cannot">
           <div className="never">네이버 아이디로 로그인(준비중)</div>
