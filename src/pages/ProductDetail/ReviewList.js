@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './ReviewList.scss';
 
 const ReviewList = props => {
-  console.log(props.review);
   return (
     <>
       <div className="product-list-review-box">
