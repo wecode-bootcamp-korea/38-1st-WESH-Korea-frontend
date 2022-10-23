@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
 import ReviewList from './ReviewList';
+
 import './ProductReview.scss';
 
 const ProductReview = props => {

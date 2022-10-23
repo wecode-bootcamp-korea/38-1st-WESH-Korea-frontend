@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ProductInfo from './ProductInfo';
 import ProductReview from './ProductReview';
+
 import './ProductTab.scss';
 
 const ProductTab = props => {
@@ -9,9 +10,6 @@ const ProductTab = props => {
   const [price, setPrice] = useState(0);
   const [heart, setHeart] = useState('🖤');
   const [currentTab, setCurrentTab] = useState('info');
-  const { id } = useParams();
-
-  // console.log(detail.slice(1, detail.length));
 
   const mappingObje = {
     info: <ProductInfo info={props.detail[0]} />,
@@ -36,7 +34,6 @@ const ProductTab = props => {
     heart === '🖤' ? setHeart('❤️') : setHeart('🖤');
   };
 
-  console.log(props.detail[0]);
   return (
     <>
       {props.detail[0] && (

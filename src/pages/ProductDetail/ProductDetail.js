@@ -14,14 +14,12 @@ const ProductDetail = () => {
       .then(res => res.json())
       .then(res => setDetail(res.detailPageData));
   }, []);
-  // console.log(detail);
+
   return (
     <div>
       <Nav />
       {detail && <ProductTab detail={detail} />}
-      <div className="recommend">
-        <Recommend />
-      </div>
+      <div className="recommend">{detail && <Recommend detail={detail} />}</div>
     </div>
   );
 };
