@@ -5,17 +5,15 @@ import ProductReview from './ProductReview';
 
 import './ProductTab.scss';
 
-const ProductTab = props => {
+const ProductTab = ({ detail }) => {
   const [count, setCount] = useState(1);
   const [price, setPrice] = useState(0);
   const [heart, setHeart] = useState('🖤');
   const [currentTab, setCurrentTab] = useState('info');
 
   const mappingObje = {
-    info: <ProductInfo info={props.detail[0]} />,
-    review: (
-      <ProductReview review={props.detail.slice(1, props.detail.length)} />
-    ),
+    info: <ProductInfo info={detail[0]} />,
+    review: <ProductReview review={detail.slice(1, detail.length)} />,
   };
 
   const up = () => {
@@ -27,7 +25,7 @@ const ProductTab = props => {
   };
 
   const buyClick = () => {
-    setPrice(props.detail[0].price * count);
+    setPrice(detail[0].price * count);
   };
 
   const onHeart = () => {
@@ -36,22 +34,22 @@ const ProductTab = props => {
 
   return (
     <>
-      {props.detail[0] && (
+      {detail[0] && (
         <div className="product-tab">
           <div className="Product-tabBox">
             <div className="top">
               <img
-                src={props.detail[0].img}
+                src={detail[0].img}
                 className="top-img"
                 alt="data-main-image"
               />
               <div className="right">
-                <div className="banner-detail">{props.detail[0].detail}</div>
-                <div className="banner-title">{props.detail[0].title}</div>
+                <div className="banner-detail">{detail[0].detail}</div>
+                <div className="banner-title">{detail[0].title}</div>
                 <div className="banner-price-box">
                   <div className="banner-price-box-width">
                     <div className="banner-price">
-                      {props.detail[0].price * count}
+                      {detail[0].price * count}
                     </div>
                     <div className="button-box">
                       <button className="plus" onClick={up}>
@@ -67,7 +65,7 @@ const ProductTab = props => {
                 <div className="all-price-box">
                   <div className="all-price-word">총 합계 금액</div>
                   <div className="all-price">
-                    ￦ {props.detail[0].price * count} 원
+                    ￦ {detail[0].price * count} 원
                   </div>
                 </div>
                 <div className="banner-payment">
