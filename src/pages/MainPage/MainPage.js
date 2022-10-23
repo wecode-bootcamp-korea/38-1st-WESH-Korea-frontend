@@ -39,17 +39,59 @@ const Mainpage = () => {
     };
   }, [currentIndex]);
 
-  useEffect(() => {
-    fetch('/data/mainpage/main.json')
-      .then(res => res.json())
-      .then(res => setEventData(res));
-  }, []);
+  // useEffect(() => {
+  //   fetch('/data/mainpage/main.json')
+  //     .then(res => res.json())
+  //     .then(res => setEventData(res));
+  // }, []);
 
-  useEffect(() => {
-    fetch('/data/mainpage/best.json')
-      .then(res => res.json())
-      .then(res => setBest(res));
-  }, []);
+  // useEffect(() => {
+  //   fetch('/data/mainpage/best.json')
+  //     .then(res => res.json())
+  //     .then(res => setBest(res));
+  // }, []);
+
+  const scrollRef = useRef(null);
+  const [isDrag, setIsDrag] = useState(false);
+  const [startX, setStartX] = useState();
+
+  const onDragStart = e => {
+    e.preventDefault();
+    setIsDrag(true);
+    setStartX(e.pageX + scrollRef.current.scrollLeft);
+  };
+
+  const onDragEnd = () => {
+    setIsDrag(false);
+  };
+
+  const onDragMove = e => {
+    if (isDrag) {
+      const { scrollWidth, clientWidth, scrollLeft } = scrollRef.current;
+
+      scrollRef.current.scrollLeft = startX - e.pageX;
+
+      if (scrollLeft === 0) {
+        setStartX(e.pageX);
+      } else if (scrollWidth <= clientWidth + scrollLeft) {
+        setStartX(e.pageX + scrollLeft);
+      }
+    }
+  };
+  const throttle = (func, ms) => {
+    let throttled = false;
+    return (...args) => {
+      if (!throttled) {
+        throttled = true;
+        setTimeout(() => {
+          func(...args);
+          throttled = false;
+        }, ms);
+      }
+    };
+  };
+  const delay = 100;
+  const onThrottleDragMove = throttle(onDragMove, delay);
 
   return (
     <>
@@ -105,7 +147,15 @@ const Mainpage = () => {
                 <div className="best-best">
                   <Link to="productlist/all?limit=16&offset=0">BEST →</Link>
                 </div>
-                <div className="best-item-list">
+                <div
+                  className="best-item-list"
+                  onMouseDown={onDragStart}
+                  onMouseMove={isDrag ? onThrottleDragMove : null}
+                  onMouseUp={onDragEnd}
+                  onMouseLeave={onDragEnd}
+                  ref={scrollRef}
+                >
+                  >
                   {eventData.slice(5, eventData.length + 1).map(best => (
                     <Best
                       key={best.id}
