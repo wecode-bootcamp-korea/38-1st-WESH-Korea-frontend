@@ -28,7 +28,10 @@ const Mainpage = () => {
   useEffect(() => {
     resetTimeout();
     timeoutRef.current = setTimeout(
-      () => setCurrentIndex(prevIndex => (prevIndex === 4 ? 0 : prevIndex + 1)),
+      () =>
+        setCurrentIndex(prevIndex =>
+          prevIndex === eventData['eventImgs'].length - 1 ? 0 : prevIndex + 1
+        ),
       DELAY_TIME
     );
     return () => {
