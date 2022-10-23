@@ -51,36 +51,38 @@ const Nav = () => {
             </div>
           </div>
           <div className={tab} onMouseEnter={hover} onMouseLeave={leave}>
-            <ul className="nav-menu">
-              <Link to="productlist/all?limit=16&offset=0" className="nav-link">
-                <li className="li-list">전체상품</li>
-              </Link>
-
+            <div className="nav-menu">
               <Link
-                to="productlist/soap?limit=16&offset=0"
-                className="nav-link"
+                to={`/productlist/all?offset=0&limit=16`}
+                className="li-list"
               >
-                <li className="li-list">비누</li>
+                전체상품
               </Link>
-
               <Link
-                to="productlist/lotion?limit=16&offset=0"
-                className="nav-link"
+                to={`/productlist/soap?offset=0&limit=16`}
+                className="li-list"
               >
-                <li className="li-list">로션</li>
+                비누
               </Link>
-
-              <Link to="productlist/oil?limit=16&offset=0" className="nav-link">
-                <li className="li-list">오일</li>
-              </Link>
-
               <Link
-                to="productlist/perfume?limit=16&offset=0"
-                className="nav-link"
+                to={`/productlist/lotion?offset=0&limit=16`}
+                className="li-list"
               >
-                <li className="li-list">향수</li>
+                로션
               </Link>
-            </ul>
+              <Link
+                to={`/productlist/oil?offset=0&limit=16`}
+                className="li-list"
+              >
+                오일
+              </Link>
+              <Link
+                to={`/productlist/perfume?offset=0&limit=16`}
+                className="li-list"
+              >
+                향수
+              </Link>
+            </div>
             <div className="nav-mock">
               {data &&
                 data.map(e => (
