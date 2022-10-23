@@ -155,7 +155,6 @@ const Mainpage = () => {
                   onMouseLeave={onDragEnd}
                   ref={scrollRef}
                 >
-                  >
                   {eventData.slice(5, eventData.length + 1).map(best => (
                     <Best
                       key={best.id}

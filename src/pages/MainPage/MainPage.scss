@@ -108,8 +108,10 @@
           margin-left: 10px;
           width: 700px;
           height: 330px;
-          overflow-x: scroll;
           display: flex;
+          flex-direction: row;
+          overflow-x: scroll;
+          scroll-behavior: smooth;
         }
       }
     }
