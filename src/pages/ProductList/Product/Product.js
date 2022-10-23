@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Tag from './Tag';
+
 import './Product.scss';
 
 const Product = ({ id, title, price, img, tag }) => {
@@ -8,7 +9,7 @@ const Product = ({ id, title, price, img, tag }) => {
     <div className="product-list-box">
       <div className="list-box">
         <div className="list-item-box">
-          <Link to="/productdetail">
+          <Link to={`/productdetail/${id}`}>
             <img src={img} className="img" />
           </Link>
           <div className="tag">
