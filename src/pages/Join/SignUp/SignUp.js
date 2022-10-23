@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import './SignUp.scss';
-import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
   const [info, setInfo] = useState({
     email: '',
     name: '',
@@ -20,10 +22,12 @@ const SignUp = () => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(info),
-    }); //요청
+    });
+    navigate('main');
   };
 
-  const validation = () => {
+  const onSubmit = e => {
+    e.preventDefault();
     const patternPhone = /^(?:(010-\d{4})|(01[1|6|7|8|9]-\d{3,4}))-(\d{4})$/;
     const patternEmail =
       /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
@@ -35,11 +39,6 @@ const SignUp = () => {
     info.password === info.checkPassword
       ? connect()
       : alert('정보를 확인해주세요!');
-  };
-
-  const onSubmit = e => {
-    e.preventDefault();
-    validation();
   };
 
   return (
