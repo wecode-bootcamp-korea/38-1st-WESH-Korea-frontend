@@ -11,31 +11,31 @@ import Nav from '../../components/Nav/Nav';
 import './ProductList.scss';
 
 const ProductList = () => {
-  // const [data, setData] = useState([]);
-  // const [searchParams, setSearchPhams] = useSearchParams();
-  // const limit = searchParams.get('limit');
-  // const offset = searchParams.get('offset');
-  // const params = useParams();
-  // const categoryData = params.categories;
+  const [data, setData] = useState([]);
+  const [searchParams, setSearchPhams] = useSearchParams();
+  const limit = searchParams.get('limit');
+  const offset = searchParams.get('offset');
+  const params = useParams();
+  const categoryData = params.categories;
 
-  // useEffect(() => {
-  //   fetch(
-  //     `http://10.58.52.93:3000/productlist/${categoryData}?offset=${offset}&limit=${limit}`
-  //   )
-  //     .then(res => res.json())
-  //     .then(res => setData(res.data));
-  // }, [offset, limit, categoryData]);
+  useEffect(() => {
+    fetch(
+      `http://10.58.52.93:3000/productlist/${categoryData}?offset=${offset}&limit=${limit}`
+    )
+      .then(res => res.json())
+      .then(res => setData(res.data));
+  }, [offset, limit, categoryData]);
 
-  // const goPage = pageNumber => {
-  //   searchParams.set('limit', 16);
-  //   searchParams.set('offset', (pageNumber - 1) * 16);
-  //   setSearchPhams(searchParams);
-  // };
+  const goPage = pageNumber => {
+    searchParams.set('limit', 16);
+    searchParams.set('offset', (pageNumber - 1) * 16);
+    setSearchPhams(searchParams);
+  };
 
   return (
     <>
       <Nav />
-      {/* <div className="product-list">
+      <div className="product-list">
         <Banner />
         <div className="list-page">
           <div className="menu-bar">
@@ -115,7 +115,7 @@ const ProductList = () => {
             </button>
           </div>
         </div>
-      </div> */}
+      </div>
     </>
   );
 };

@@ -7,7 +7,7 @@ const ProductDetail = () => {
   return (
     <div>
       <Nav />
-      {/* <ProductTab /> */}
+      <ProductTab />
       <div className="recommend">
         <Recommend />
       </div>
