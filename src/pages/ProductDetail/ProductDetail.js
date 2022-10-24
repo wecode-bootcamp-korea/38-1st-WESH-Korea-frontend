@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Nav from '../../components/Nav/Nav';
 import ProductTab from './ProductTab';
 import Recommend from './Recommend';
+
+import Nav from '../../components/Nav/Nav';
 
 const ProductDetail = () => {
   const [detail, setDetail] = useState([]);
@@ -13,13 +14,19 @@ const ProductDetail = () => {
       `)
       .then(res => res.json())
       .then(res => setDetail(res.detailPageData));
-  }, []);
+  }, [id]);
 
   return (
     <div>
       <Nav />
-      {detail && <ProductTab detail={detail} />}
-      <div className="recommend">{detail && <Recommend detail={detail} />}</div>
+      {detail && (
+        <>
+          <ProductTab detail={detail} />
+          <div className="recommend">
+            <Recommend detail={detail} />
+          </div>
+        </>
+      )}
     </div>
   );
 };

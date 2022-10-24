@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProductInfo from './ProductInfo';
 import ProductReview from './ProductReview';
@@ -16,21 +16,10 @@ const ProductTab = ({ detail }) => {
     review: <ProductReview review={detail.slice(1, detail.length)} />,
   };
 
-  const up = () => {
-    setCount(count + 1);
-  };
-
-  const down = () => {
-    count !== 1 && setCount(count - 1);
-  };
-
-  const buyClick = () => {
-    setPrice(detail[0].price * count);
-  };
-
-  const onHeart = () => {
-    heart === '🖤' ? setHeart('❤️') : setHeart('🖤');
-  };
+  const up = () => setCount(count + 1);
+  const down = () => count !== 1 && setCount(count - 1);
+  const buyClick = () => setPrice(detail[0].price * count);
+  const onHeart = () => (heart === '🖤' ? setHeart('❤️') : setHeart('🖤'));
 
   return (
     <>

@@ -5,12 +5,12 @@ import './Recommend.scss';
 const Recommend = ({ detail }) => {
   const scrollRef = useRef(null);
   const [isDrag, setIsDrag] = useState(false);
-  const [startX, setStartX] = useState();
+  const [goToX, setGoToX] = useState();
 
   const onDragStart = e => {
     e.preventDefault();
     setIsDrag(true);
-    setStartX(e.pageX + scrollRef.current.scrollLeft);
+    setGoToX(e.pageX + scrollRef.current.scrollLeft);
   };
 
   const onDragEnd = () => {
@@ -21,12 +21,12 @@ const Recommend = ({ detail }) => {
     if (isDrag) {
       const { scrollWidth, clientWidth, scrollLeft } = scrollRef.current;
 
-      scrollRef.current.scrollLeft = startX - e.pageX;
+      scrollRef.current.scrollLeft = goToX - e.pageX;
 
       if (scrollLeft === 0) {
-        setStartX(e.pageX);
+        setGoToX(e.pageX);
       } else if (scrollWidth <= clientWidth + scrollLeft) {
-        setStartX(e.pageX + scrollLeft);
+        setGoToX(e.pageX + scrollLeft);
       }
     }
   };
@@ -44,8 +44,8 @@ const Recommend = ({ detail }) => {
     };
   };
 
-  const delay = 100;
-  const onThrottleDragMove = throttle(onDragMove, delay);
+  const DELAY = 100;
+  const onThrottleDragMove = throttle(onDragMove, DELAY);
 
   return (
     <>
