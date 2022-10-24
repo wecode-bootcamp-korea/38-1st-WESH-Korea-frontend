@@ -28,7 +28,7 @@ const Mainpage = () => {
     timeoutRef.current = setTimeout(
       () =>
         setCurrentIndex(prevIndex =>
-          prevIndex === eventData['eventImgs'].length - 1 ? 0 : prevIndex + 1
+          prevIndex === eventData.eventImgs.length - 1 ? 0 : prevIndex + 1
         ),
       DELAY_TIME
     );
@@ -39,12 +39,12 @@ const Mainpage = () => {
 
   const scrollRef = useRef(null);
   const [isDrag, setIsDrag] = useState(false);
-  const [startX, setStartX] = useState();
+  const [imgToX, setImgToX] = useState(e.pageX);
 
   const onDragStart = e => {
     e.preventDefault();
     setIsDrag(true);
-    setStartX(e.pageX + scrollRef.current.scrollLeft);
+    setImgToX(e.pageX + scrollRef.current.scrollLeft);
   };
 
   const onDragEnd = () => {
@@ -55,12 +55,12 @@ const Mainpage = () => {
     if (isDrag) {
       const { scrollWidth, clientWidth, scrollLeft } = scrollRef.current;
 
-      scrollRef.current.scrollLeft = startX - e.pageX;
+      scrollRef.current.scrollLeft = imgToX - e.pageX;
 
       if (scrollLeft === 0) {
-        setStartX(e.pageX);
+        setImgToX(e.pageX);
       } else if (scrollWidth <= clientWidth + scrollLeft) {
-        setStartX(e.pageX + scrollLeft);
+        setImgToX(e.pageX + scrollLeft);
       }
     }
   };
@@ -77,8 +77,8 @@ const Mainpage = () => {
     };
   };
 
-  const delay = 100;
-  const onThrottleDragMove = throttle(onDragMove, delay);
+  const DELAY = 100;
+  const onThrottleDragMove = throttle(onDragMove, DELAY);
 
   return (
     <>
