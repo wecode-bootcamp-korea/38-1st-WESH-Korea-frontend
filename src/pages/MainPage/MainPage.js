@@ -14,11 +14,10 @@ const Mainpage = () => {
   const DELAY_TIME = 5000;
 
   useEffect(() => {
-    fetch('http://10.58.52.112:8000?limit=5&offset=0')
+    fetch('http://10.58.52.123:8000?limit=10&offset=0')
       .then(res => res.json())
       .then(res => setEventData(res.data));
   }, []);
-
   function resetTimeout() {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -30,7 +29,10 @@ const Mainpage = () => {
     timeoutRef.current = setTimeout(
       () =>
         setCurrentIndex(prevIndex =>
-          prevIndex === eventData['eventImgs'].length - 1 ? 0 : prevIndex + 1
+          prevIndex === eventData.eventImages &&
+          eventData.eventImages.length - 1
+            ? 0
+            : prevIndex + 1
         ),
       DELAY_TIME
     );
@@ -95,7 +97,7 @@ const Mainpage = () => {
   return (
     <>
       <Nav />
-      {eventData.eventImgs && eventData.bestProducts && (
+      {eventData.eventImages && eventData.bestProducts && (
         <div className="mainpage-top">
           <div className="main-center">
             <div className="main-center-top">
@@ -107,7 +109,7 @@ const Mainpage = () => {
                       transform: `translate3d(${-currentIndex * 100}%, 0, 0)`,
                     }}
                   >
-                    {eventData.eventImgs.map(data => (
+                    {eventData.eventImages.map(data => (
                       <Thumbnail key={data.id} img={data.img} />
                     ))}
                   </div>
@@ -115,7 +117,7 @@ const Mainpage = () => {
               </div>
               <div className="slideBox">
                 <div className="slideshowDots">
-                  {eventData.eventImgs.map((_, idx) => (
+                  {eventData.eventImages.map((_, idx) => (
                     <div
                       key={idx}
                       className={`slideshowDot${
