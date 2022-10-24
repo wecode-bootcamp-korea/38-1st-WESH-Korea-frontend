@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import ProductInfo from './ProductInfo';
 import ProductReview from './ProductReview';
 import './ProductTab.scss';
@@ -10,8 +10,9 @@ const ProductTab = props => {
   const [heart, setHeart] = useState('🖤');
   const [currentTab, setCurrentTab] = useState('info');
   const { id } = useParams();
-
-  // console.log(detail.slice(1, detail.length));
+  const token = localStorage.getItem('token');
+  const goCart = useNavigate();
+  const gologin = useNavigate();
 
   const mappingObje = {
     info: <ProductInfo info={props.detail[0]} />,
@@ -19,6 +20,33 @@ const ProductTab = props => {
       <ProductReview review={props.detail.slice(1, props.detail.length)} />
     ),
   };
+
+  useEffect(
+    fetch('/', {
+      method: 'POST',
+      headers: {
+        product_id: props.detail[0].id,
+        quantity: { count },
+      },
+      body: JSON.stringify(),
+    })
+      .then(res => {
+        if (res.ok === true) {
+          return res.json();
+        }
+        throw new Error('통신실패!');
+      })
+      .then(res => {
+        if (token) {
+          alert(props.detail[0].title + '상품이 담겼습니다~~');
+          goCart('/cart');
+        } else {
+          alert('로그인 먼저 해주세요!~!~!~!');
+          gologin('/login');
+        }
+      }),
+    []
+  );
 
   const up = () => {
     setCount(count + 1);
