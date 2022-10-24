@@ -15,7 +15,7 @@ const SignIn = () => {
   };
 
   const connect = () => {
-    fetch('http://10.58.52.111:8000/user/signin', {
+    fetch('http://10.58.52.123:8000/user/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -66,9 +66,9 @@ const SignIn = () => {
           <button className="login-button">로그인</button>
         </form>
         <div className="etc">
-          <link className="etc-tag" onClick={() => navigate('/signup')}>
+          <a className="etc-tag" onClick={() => navigate('/signup')}>
             회원가입
-          </link>
+          </a>
           <a className="etc-tag" href="https://www.wecode.co.kr">
             위코드
           </a>
