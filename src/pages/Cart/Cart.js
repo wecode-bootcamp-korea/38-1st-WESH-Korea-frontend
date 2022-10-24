@@ -18,7 +18,7 @@ const Cart = () => {
       .then(res => setOrderData(res.data));
   }, []);
   const [currentTab, setCurrentTab] = useState('normal');
-  const obj = {
+  const cartList = {
     normal: <Normal orderData={orderData} />,
     page: <Mypage orderData={orderData} />,
   };
@@ -46,7 +46,7 @@ const Cart = () => {
             </li>
           </ul>
 
-          <div className="contents">{obj[currentTab]}</div>
+          <div className="contents">{cartList[currentTab]}</div>
         </div>
       </div>
     </>

@@ -13,26 +13,22 @@ const Orderlist = ({
     orderproduct;
   const [totalProductPrice, setTotalProductPrice] = useState(product_price);
   const [isChecked, setIsChecked] = useState(false);
-  const [num, setNum] = useState(0);
+  const [quantityNum, setQuantityNum] = useState(0);
   const [disabled, setDisabled] = useState(false);
 
   const sumTotalPrice = () => {};
-  // console.log(checkedCount);
-  console.log(orderData);
-  // plus 버튼
   const plus = () => {
     setTotalProductPrice(prev => parseInt(prev) + parseInt(product_price));
     setTotalPrice(totalPrice => parseInt(totalPrice) + parseInt(product_price));
-    setNum(prev => prev + 1);
+    setQuantityNum(prev => prev + 1);
   };
 
-  // minus 버튼
   const minus = () => {
     if (totalPrice > 0) {
       setTotalProductPrice(prev => prev - product_price);
       setTotalPrice(totalPrice => totalPrice - product_price);
     }
-    setNum(prev => prev - 1);
+    setQuantityNum(prev => prev - 1);
   };
 
   return (
@@ -50,12 +46,16 @@ const Orderlist = ({
         <button
           type="button"
           className="button-left"
-          disabled={num === 0 ? true : false}
+          disabled={quantityNum === 0 ? true : false}
           onClick={minus}
         >
           -
         </button>
-        <input className="quantity" type="text" value={orderData + num} />
+        <input
+          className="quantity"
+          type="text"
+          value={orderData + quantityNum}
+        />
         <button type="button" className="button-right" onClick={plus}>
           +
         </button>

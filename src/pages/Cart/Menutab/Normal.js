@@ -13,7 +13,7 @@ const Normal = ({ orderData }) => {
       ? setCheckedCount(count => count + 1)
       : setCheckedCount(count => count - 1);
   };
-  const deliveryFee = 2500;
+  const DELIVERY_FEE = 2500;
 
   const changeAllCheck = e => {
     if (e.target.checked) {
@@ -89,12 +89,12 @@ const Normal = ({ orderData }) => {
             </li>
             <li className="shipping cart-price-text">
               <span className="cart-price-product">배송비</span>
-              <strong className="text-weight">￦ {deliveryFee}</strong>
+              <strong className="text-weight">￦ {DELIVERY_FEE}</strong>
             </li>
             <li className="total-price cart-price-text">
               <span className="cart-price-product">주문금액</span>
               <strong className="text-weight">
-                ￦ {totalPrice !== 0 ? totalPrice + deliveryFee : 0}
+                ￦ {totalPrice !== 0 ? totalPrice + DELIVERY_FEE : 0}
               </strong>
             </li>
           </ul>
