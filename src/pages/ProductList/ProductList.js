@@ -9,24 +9,24 @@ import Product from './Product/Product';
 import Banner from './Banner';
 import Nav from '../../components/Nav/Nav';
 import './ProductList.scss';
+import Footer from '../../components/Footer/Footer';
 
 const ProductList = () => {
   const [data, setData] = useState([]);
   const [searchParams, setSearchPhams] = useSearchParams();
   const limit = searchParams.get('limit');
   const offset = searchParams.get('offset');
-  const [sort, setSort] = useState('best');
-  const params = useParams();
-  const categoryData = params.categories;
+  const [sort, setSort] = useState('high');
+  const { categories } = useParams();
 
   useEffect(() => {
     fetch(
-      `http://10.58.52.125:3000/productlist/lotion?sort=${sort}&offset=${offset}&limit=${limit}`
+      `http://10.58.52.125:3000/productlist/${categories}?sort=${sort}&offset=${offset}&limit=${limit}`
       // `http://10.58.52.93:3000/productlist/${categoryData}?offset=${offset}&limit=${limit}`
     )
       .then(res => res.json())
       .then(res => setData(res.data));
-  }, [offset, limit, categoryData, sort]);
+  }, [offset, limit, categories, sort]);
 
   const goPage = pageNumber => {
     searchParams.set('limit', 16);
@@ -37,7 +37,7 @@ const ProductList = () => {
   const goSort = e => {
     setSort(e.target.value);
   };
-  console.log(sort);
+
   return (
     <>
       <Nav />
@@ -80,29 +80,39 @@ const ProductList = () => {
                   </Link>
                 </div>
               </div>
-              <select class="order" onChange={goSort}>
+              <select className="order" onChange={goSort}>
                 <option className="order-best">
-                  <Link to={`/productlist/${categoryData}?sort=best`}>
+                  <Link
+                    to={`/productlist/${categories}?sort=best&offset=0&limit=16`}
+                  >
                     best
                   </Link>
                 </option>
                 <option className="order-low">
-                  <Link to={`/productlist/${categoryData}?sort=low`}>low</Link>
+                  <Link
+                    to={`/productlist/${categories}?sort=low&offset=0&limit=16`}
+                  >
+                    low
+                  </Link>
                 </option>
                 <option className="order-high">
-                  <Link to={`/productlist/${categoryData}?sort=high`}>
+                  <Link
+                    to={`/productlist/${categories}?sort=high&offset=0&limit=16`}
+                  >
                     high
                   </Link>
                 </option>
                 <option className="order-review">
-                  <Link to={`/productlist/${categoryData}?sort=review`}>
+                  <Link
+                    to={`/productlist/${categories}?sort=review&offset=0&limit=16`}
+                  >
                     review
                   </Link>
                 </option>
               </select>
             </div>
             <div className="page-box">
-              {data.slice(1, 16).map(e => (
+              {data.slice(0, 16).map(e => (
                 <Product
                   key={e.id}
                   id={e.id}
@@ -138,6 +148,7 @@ const ProductList = () => {
           </div>
         </div>
       )}
+      <Footer />
     </>
   );
 };

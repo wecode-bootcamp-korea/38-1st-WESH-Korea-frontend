@@ -13,7 +13,9 @@ const ReviewList = props => {
               {props.review.created_at.slice(0, 10)}
             </div>
           </div>
-          <div className="review-message">{props.review.content}</div>
+          <div className="review-message-box">
+            <div className="review-message">{props.review.content}</div>
+          </div>
         </div>
         <div className="bottom-review-img-box">
           <img

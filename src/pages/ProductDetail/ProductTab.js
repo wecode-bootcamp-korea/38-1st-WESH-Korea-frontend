@@ -9,10 +9,10 @@ const ProductTab = props => {
   const [price, setPrice] = useState(0);
   const [heart, setHeart] = useState('🖤');
   const [currentTab, setCurrentTab] = useState('info');
-  const { id } = useParams();
-  const token = localStorage.getItem('token');
-  const goCart = useNavigate();
-  const gologin = useNavigate();
+  // const { id } = useParams();
+  // const token = localStorage.getItem('token');
+  // const goCart = useNavigate();
+  // const gologin = useNavigate();
 
   const mappingObje = {
     info: <ProductInfo info={props.detail[0]} />,
@@ -21,41 +21,41 @@ const ProductTab = props => {
     ),
   };
 
-  const TOKEN = localStorage.getitem('token');
+  // const TOKEN = localStorage.getitem('token');
 
-  TOKEN
-    ? 
-    
-    const fetchSomething = () => {
-      useEffect(
-        fetch('/', {
-          method: 'POST',
-          headers: {
-            Autorization: TOKEN,
-            product_id: props.detail[0].id,
-            quantity: { count },
-          },
-          body: JSON.stringify(),
-        })
-          .then(res => {
-            if (res.ok === true) {
-              return res.json();
-            }
-            throw new Error('통신실패!');
-          })
-          .then(res => {
-            if (TOKEN) {
-              alert(props.detail[0].title + '상품이 담겼습니다~~');
-              goCart('/cart');
-            } else {
-              alert('로그인 먼저 해주세요!~!~!~!');
-              gologin('/login');
-            }
-          }),
-        []
-      )
-        }
-    : null;
+  // TOKEN
+  // ?
+
+  // const fetchSomething = () => {
+  //   useEffect(
+  //     fetch('/', {
+  //       method: 'POST',
+  //       headers: {
+  //         Autorization: TOKEN,
+  //         product_id: props.detail[0].id,
+  //         quantity: { count },
+  //       },
+  //       body: JSON.stringify(),
+  //     })
+  //       .then(res => {
+  //         if (res.ok === true) {
+  //           return res.json();
+  //         }
+  //         throw new Error('통신실패!');
+  //       })
+  //       .then(res => {
+  //         if (TOKEN) {
+  //           alert(props.detail[0].title + '상품이 담겼습니다~~');
+  //           goCart('/cart');
+  //         } else {
+  //           alert('로그인 먼저 해주세요!~!~!~!');
+  //           gologin('/login');
+  //         }
+  //       }),
+  //     []
+  //   )
+  //     }
+  // : null;
 
   const up = () => {
     setCount(count + 1);

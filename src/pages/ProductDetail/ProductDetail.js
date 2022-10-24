@@ -9,12 +9,12 @@ const ProductDetail = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://10.58.52.112:8000/product/${id}
+    fetch(`http://10.58.52.123:8000/product/${id}
       `)
       .then(res => res.json())
       .then(res => setDetail(res.detailPageData));
   }, []);
-  // console.log(detail);
+
   return (
     <div>
       <Nav />
