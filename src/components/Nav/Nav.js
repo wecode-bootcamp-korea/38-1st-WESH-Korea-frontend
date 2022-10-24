@@ -2,20 +2,33 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navcategory from './Navcategory';
 import './Nav.scss';
+import Search from './Search';
 
 const Nav = () => {
   const [data, setData] = useState([]);
   const [tab, setTab] = useState('nav-menu-list-hover');
+  const [searchTab, setSearchTab] = useState('none');
+
   useEffect(() => {
     fetch('/data/data.json')
       .then(res => res.json())
       .then(res => setData(res));
   }, []);
+
   const hover = e => {
     setTab('nav-menu-list');
   };
+
   const leave = e => {
     setTab('nav-menu-list-hover');
+  };
+
+  const search = e => {
+    setSearchTab('search');
+  };
+
+  const leaveSearch = e => {
+    setSearchTab('none');
   };
 
   return (
@@ -41,7 +54,9 @@ const Nav = () => {
               <li className="li">이벤트</li>
             </ul>
             <div className="nav-right">
-              <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/search.svg" />
+              <div className="nav-img-search" onClick={search}>
+                <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/search.svg" />
+              </div>
               <Link to="/cart">
                 <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/bag.svg" />
               </Link>
@@ -49,6 +64,9 @@ const Nav = () => {
                 <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/account.svg" />
               </Link>
             </div>
+          </div>
+          <div className={searchTab} onMouseLeave={leaveSearch}>
+            <Search searchTab={searchTab} />
           </div>
           <div className={tab} onMouseEnter={hover} onMouseLeave={leave}>
             <div className="nav-menu">

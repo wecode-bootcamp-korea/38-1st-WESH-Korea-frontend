@@ -9,9 +9,8 @@ const ProductTab = props => {
   const [price, setPrice] = useState(0);
   const [heart, setHeart] = useState('🖤');
   const [currentTab, setCurrentTab] = useState('info');
-  // const { id } = useParams();
-  // const goCart = useNavigate();
-  // const gologin = useNavigate();
+  const { id } = useParams();
+  const navigate = useNavigate();
 
   const mappingObje = {
     info: <ProductInfo info={props.detail[0]} />,
@@ -19,34 +18,29 @@ const ProductTab = props => {
       <ProductReview review={props.detail.slice(1, props.detail.length)} />
     ),
   };
-
+  const user = {
+    product_id: id,
+    quantity: count,
+  };
   const fetchSomething = () => {
-    fetch('/', {
+    fetch('http://10.58.52.56:8000/cart', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Autorization: TOKEN,
+        Authorization: localStorage.getItem('token'),
       },
-      body: JSON.stringify({ product_id: id, quantity: { count } }),
-    })
-      .then(res => {
-        if (res.ok === true) {
-          return res.json();
-        }
-        throw new Error('통신실패!');
-      })
-      .then();
+      body: JSON.stringify(user),
+    });
   };
 
-  const TOKEN = localStorage.getitem('token');
+  // const TOKEN = localStorage.getitem('token');
   const onClick = () => {
-    if (TOKEN) {
+    if (localStorage.getItem('token')) {
       fetchSomething();
       alert(props.detail[0].title + '상품이 담겼습니다~~');
-      goCart('/cart');
     } else {
       alert('로그인 먼저 해주세요!~!~!~!');
-      gologin('/login');
+      navigate('/SignIn');
     }
   };
 
@@ -103,10 +97,9 @@ const ProductTab = props => {
                     {heart}
                   </button>
                   <button className="bag">
-                    <Link to="/">✓</Link>
+                    <Link to="/cart">✓</Link>
                   </button>
                   <Link
-                    to="/"
                     className="buy"
                     onClick={onClick}
                     state={{ price: `${price}` }}
