@@ -16,21 +16,27 @@ const ProductList = () => {
   const [searchParams, setSearchPhams] = useSearchParams();
   const limit = searchParams.get('limit');
   const offset = searchParams.get('offset');
+  const [sort, setSort] = useState('high');
   const { categories } = useParams();
 
   useEffect(() => {
     fetch(
-      `http://10.58.52.93:3000/productlist/${categories}?offset=${offset}&limit=${limit}`
+      `http://10.58.52.125:3000/productlist/${categories}?sort=${sort}&offset=${offset}&limit=${limit}`
     )
       .then(res => res.json())
       .then(res => setProductData(res.data));
-  }, [offset, limit, categories]);
+  }, [offset, limit, categories, sort]);
 
   const goPage = pageNumber => {
     searchParams.set('limit', PAGELIMIT);
     searchParams.set('offset', (pageNumber - 1) * PAGELIMIT);
     setSearchPhams(searchParams);
   };
+
+  const goSort = e => {
+    setSort(e.target.value);
+  };
+  console.log(categories);
   return (
     <>
       <Nav />
@@ -42,46 +48,70 @@ const ProductList = () => {
               <div className="filter">
                 <div className="all">
                   <Link
-                    to={`/productlist/all?offset=0&limit=16`}
+                    to={`/productlist/all?sort=best&offset=0&limit=16`}
                     className="link"
                   >
                     전체상품
                   </Link>
                   <Link
-                    to={`/productlist/soap?offset=0&limit=16`}
+                    to={`/productlist/soap?sort=best&offset=0&limit=16`}
                     className="link"
                   >
                     비누
                   </Link>
                   <Link
-                    to={`/productlist/lotion?offset=0&limit=16`}
+                    to={`/productlist/lotion?sort=best&offset=0&limit=16`}
                     className="link"
                   >
                     로션
                   </Link>
                   <Link
-                    to={`/productlist/oil?offset=0&limit=16`}
+                    to={`/productlist/oil?sort=best&offset=0&limit=16`}
                     className="link"
                   >
                     오일
                   </Link>
                   <Link
-                    to={`/productlist/perfume?offset=0&limit=16`}
+                    to={`/productlist/perfume?sort=best&offset=0&limit=16`}
                     className="link"
                   >
                     향수
                   </Link>
                 </div>
               </div>
-              <select className="order">
-                <option className="order-best">인기순</option>
-                <option className="order-low">낮은 가격순</option>
-                <option className="order-high">높은 가격순</option>
-                <option className="order-review">리뷰 많은순</option>
+              <select className="order" onChange={goSort}>
+                <option className="order-best">
+                  <Link
+                    to={`/productlist/${categories}?sort=best&offset=0&limit=16`}
+                  >
+                    best
+                  </Link>
+                </option>
+                <option className="order-low">
+                  <Link
+                    to={`/productlist/${categories}?sort=low&offset=0&limit=16`}
+                  >
+                    low
+                  </Link>
+                </option>
+                <option className="order-high">
+                  <Link
+                    to={`/productlist/${categories}?sort=high&offset=0&limit=16`}
+                  >
+                    high
+                  </Link>
+                </option>
+                <option className="order-review">
+                  <Link
+                    to={`/productlist/${categories}?sort=review&offset=0&limit=16`}
+                  >
+                    review
+                  </Link>
+                </option>
               </select>
             </div>
             <div className="page-box">
-              {productData.slice(1, 16).map(list => (
+              {productData.slice(0, 16).map(list => (
                 <Product
                   key={list.id}
                   id={list.id}
