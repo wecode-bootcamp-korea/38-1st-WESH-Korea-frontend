@@ -36,7 +36,7 @@ const ProductList = () => {
   const goSort = e => {
     setSort(e.target.value);
   };
-  console.log(categories);
+
   return (
     <>
       <Nav />
