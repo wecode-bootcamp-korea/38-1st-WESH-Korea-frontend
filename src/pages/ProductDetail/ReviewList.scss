@@ -50,8 +50,13 @@
     border-right: 1px dashed gray;
   }
 
+  .review-message-box {
+    display: flex;
+    width: 450px;
+  }
   .review-message {
-    width: 500px;
+    width: 100%;
     font-size: 20px;
+    margin-left: 20px;
   }
 }
