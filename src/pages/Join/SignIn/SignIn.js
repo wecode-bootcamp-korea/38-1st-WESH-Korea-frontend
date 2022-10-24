@@ -66,9 +66,9 @@ const SignIn = () => {
           <button className="login-button">로그인</button>
         </form>
         <div className="etc">
-          <a className="etc-tag" onClick={() => navigate('/signup')}>
+          <link className="etc-tag" onClick={() => navigate('/signup')}>
             회원가입
-          </a>
+          </link>
           <a className="etc-tag" href="https://www.wecode.co.kr">
             위코드
           </a>
