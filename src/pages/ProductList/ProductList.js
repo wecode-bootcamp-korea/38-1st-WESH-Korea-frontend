@@ -15,22 +15,29 @@ const ProductList = () => {
   const [searchParams, setSearchPhams] = useSearchParams();
   const limit = searchParams.get('limit');
   const offset = searchParams.get('offset');
+  const [sort, setSort] = useState('best');
   const params = useParams();
   const categoryData = params.categories;
 
   useEffect(() => {
     fetch(
-      `http://10.58.52.93:3000/productlist/${categoryData}?offset=${offset}&limit=${limit}`
+      `http://10.58.52.125:3000/productlist/lotion?sort=${sort}&offset=${offset}&limit=${limit}`
+      // `http://10.58.52.93:3000/productlist/${categoryData}?offset=${offset}&limit=${limit}`
     )
       .then(res => res.json())
       .then(res => setData(res.data));
-  }, [offset, limit, categoryData]);
+  }, [offset, limit, categoryData, sort]);
 
   const goPage = pageNumber => {
     searchParams.set('limit', 16);
     searchParams.set('offset', (pageNumber - 1) * 16);
     setSearchPhams(searchParams);
   };
+
+  const goSort = e => {
+    setSort(e.target.value);
+  };
+  console.log(sort);
   return (
     <>
       <Nav />
@@ -42,42 +49,56 @@ const ProductList = () => {
               <div className="filter">
                 <div className="all">
                   <Link
-                    to={`/productlist/all?offset=0&limit=16`}
+                    to={`/productlist/all?sort=best&offset=0&limit=16`}
                     className="link"
                   >
                     전체상품
                   </Link>
                   <Link
-                    to={`/productlist/soap?offset=0&limit=16`}
+                    to={`/productlist/soap?sort=best&offset=0&limit=16`}
                     className="link"
                   >
                     비누
                   </Link>
                   <Link
-                    to={`/productlist/lotion?offset=0&limit=16`}
+                    to={`/productlist/lotion?sort=best&offset=0&limit=16`}
                     className="link"
                   >
                     로션
                   </Link>
                   <Link
-                    to={`/productlist/oil?offset=0&limit=16`}
+                    to={`/productlist/oil?sort=best&offset=0&limit=16`}
                     className="link"
                   >
                     오일
                   </Link>
                   <Link
-                    to={`/productlist/perfume?offset=0&limit=16`}
+                    to={`/productlist/perfume?sort=best&offset=0&limit=16`}
                     className="link"
                   >
                     향수
                   </Link>
                 </div>
               </div>
-              <select class="order">
-                <option className="order-best">인기순</option>
-                <option className="order-low">낮은 가격순</option>
-                <option className="order-high">높은 가격순</option>
-                <option className="order-review">리뷰 많은순</option>
+              <select class="order" onChange={goSort}>
+                <option className="order-best">
+                  <Link to={`/productlist/${categoryData}?sort=best`}>
+                    best
+                  </Link>
+                </option>
+                <option className="order-low">
+                  <Link to={`/productlist/${categoryData}?sort=low`}>low</Link>
+                </option>
+                <option className="order-high">
+                  <Link to={`/productlist/${categoryData}?sort=high`}>
+                    high
+                  </Link>
+                </option>
+                <option className="order-review">
+                  <Link to={`/productlist/${categoryData}?sort=review`}>
+                    review
+                  </Link>
+                </option>
               </select>
             </div>
             <div className="page-box">
