@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 
 const Mainpage = () => {
   const [eventData, setEventData] = useState([]);
-  const [best, setBest] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const timeoutRef = useRef(null);
   const DELAY_TIME = 5000;
@@ -18,12 +17,13 @@ const Mainpage = () => {
       .then(res => res.json())
       .then(res => setEventData(res.data));
   }, []);
+
   function resetTimeout() {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
   }
-  console.log(eventData.bestProducts);
+
   useEffect(() => {
     resetTimeout();
     timeoutRef.current = setTimeout(
@@ -40,18 +40,6 @@ const Mainpage = () => {
       resetTimeout();
     };
   }, [currentIndex]);
-
-  // useEffect(() => {
-  //   fetch('/data/mainpage/main.json')
-  //     .then(res => res.json())
-  //     .then(res => setEventData(res));
-  // }, []);
-
-  // useEffect(() => {
-  //   fetch('/data/mainpage/best.json')
-  //     .then(res => res.json())
-  //     .then(res => setBest(res));
-  // }, []);
 
   const scrollRef = useRef(null);
   const [isDrag, setIsDrag] = useState(false);
