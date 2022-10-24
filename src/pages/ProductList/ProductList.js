@@ -12,30 +12,29 @@ import Nav from '../../components/Nav/Nav';
 import './ProductList.scss';
 
 const ProductList = () => {
-  const [data, setData] = useState([]);
+  const [productData, setProductData] = useState([]);
   const [searchParams, setSearchPhams] = useSearchParams();
   const limit = searchParams.get('limit');
   const offset = searchParams.get('offset');
-  const params = useParams();
-  const categoryData = params.categories;
+  const { categories } = useParams();
 
   useEffect(() => {
     fetch(
-      `http://10.58.52.93:3000/productlist/${categoryData}?offset=${offset}&limit=${limit}`
+      `http://10.58.52.93:3000/productlist/${categories}?offset=${offset}&limit=${limit}`
     )
       .then(res => res.json())
-      .then(res => setData(res.data));
-  }, [offset, limit, categoryData]);
+      .then(res => setProductData(res.data));
+  }, [offset, limit, categories]);
 
   const goPage = pageNumber => {
-    searchParams.set('limit', 16);
-    searchParams.set('offset', (pageNumber - 1) * 16);
+    searchParams.set('limit', PAGELIMIT);
+    searchParams.set('offset', (pageNumber - 1) * PAGELIMIT);
     setSearchPhams(searchParams);
   };
   return (
     <>
       <Nav />
-      {data && (
+      {productData && (
         <div className="product-list">
           <Banner />
           <div className="list-page">
@@ -74,7 +73,7 @@ const ProductList = () => {
                   </Link>
                 </div>
               </div>
-              <select class="order">
+              <select className="order">
                 <option className="order-best">인기순</option>
                 <option className="order-low">낮은 가격순</option>
                 <option className="order-high">높은 가격순</option>
@@ -82,15 +81,15 @@ const ProductList = () => {
               </select>
             </div>
             <div className="page-box">
-              {data.slice(1, 16).map(e => (
+              {productData.slice(1, 16).map(list => (
                 <Product
-                  key={e.id}
-                  id={e.id}
-                  title={e.title}
-                  img={e.img}
-                  price={e.price}
-                  tag={e.tag}
-                  category={e.category}
+                  key={list.id}
+                  id={list.id}
+                  title={list.title}
+                  img={list.img}
+                  price={list.price}
+                  tag={list.tag}
+                  category={list.category}
                 />
               ))}
             </div>
@@ -123,3 +122,5 @@ const ProductList = () => {
 };
 
 export default ProductList;
+
+const PAGELIMIT = 16;

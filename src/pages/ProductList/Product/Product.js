@@ -10,7 +10,7 @@ const Product = ({ id, title, price, img, tag }) => {
       <div className="list-box">
         <div className="list-item-box">
           <Link to={`/productdetail/${id}`}>
-            <img src={img} className="img" />
+            <img src={img} className="img" alt="product img" />
           </Link>
           <div className="tag">
             {tag.includes('NEW') ? <Tag tagnew={tag[0]} /> : null}
