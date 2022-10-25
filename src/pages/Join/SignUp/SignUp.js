@@ -23,6 +23,7 @@ const SignUp = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(info),
     });
+    navigate('/');
   };
 
   const onSubmit = e => {
