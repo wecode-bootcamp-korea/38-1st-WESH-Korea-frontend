@@ -1,9 +1,8 @@
-.footer-wrap {
+.footerWrap {
   position: relative;
   width: 100%;
   height: 500px;
   color: white;
-
   .top-footer {
     background-color: gray;
     height: 100px;
@@ -13,8 +12,7 @@
     justify-content: center;
     align-items: center;
   }
-
-  .footer-inner {
+  .footerInner {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -22,22 +20,20 @@
     height: 80%;
     background-color: black;
 
-    .footer-main-wrap {
+    .footerMainWrap {
       display: flex;
-      justify-content: center;
-      align-items: center;
       width: 100%;
       margin-top: 60px;
       background-color: black;
       padding-bottom: 30px;
 
-      .footer-left-side {
+      .footerLeftSide {
         display: flex;
         flex-direction: column;
-        width: 350px;
+        width: 25%;
         margin: 0 auto;
 
-        .input-tab {
+        .inputTab {
           width: 350px;
           height: 30px;
           margin-bottom: 40px;
@@ -45,31 +41,31 @@
           color: gray;
         }
 
-        .footer-sub-infor {
+        .footerSubInfor {
           width: 450px;
           margin-bottom: 60px;
           font-size: 13px;
           line-height: 20px;
         }
 
-        .footer-call-info {
+        .footerCallInfo {
           display: flex;
           flex-direction: row;
           margin-bottom: 10px;
           padding-bottom: 20px;
           line-height: 20px;
 
-          .footer-call-sub {
+          .footerCallSub {
             display: flex;
             flex-direction: column;
             width: 70%;
           }
 
-          .email-under {
+          .emailUnder {
             margin-bottom: 20px;
           }
 
-          .footer-copor-info {
+          .footerCoporInfo {
             display: flex;
             flex-direction: column;
             width: 30%;
@@ -77,25 +73,25 @@
           }
         }
 
-        .footer-snsLink {
+        .footerSnsLink {
           display: flex;
           align-items: flex-start;
           background-color: black;
 
-          .twiter-img {
+          .TwiterImg {
             width: 40px;
             height: 40px;
           }
         }
       }
 
-      .footer-right-side {
+      .footerRightSide {
         display: flex;
         flex-direction: column;
-        width: 350px;
+        width: 400px;
         margin: 0 auto;
 
-        .footer-notice {
+        .footerNotice {
           display: flex;
           flex-direction: column;
           line-height: 25px;
@@ -103,15 +99,14 @@
           font-size: 13px;
         }
 
-        .footer-menu-list {
+        .footerMenuList {
           display: flex;
           padding-bottom: 20px;
           font-weight: 400;
           flex-wrap: wrap;
           flex-direction: row;
 
-          .foot-menu-group1 {
-            flex-direction: row;
+          .footMenuGroup1 {
             width: 100%;
             display: flex;
             flex-wrap: nowrap;
@@ -119,17 +114,17 @@
             justify-content: space-between;
             align-items: center;
 
-            .footer-menu-person-info {
+            .footerMenuPersonInfo {
               margin-right: 7px;
               color: yellow;
             }
 
-            .footer-menu-FAQ {
+            .footerMenuFAQ {
               margin-right: 22px;
             }
           }
 
-          .foot-menu-group2 {
+          .footMenuGroup2 {
             width: 100%;
             display: flex;
             flex-wrap: nowrap;
@@ -137,29 +132,29 @@
             justify-content: space-between;
             align-items: center;
 
-            .footer-menu-video-info {
+            .footerMenuVideoInfo {
               width: 130px;
             }
           }
 
-          .foot-menu-group3 {
+          .footMenuGroup3 {
             width: 100%;
             display: flex;
             flex-wrap: nowrap;
             padding-bottom: 20px;
-            justify-content: flex-start;
+            justify-content: space-between;
             align-items: center;
 
-            .footer-use-policy {
-              margin-left: 90px;
+            .footerUsePolicy {
+              margin-right: 195px;
             }
           }
-          .footer-place-info {
+          .footerPlaceInfo {
             color: gray;
             font-size: 12px;
             line-height: 25px;
 
-            .foorter-copy-right {
+            .foorterCopyRight {
               margin-top: 20px;
             }
           }
