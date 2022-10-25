@@ -4,7 +4,7 @@ import ProductTab from './ProductTab';
 
 import Nav from '../../components/Nav/Nav';
 
-const ProductDetail = () => {
+const Product-detail = () => {
   const [detail, setDetail] = useState([]);
   const { id } = useParams();
 
@@ -23,4 +23,4 @@ const ProductDetail = () => {
   );
 };
 
-export default ProductDetail;
+export default Product-detail;
