@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import ProductInfo from './ProductInfo';
 import ProductReview from './ProductReview';
+import { API } from '../../config';
 import './ProductTab.scss';
 
 const ProductTab = ({ detail }) => {
@@ -21,7 +22,7 @@ const ProductTab = ({ detail }) => {
     quantity: count,
   };
   const fetchSomething = () => {
-    fetch('http://10.58.52.56:8000/cart', {
+    fetch(`${API.cart}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

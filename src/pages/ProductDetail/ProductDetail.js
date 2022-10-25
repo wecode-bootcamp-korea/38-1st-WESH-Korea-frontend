@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ProductTab from './ProductTab';
+import { API } from '../../config';
 
 import Nav from '../../components/Nav/Nav';
 
@@ -11,7 +12,7 @@ const Productdetail = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://10.58.52.87:8000/product/${id}
+    fetch(`${API.detail}/${id}
       `)
       .then(res => res.json())
       .then(res => {
