@@ -9,7 +9,7 @@ const Product = ({ id, title, price, img, tag }) => {
     <div className="product-list-box">
       <div className="list-box">
         <div className="list-item-box">
-          <Link to={`/productdetail/${id}`}>
+          <Link to={`/product-detail/${id}`}>
             <img src={img} className="img" alt="product img" />
           </Link>
           <div className="tag">

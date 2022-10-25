@@ -12,7 +12,7 @@ const ProductTab = () => {
   const [currentTab, setCurrentTab] = useState('info');
 
   useEffect(() => {
-    fetch(`/data/productdetail/detaildata.json
+    fetch(`/data/product-detail/detaildata.json
       `)
       .then(res => res.json())
       .then(res => setDetail(res));

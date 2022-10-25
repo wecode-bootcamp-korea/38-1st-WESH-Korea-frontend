@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Nav from '../../components/Nav/Nav';
 import ProductTab from './ProductTab';
 
-const ProductDetail = () => {
+const Product-detail = () => {
   //FIXME
   // const [data, setData] = useState([]);
   // useEffect(() => {
@@ -20,4 +20,4 @@ const ProductDetail = () => {
   );
 };
 
-export default ProductDetail;
+export default Product-detail;
