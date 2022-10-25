@@ -1,7 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-
-
+git;
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import MainPage from './pages/MainPage/MainPage';
 import Orderlist from './pages/Cart/Orderlist/Orderlist';

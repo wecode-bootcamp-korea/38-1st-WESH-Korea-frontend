@@ -3,17 +3,14 @@ import './Orderlist.scss';
 
 const Orderlist = ({
   orderproduct,
-  checkedCount,
   checkProduct,
   totalPrice,
   setTotalPrice,
   orderData,
 }) => {
-  const { product_name, product_quantity, product_price, product_img } =
-    orderproduct;
-  const [totalProductPrice, setTotalProductPrice] = useState(product_price);
+  const { product_name, product_price } = orderproduct;
+  const [totalProductPrice, setTotalProductPrice] = useState(0);
   const [quantityNum, setQuantityNum] = useState(0);
-  const [disabled, setDisabled] = useState(false);
 
   const [isChecked, setIsChecked] = useState(false);
 
@@ -21,20 +18,7 @@ const Orderlist = ({
     setIsChecked(e.target.checked);
   };
 
-  console.log(isChecked);
-
-  const sumTotalPrice = () => {};
-
   const plus = e => {
-    // if (isChecked === true) {
-    //   setTotalProductPrice(prev => parseInt(prev) + parseInt(product_price));
-    //   setTotalPrice(
-    //     totalPrice => parseInt(totalPrice) + parseInt(product_price)
-    //   )}else if(isChecked !== ture)
-    //   setQuantityNum(prev => prev + 1);
-    // } else if (isChecked === false) {
-
-    // }
     setTotalProductPrice(prev => parseInt(prev) + parseInt(product_price));
     setTotalPrice(totalPrice => parseInt(totalPrice) + parseInt(product_price));
     setQuantityNum(prev => prev + 1);
@@ -80,7 +64,7 @@ const Orderlist = ({
         <input
           className="order-quantity"
           type="text"
-          value={orderData + quantityNum}
+          value={orderData + quantityNum - 1}
         />
         <button type="button" className="order-button-right" onClick={plus}>
           +
@@ -95,9 +79,7 @@ const Orderlist = ({
 
       <div className="order-total">
         <div className="order-total-price">
-          <span className="total">
-            ￦ {totalProductPrice.slice(0, totalProductPrice.length - 4)}
-          </span>
+          <span className="total">￦ {totalProductPrice}</span>
         </div>
         <div className="order-button-select">
           <button className="select" type="button">

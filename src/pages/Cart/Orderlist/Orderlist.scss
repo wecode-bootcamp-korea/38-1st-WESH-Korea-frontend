@@ -3,8 +3,9 @@ img {
 }
 
 .order-list {
+  margin-top: 10px;
   display: flex;
-  justify-content: space-between;
+  width: 1100px;
 
   .order-product-info {
     display: flex;

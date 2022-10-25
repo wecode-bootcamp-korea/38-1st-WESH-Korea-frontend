@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Orderlist from '../Orderlist/Orderlist';
-import './Nomal.scss';
+import './Normal.scss';
 
 const Normal = ({ orderData }) => {
   const [checkedCount, setCheckedCount] = useState(0);
@@ -18,15 +18,6 @@ const Normal = ({ orderData }) => {
 
   const DELIVERY_FEE = 2500;
 
-  // const changeAllCheck = e => {
-  //   if (e.target.checked) {
-  //     setIsCheckAll(true);
-  //   } else {
-  //     setIsCheckAll(false);
-  //     setCheckedArr([]);
-  //   }
-  // };
-
   return (
     <div className="cart-page">
       <div className="wrap">
@@ -34,13 +25,6 @@ const Normal = ({ orderData }) => {
           <table className="table-head">
             <thead className="card-table-head">
               <tr className="order-table-head">
-                {/* <th>
-                  <input
-                    type="checkbox"
-                    onClick={e => changeAllCheck(e)}
-                    checked={isCheckAll}
-                  />
-                </th> */}
                 <th>제품 정보</th>
                 <th>수량</th>
                 <th>금액</th>
@@ -59,6 +43,8 @@ const Normal = ({ orderData }) => {
                         checkProduct={checkProduct}
                         setTotalPrice={setTotalPrice}
                         totalPrice={totalPrice}
+                        isCheckAll={isCheckAll}
+                        setisCheckAll={setIsCheckAll}
                         orderData={orderproduct.product_quantity}
                       />
                     );
