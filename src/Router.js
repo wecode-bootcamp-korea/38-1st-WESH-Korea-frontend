@@ -8,12 +8,12 @@ import MainPage from './pages/MainPage/MainPage';
 const Router = () => {
   return (
     <BrowserRouter>
-      <Nav />
+      {/* <Nav /> */}
       <Routes>
         <Route path="/product-list/:categories" element={<ProductList />} />
         <Route path="/product-detail/:id" element={<ProductDetail />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/signin" element={<SignIn />} />
+        {/* <Route path="/signin" element={<SignIn />} /> */}
         <Route path="/" element={<MainPage />} />
       </Routes>
     </BrowserRouter>
