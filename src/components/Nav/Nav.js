@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Search from './Search';
 import Navcategory from './Navcategory';
 
 import './Nav.scss';
@@ -7,16 +8,35 @@ import './Nav.scss';
 const Nav = () => {
   const [data, setData] = useState([]);
   const [tab, setTab] = useState('nav-menu-list-hover');
+  const [searchTab, setSearchTab] = useState('none');
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
+    setIsLoading(true);
     fetch('/data/data.json')
       .then(res => res.json())
-      .then(res => setData(res));
+      .then(res => {
+        setData(res);
+        setIsLoading(false);
+      });
   }, []);
+
+  if (isLoading) return;
+
   const hover = e => {
     setTab('nav-menu-list');
   };
+
   const leave = e => {
     setTab('nav-menu-list-hover');
+  };
+
+  const search = e => {
+    setSearchTab('search');
+  };
+
+  const leaveSearch = e => {
+    setSearchTab('none');
   };
 
   return (
@@ -42,7 +62,9 @@ const Nav = () => {
               <li className="li">이벤트</li>
             </ul>
             <div className="nav-right">
-              <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/search.svg" />
+              <div className="nav-img-search" onClick={search}>
+                <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/search.svg" />
+              </div>
               <Link to="/cart">
                 <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/bag.svg" />
               </Link>
@@ -51,46 +73,48 @@ const Nav = () => {
               </Link>
             </div>
           </div>
+          <div className={searchTab} onMouseLeave={leaveSearch}>
+            <Search searchTab={searchTab} />
+          </div>
           <div className={tab} onMouseEnter={hover} onMouseLeave={leave}>
             <div className="nav-menu">
               <Link
-                to={`/productlist/all?offset=0&limit=16`}
+                to={`/product-list/all?sort=best&offset=0&limit=16`}
                 className="li-list"
               >
                 전체상품
               </Link>
               <Link
-                to={`/productlist/soap?offset=0&limit=16`}
+                to={`/product-list/soap?sort=best&offset=0&limit=16`}
                 className="li-list"
               >
                 비누
               </Link>
               <Link
-                to={`/productlist/lotion?offset=0&limit=16`}
+                to={`/product-list/lotion?sort=best&offset=0&limit=16`}
                 className="li-list"
               >
                 로션
               </Link>
               <Link
-                to={`/productlist/oil?offset=0&limit=16`}
+                to={`/product-list/oil?sort=best&offset=0&limit=16`}
                 className="li-list"
               >
                 오일
               </Link>
               <Link
-                to={`/productlist/perfume?offset=0&limit=16`}
+                to={`/product-list/perfume?sort=best&offset=0&limit=16`}
                 className="li-list"
               >
                 향수
               </Link>
             </div>
             <div className="nav-mock">
-              {data &&
-                data.map(e => (
-                  <>
-                    <Navcategory category={e.category} />
-                  </>
-                ))}
+              {data.map(e => (
+                <>
+                  <Navcategory category={e.category} />
+                </>
+              ))}
             </div>
           </div>
         </div>
