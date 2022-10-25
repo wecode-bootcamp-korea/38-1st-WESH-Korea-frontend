@@ -18,11 +18,7 @@ const ProductDetail = () => {
   return (
     <div>
       <Nav />
-      {detail && (
-        <>
-          <ProductTab detail={detail} />
-        </>
-      )}
+      {detail && <ProductTab detail={detail} />}
     </div>
   );
 };
