@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+
 import SignUp from './pages/Join/SignUp/SignUp';
 import Productlist from './pages/ProductList/ProductList';
 import Productdetail from './pages/ProductDetail/ProductDetail';
@@ -14,6 +15,7 @@ const Router = () => {
         <Route path="/signup" element={<SignUp />} />
         {/* <Route path="/signin" element={<SignIn />} /> */}
         <Route path="/" element={<MainPage />} />
+
       </Routes>
     </BrowserRouter>
   );
