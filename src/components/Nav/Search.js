@@ -8,11 +8,14 @@ const Search = () => {
   const [search, setSearch] = useState([]);
   const [input, setInput] = useState('');
   const ref = useRef(null);
+
   useEffect(
     () =>
-      fetch('/data/mainpage/best.json')
+      fetch(
+        `http://10.58.52.125:3000/productlist/all?sort=best&offset=0&limit=57`
+      )
         .then(res => res.json())
-        .then(res => setSearch(res)),
+        .then(res => setSearch(res.data)),
     []
   );
 
@@ -30,7 +33,8 @@ const Search = () => {
   };
 
   const searchFilter = search.filter(
-    search => input !== '' && search.bestTitle.includes(input)
+    search =>
+      input !== '' && search.title.toUpperCase().includes(input.toUpperCase())
   );
 
   return (
@@ -52,13 +56,15 @@ const Search = () => {
                   <div className="search-list-box">
                     <div className="search-list-img">
                       <img
-                        src={search.bestImg}
+                        src={search.img}
                         alt="search-img"
                         className="search-img"
                       />
                     </div>
-                    <div className="search-list-title">{search.bestTitle}</div>
-                    <div className="search-list-price">{search.bestPrice}</div>
+                    <div className="search-list-title">{search.title}</div>
+                    <div className="search-list-price">
+                      {search.price.slice(0, search.price.length - 4)}원
+                    </div>
                   </div>
                 </Link>
               ))}

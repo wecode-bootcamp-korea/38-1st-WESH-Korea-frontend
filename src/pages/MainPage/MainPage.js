@@ -13,7 +13,7 @@ const Mainpage = () => {
   const DELAY_TIME = 5000;
 
   useEffect(() => {
-    fetch('http://10.58.52.123:8000?limit=10&offset=0')
+    fetch('http://10.58.52.87:8000?limit=10&offset=0')
       .then(res => res.json())
       .then(res => setEventData(res.data));
   }, []);
