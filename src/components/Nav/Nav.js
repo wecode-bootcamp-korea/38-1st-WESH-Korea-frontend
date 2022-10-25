@@ -63,13 +63,22 @@ const Nav = () => {
             </ul>
             <div className="nav-right">
               <div className="nav-img-search" onClick={search}>
-                <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/search.svg" />
+                <img
+                  src="https://www.lush.co.kr/content/renewal/pc/images/ico/search.svg"
+                  alt="search-tag"
+                />
               </div>
               <Link to="/cart">
-                <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/bag.svg" />
+                <img
+                  src="https://www.lush.co.kr/content/renewal/pc/images/ico/bag.svg"
+                  alt="bag"
+                />
               </Link>
               <Link to="/signin">
-                <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/account.svg" />
+                <img
+                  src="https://www.lush.co.kr/content/renewal/pc/images/ico/account.svg"
+                  alt="account"
+                />
               </Link>
             </div>
           </div>
@@ -79,31 +88,31 @@ const Nav = () => {
           <div className={tab} onMouseEnter={hover} onMouseLeave={leave}>
             <div className="nav-menu">
               <Link
-                to={`/product-list/all?sort=best&offset=0&limit=16`}
+                to="/product-list/all?sort=best&offset=0&limit=16"
                 className="li-list"
               >
                 전체상품
               </Link>
               <Link
-                to={`/product-list/soap?sort=best&offset=0&limit=16`}
+                to="/product-list/soap?sort=best&offset=0&limit=16"
                 className="li-list"
               >
                 비누
               </Link>
               <Link
-                to={`/product-list/lotion?sort=best&offset=0&limit=16`}
+                to="/product-list/lotion?sort=best&offset=0&limit=16"
                 className="li-list"
               >
                 로션
               </Link>
               <Link
-                to={`/product-list/oil?sort=best&offset=0&limit=16`}
+                to="/product-list/oil?sort=best&offset=0&limit=16"
                 className="li-list"
               >
                 오일
               </Link>
               <Link
-                to={`/product-list/perfume?sort=best&offset=0&limit=16`}
+                to="/product-list/perfume?sort=best&offset=0&limit=16"
                 className="li-list"
               >
                 향수
@@ -112,7 +121,7 @@ const Nav = () => {
             <div className="nav-mock">
               {data.map(e => (
                 <>
-                  <Navcategory category={e.category} />
+                  <Navcategory category={e.category} key={e.id} />
                 </>
               ))}
             </div>
