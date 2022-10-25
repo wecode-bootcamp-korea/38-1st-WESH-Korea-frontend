@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './SignIn.scss';
 
 const SignIn = () => {
@@ -66,9 +66,9 @@ const SignIn = () => {
           <button className="login-button">로그인</button>
         </form>
         <div className="etc">
-          <a className="etc-tag" onClick={() => navigate('/signup')}>
+          <Link to="/signup" className="etc-tag">
             회원가입
-          </a>
+          </Link>
           <a className="etc-tag" href="https://www.wecode.co.kr">
             위코드
           </a>
