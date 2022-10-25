@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import ProductInfo from './ProductInfo';
 import ProductReview from './ProductReview';
-
 import './ProductTab.scss';
 
 const ProductTab = ({ detail }) => {
@@ -10,10 +9,36 @@ const ProductTab = ({ detail }) => {
   const [price, setPrice] = useState(0);
   const [heart, setHeart] = useState('🖤');
   const [currentTab, setCurrentTab] = useState('info');
+  const { id } = useParams();
+  const navigate = useNavigate();
 
   const mappingObje = {
     info: <ProductInfo info={detail[0]} />,
     review: <ProductReview review={detail.slice(1, detail.length)} />,
+  };
+  const user = {
+    product_id: id,
+    quantity: count,
+  };
+  const fetchSomething = () => {
+    fetch('http://10.58.52.56:8000/cart', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: localStorage.getItem('token'),
+      },
+      body: JSON.stringify(user),
+    });
+  };
+
+  const onClick = () => {
+    if (localStorage.getItem('token')) {
+      fetchSomething();
+      alert(detail[0].title + '상품이 담겼습니다~~');
+    } else {
+      alert('로그인 먼저 해주세요!~!~!~!');
+      navigate('/SignIn');
+    }
   };
 
   const up = () => setCount(count + 1);
@@ -62,12 +87,11 @@ const ProductTab = ({ detail }) => {
                     {heart}
                   </button>
                   <button className="bag">
-                    <Link to="/">✓</Link>
+                    <Link to="/cart">✓</Link>
                   </button>
                   <Link
-                    to="/"
                     className="buy"
-                    onClick={buyClick}
+                    onClick={onClick}
                     state={{ price: `${price}` }}
                   >
                     바로구매
