@@ -123,7 +123,7 @@ const Mainpage = () => {
                       onClick={() => {
                         setCurrentIndex(idx);
                       }}
-                    ></div>
+                    />
                   ))}
                 </div>
               </div>
@@ -156,6 +156,7 @@ const Mainpage = () => {
                   >
                     {eventData.bestProducts.map(best => (
                       <Best
+                        key={best.key}
                         id={best.id}
                         img={best.img}
                         title={best.title}
