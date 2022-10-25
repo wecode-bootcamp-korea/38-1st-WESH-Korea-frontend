@@ -9,6 +9,7 @@ import Product from './Product/Product';
 import Banner from './Banner';
 import Nav from '../../components/Nav/Nav';
 import './ProductList.scss';
+import { API } from '../../config';
 
 const ProductList = () => {
   const [data, setData] = useState([]);
@@ -22,7 +23,7 @@ const ProductList = () => {
   useEffect(() => {
     setIsLoading(true);
     fetch(
-      `http://10.58.52.125:3000/productlist/${categories}?sort=${sort}&offset=${offset}&limit=${limit}`
+      `${API.list}${categories}?sort=${sort}&offset=${offset}&limit=${limit}`
     )
       .then(res => res.json())
       .then(res => {
