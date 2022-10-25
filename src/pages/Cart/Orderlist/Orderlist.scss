@@ -1,34 +1,55 @@
-// 이미지
+img {
+  width: 50px;
+}
+
 .order-list {
   display: flex;
   justify-content: space-between;
-  border: 1px solid #eee;
 
-  .product-info {
+  .order-product-info {
     display: flex;
-    .img-one {
-      width: 50px;
+    align-items: center;
+    width: 40%;
+  }
+
+  .order-quantity-btn {
+    display: flex;
+    justify-content: center;
+
+    button {
+      width: 30px;
+      height: 30px;
+      border: none;
     }
   }
 }
 
-.product_name {
-  margin-top: 20px;
-  font-size: 20px;
-}
-.quantity-btn {
-  display: flex;
-  height: 30px;
+.order-quantity-btn {
+  width: 20%;
   margin-top: 10px;
-  margin-left: 20px;
-
-  .quantity {
-    width: 50px;
-    text-align: center;
-  }
 }
-.product_price,
-.total_price {
-  margin-top: 20px;
-  font-size: 16px;
+.order-quantity {
+  width: 30px;
+  height: 30px;
+  border: none;
+  text-align: center;
+}
+
+.order-product-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+}
+
+.order-total {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 20%;
+}
+
+.order-button-select {
+  margin-left: 20px;
+  opacity: 0.5;
 }

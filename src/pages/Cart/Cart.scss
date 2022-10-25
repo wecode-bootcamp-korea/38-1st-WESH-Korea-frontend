@@ -36,7 +36,7 @@
   .card-table-head {
     .table-row {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       width: 100%;
       border-bottom: 1px solid #eee;
     }
@@ -222,3 +222,11 @@
 .button-bottom {
   margin-bottom: 20px;
 }
+
+// .order-table-row {
+//   width: 100%;
+// }
+
+// .order-table-data {
+//   width: 100%;
+// }

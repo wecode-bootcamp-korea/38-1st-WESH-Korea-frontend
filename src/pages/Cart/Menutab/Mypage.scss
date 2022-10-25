@@ -121,7 +121,7 @@
     text-align: center;
   }
 
-  > li:not(:nth-child(n + 6))::after {
+  > li:not(:nth-child(n + 5))::after {
     content: '>';
     position: absolute;
     top: 50%;

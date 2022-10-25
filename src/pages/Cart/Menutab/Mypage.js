@@ -48,7 +48,7 @@ const Mypage = ({ orderData }) => {
               <div className="user-info">
                 <p className="user-name">이름 :</p>
                 <p className="user-id">아이디 :</p>
-                <p className="user-address">주소 :</p>
+                <p className="user-address">포인트 :</p>
                 <p className="user-phone">핸드폰 번호 : </p>
               </div>
             </div>
@@ -63,10 +63,6 @@ const Mypage = ({ orderData }) => {
         </div>
         <div className="order-ing">
           <ul className="ship-flex">
-            <li>
-              <p>입금대기</p>
-              <span>0</span>
-            </li>
             <li>
               <p>결제완료</p>
               <span>0</span>
@@ -95,12 +91,7 @@ const Mypage = ({ orderData }) => {
                     <span>0</span>
                   </div>
                 </li>
-                <li className="delete-two">
-                  <div>
-                    <span>교환</span>
-                    <span>0</span>
-                  </div>
-                </li>
+
                 <li className="delete-three">
                   <div>
                     <span>반품</span>

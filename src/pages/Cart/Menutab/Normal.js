@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Orderlist from '../Orderlist/Orderlist';
+import './Nomal.scss';
+
 const Normal = ({ orderData }) => {
   const [checkedCount, setCheckedCount] = useState(0);
   const [isCheckAll, setIsCheckAll] = useState(false);
@@ -13,16 +15,17 @@ const Normal = ({ orderData }) => {
       ? setCheckedCount(count => count + 1)
       : setCheckedCount(count => count - 1);
   };
+
   const DELIVERY_FEE = 2500;
 
-  const changeAllCheck = e => {
-    if (e.target.checked) {
-      setIsCheckAll(true);
-    } else {
-      setIsCheckAll(false);
-      setCheckedArr([]);
-    }
-  };
+  // const changeAllCheck = e => {
+  //   if (e.target.checked) {
+  //     setIsCheckAll(true);
+  //   } else {
+  //     setIsCheckAll(false);
+  //     setCheckedArr([]);
+  //   }
+  // };
 
   return (
     <div className="cart-page">
@@ -30,23 +33,23 @@ const Normal = ({ orderData }) => {
         <div className="contents">
           <table className="table-head">
             <thead className="card-table-head">
-              <tr className="table-row">
-                <th>
+              <tr className="order-table-head">
+                {/* <th>
                   <input
                     type="checkbox"
                     onClick={e => changeAllCheck(e)}
                     checked={isCheckAll}
                   />
-                </th>
+                </th> */}
                 <th>제품 정보</th>
                 <th>수량</th>
                 <th>금액</th>
                 <th>합계금액</th>
               </tr>
             </thead>
-            <tbody className="card-table-body">
-              <tr className="table-row">
-                <td className="table-data">
+            <tbody className="order-card-table-body">
+              <tr className="order-table-row">
+                <td className="order-table-data">
                   {orderData.map(orderproduct => {
                     return (
                       <Orderlist
@@ -67,14 +70,7 @@ const Normal = ({ orderData }) => {
         </div>
       </div>
       <div className="bottom-wrapper">
-        <div className="button-select">
-          <button className="select" type="button">
-            선택 삭제
-          </button>
-          <button className="like" type="button">
-            선택 찜하기
-          </button>
-        </div>
+        <div className="button-select" />
         <div className="cart-price">
           <ul className="cart-price-list">
             <li className="cart-price-text">

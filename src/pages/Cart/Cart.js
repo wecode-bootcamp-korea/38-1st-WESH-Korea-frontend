@@ -6,17 +6,23 @@ import Nav from '../../components/Nav/Nav';
 
 const Cart = () => {
   const [orderData, setOrderData] = useState([]);
+  // useEffect(() => {
+  //   fetch('http://10.58.52.56:8000/cart', {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       Authorization: localStorage.getItem('token'),
+  //     },
+  //   })
+  //     .then(res => res.json())
+  //     .then(res => setOrderData(res));
+  // }, []);
   useEffect(() => {
-    fetch('http://10.58.52.172:8000/cart', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: localStorage.getItem('token'),
-      },
-    })
+    fetch('/data/cart.json')
       .then(res => res.json())
       .then(res => setOrderData(res.data));
   }, []);
+  // console.log(orderData);
   const [currentTab, setCurrentTab] = useState('normal');
   const cartList = {
     normal: <Normal orderData={orderData} />,
