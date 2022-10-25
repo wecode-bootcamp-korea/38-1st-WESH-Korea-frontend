@@ -13,7 +13,7 @@ const Search = () => {
   useEffect(() => {
     setIsLoading(true);
     fetch(
-      `http://10.58.52.125:3000/productlist/all?sort=best&offset=0&limit=57`
+      `http://10.58.52.125:3000/product-list/all?sort=best&offset=0&limit=57`
     )
       .then(res => res.json())
       .then(res => {
