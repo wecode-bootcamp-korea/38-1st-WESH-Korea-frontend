@@ -11,8 +11,8 @@ import Banner from './Banner';
 import Nav from '../../components/Nav/Nav';
 import './Product-list.scss';
 
-const Product-list = () => {
-  const [product-data, setProduct-data] = useState([]);
+const Productlist = () => {
+  const [productdata, setProductdata] = useState([]);
   const [searchParams, setSearchPhams] = useSearchParams();
   const limit = searchParams.get('limit');
   const offset = searchParams.get('offset');
@@ -24,7 +24,7 @@ const Product-list = () => {
       `http://10.58.52.125:3000/product-list/${categories}?sort=${sort}&offset=${offset}&limit=${limit}`
     )
       .then(res => res.json())
-      .then(res => setProduct-data(res.data));
+      .then(res => setProductdata(res.data));
   }, [offset, limit, categories, sort]);
 
   const goPage = pageNumber => {
@@ -40,7 +40,7 @@ const Product-list = () => {
   return (
     <>
       <Nav />
-      {product-data && (
+      {productdata && (
         <div className="product-list">
           <Banner />
           <div className="list-page">
@@ -111,17 +111,20 @@ const Product-list = () => {
               </select>
             </div>
             <div className="page-box">
-              {product-data.slice(0, 16).map(list => (
-                <Product
-                  key={list.id}
-                  id={list.id}
-                  title={list.title}
-                  img={list.img}
-                  price={list.price}
-                  tag={list.tag}
-                  category={list.category}
-                />
-              ))}
+              {product -
+                data
+                  .slice(0, 16)
+                  .map(list => (
+                    <Product
+                      key={list.id}
+                      id={list.id}
+                      title={list.title}
+                      img={list.img}
+                      price={list.price}
+                      tag={list.tag}
+                      category={list.category}
+                    />
+                  ))}
             </div>
             <div className="button-click">
               <button onClick={() => goPage(1)} className="btn">
@@ -151,6 +154,6 @@ const Product-list = () => {
   );
 };
 
-export default Product-list;
+export default Productlist;
 
 const PAGELIMIT = 16;

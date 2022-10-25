@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import SignUp from './pages/Join/SignUp/SignUp';
-import Product-list from './pages/Product-list/Product-list';
-import Product-detail from './pages/Product-detail/Product-detail';
+import Productlist from './pages/Product-list/Product-list';
+import Productdetail from './pages/Product-detail/Product-detail';
 import MainPage from './pages/MainPage/MainPage';
 
 const Router = () => {
