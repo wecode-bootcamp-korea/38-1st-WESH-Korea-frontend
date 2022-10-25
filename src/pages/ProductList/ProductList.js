@@ -23,7 +23,7 @@ const ProductList = () => {
   useEffect(() => {
     setIsLoading(true);
     fetch(
-      `${API.list}${categories}?sort=${sort}&offset=${offset}&limit=${limit}`
+      `${API.list}/${categories}?sort=${sort}&offset=${offset}&limit=${limit}`
     )
       .then(res => res.json())
       .then(res => {
