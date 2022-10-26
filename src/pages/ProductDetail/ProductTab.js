@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import ProductInfo from './ProductInfo';
 import ProductReview from './ProductReview';
 import { API } from '../../config';
+
 import './ProductTab.scss';
 
 const ProductTab = ({ detail }) => {
@@ -17,10 +18,12 @@ const ProductTab = ({ detail }) => {
     info: <ProductInfo info={detail[0]} />,
     review: <ProductReview review={detail.slice(1, detail.length)} />,
   };
+
   const user = {
     product_id: id,
     quantity: count,
   };
+
   const fetchSomething = () => {
     fetch(`${API.cart}`, {
       method: 'POST',
@@ -42,8 +45,9 @@ const ProductTab = ({ detail }) => {
     }
   };
 
-  const up = () => setCount(count + 1);
-  const down = () => count !== 1 && setCount(count - 1);
+  const up = () => setCount(count => count + 1);
+  const down = () => setCount(count => (count !== 1 ? count - 1 : 0));
+  //FIXME 백엔드 상의 후 수정
   const buyClick = () => setPrice(detail[0].price * count);
   const onHeart = () => (heart === '🖤' ? setHeart('❤️') : setHeart('🖤'));
 

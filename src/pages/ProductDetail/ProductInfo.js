@@ -8,6 +8,7 @@ const ProductInfo = ({ info }) => {
           <source
             type="video/mp4"
             src="https://static.videezy.com/system/resources/previews/000/013/493/original/Water_69_-_4K_res.mp4"
+            alt="video"
           />
         </video>
         <div className="video-detail-box">

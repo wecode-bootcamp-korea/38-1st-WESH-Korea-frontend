@@ -42,43 +42,52 @@ const Nav = () => {
               <li className="li">이벤트</li>
             </ul>
             <div className="nav-right">
-              <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/search.svg" />
+              <img
+                src="https://www.lush.co.kr/content/renewal/pc/images/ico/search.svg"
+                alt="search"
+              />
               <Link to="/cart">
-                <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/bag.svg" />
+                <img
+                  src="https://www.lush.co.kr/content/renewal/pc/images/ico/bag.svg"
+                  alt="cart"
+                />
               </Link>
               <Link to="/signin">
-                <img src="https://www.lush.co.kr/content/renewal/pc/images/ico/account.svg" />
+                <img
+                  src="https://www.lush.co.kr/content/renewal/pc/images/ico/account.svg"
+                  alt="signin"
+                />
               </Link>
             </div>
           </div>
           <div className={tab} onMouseEnter={hover} onMouseLeave={leave}>
             <div className="nav-menu">
               <Link
-                to={`/product-list/all?offset=0&limit=16`}
+                to="/product-list/all?offset=0&limit=16"
                 className="li-list"
               >
                 전체상품
               </Link>
               <Link
-                to={`/product-list/soap?offset=0&limit=16`}
+                to="/product-list/soap?offset=0&limit=16"
                 className="li-list"
               >
                 비누
               </Link>
               <Link
-                to={`/product-list/lotion?offset=0&limit=16`}
+                to="/product-list/lotion?offset=0&limit=16"
                 className="li-list"
               >
                 로션
               </Link>
               <Link
-                to={`/product-list/oil?offset=0&limit=16`}
+                to="/product-list/oil?offset=0&limit=16"
                 className="li-list"
               >
                 오일
               </Link>
               <Link
-                to={`/product-list/perfume?offset=0&limit=16`}
+                to="/product-list/perfume?offset=0&limit=16"
                 className="li-list"
               >
                 향수
