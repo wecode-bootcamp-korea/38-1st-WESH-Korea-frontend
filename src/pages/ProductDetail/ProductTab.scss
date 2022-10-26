@@ -15,6 +15,7 @@
 
       .top-img {
         width: 600px;
+        height: 600px;
         transition: all 0.3s linear;
         border-radius: 10px;
       }
@@ -62,6 +63,7 @@
                 font-size: 25px;
                 background-color: rgb(255, 255, 255);
                 border: 1px solid rgb(255, 255, 255);
+                cursor: pointer;
               }
 
               .mius {
@@ -70,6 +72,7 @@
                 font-size: 25px;
                 background-color: rgb(255, 255, 255);
                 border: 1px solid rgb(255, 255, 255);
+                cursor: pointer;
               }
             }
           }
@@ -84,7 +87,7 @@
 
         .banner-detail {
           text-align: center;
-          font-size: 25px;
+          font-size: 19px;
           width: 530px;
         }
 
@@ -130,7 +133,7 @@
             font-size: 20px;
             padding: 25px;
             width: 450px;
-            height: 60px;
+            height: 10px;
           }
         }
       }

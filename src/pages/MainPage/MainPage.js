@@ -1,20 +1,27 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Nav from '../../components/Nav/Nav';
+import Footer from '../../components/Footer/Footer';
 import Thumbnail from './ThumbNail';
 import Best from './Best';
 import './MainPage.scss';
+import { Link } from 'react-router-dom';
+import { API } from '../../config';
 
 const Mainpage = () => {
   const [eventData, setEventData] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const timeoutRef = useRef(null);
   const DELAY_TIME = 5000;
+  conast[(isLoading, setIsLoading)] = useState(true);
 
   useEffect(() => {
-    fetch('http://10.58.52.123:8000?limit=10&offset=0')
+    setIsLoading(true);
+    fetch(`${API.main}?limit=10&offset=0`)
       .then(res => res.json())
-      .then(res => setEventData(res.data));
+      .then(res => {
+        setEventData(res.data);
+        setIsLoading(false);
+      });
   }, []);
 
   function resetTimeout() {
@@ -42,12 +49,12 @@ const Mainpage = () => {
 
   const scrollRef = useRef(null);
   const [isDrag, setIsDrag] = useState(false);
-  const [imgToX, setImgToX] = useState(0);
+  const [startX, setStartX] = useState();
 
   const onDragStart = e => {
     e.preventDefault();
     setIsDrag(true);
-    setImgToX(e.pageX + scrollRef.current.scrollLeft);
+    setStartX(e.pageX + scrollRef.current.scrollLeft);
   };
 
   const onDragEnd = () => {
@@ -58,12 +65,12 @@ const Mainpage = () => {
     if (isDrag) {
       const { scrollWidth, clientWidth, scrollLeft } = scrollRef.current;
 
-      scrollRef.current.scrollLeft = imgToX - e.pageX;
+      scrollRef.current.scrollLeft = startX - e.pageX;
 
       if (scrollLeft === 0) {
-        setImgToX(e.pageX);
+        setStartX(e.pageX);
       } else if (scrollWidth <= clientWidth + scrollLeft) {
-        setImgToX(e.pageX + scrollLeft);
+        setStartX(e.pageX + scrollLeft);
       }
     }
   };
@@ -79,14 +86,14 @@ const Mainpage = () => {
       }
     };
   };
+  const delay = 100;
+  const onThrottleDragMove = throttle(onDragMove, delay);
 
-  const DELAY = 100;
-  const onThrottleDragMove = throttle(onDragMove, DELAY);
+  if (isLoading) return;
 
   return (
     <>
-      <Nav />
-      {eventData.eventImages && eventData.bestProducts && (
+      {eventData.bestProducts && (
         <div className="mainpage">
           <div className="main-center">
             <div className="main-center-top">
@@ -115,7 +122,7 @@ const Mainpage = () => {
                       onClick={() => {
                         setCurrentIndex(idx);
                       }}
-                    ></div>
+                    />
                   ))}
                 </div>
               </div>
@@ -136,7 +143,7 @@ const Mainpage = () => {
                 </div>
                 <div className="best-item-list-box">
                   <div className="best-best">
-                    <Link to="productlist/all?limit=16&offset=0">BEST →</Link>
+                    <Link to="product-list/all?limit=16&offset=0">BEST →</Link>
                   </div>
                   <div
                     className="best-item-list"
@@ -148,6 +155,7 @@ const Mainpage = () => {
                   >
                     {eventData.bestProducts.map(best => (
                       <Best
+                        key={best.key}
                         id={best.id}
                         img={best.img}
                         title={best.title}

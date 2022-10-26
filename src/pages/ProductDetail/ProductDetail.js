@@ -1,23 +1,37 @@
 import React, { useEffect, useState } from 'react';
-import Nav from '../../components/Nav/Nav';
+import { useParams } from 'react-router-dom';
 import ProductTab from './ProductTab';
+import { API } from '../../config';
 
-const ProductDetail = () => {
-  //FIXME
-  // const [data, setData] = useState([]);
-  // useEffect(() => {
-  //   fetch(`/data/jung/data.json
-  //   `)
-  //     .then(res => res.json())
-  //     .then(res => setData(res));
-  // }, []);
+import Nav from '../../components/Nav/Nav';
+
+const Productdetail = () => {
+  const [detail, setDetail] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const { id } = useParams();
+
+  useEffect(() => {
+    setIsLoading(true);
+    fetch(`${API.detail}/${id}
+      `)
+      .then(res => res.json())
+      .then(res => {
+        setDetail(res.detailPageData);
+        setIsLoading(false);
+      });
+  }, [id]);
+
+
+  if (isLoading) return;
+
+
 
   return (
     <div>
       <Nav />
-      <ProductTab />
+      <ProductTab detail={detail} />
     </div>
   );
 };
 
-export default ProductDetail;
+export default Productdetail;
