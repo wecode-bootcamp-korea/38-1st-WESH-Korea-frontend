@@ -56,7 +56,7 @@ const Search = () => {
             </div>
             <div className="search-item-box">
               {searchFilter.map(search => (
-                <Link to={`/productdetail/${search.id}`} className="link">
+                <Link to={`/product-detail/${search.id}`} className="link">
                   <div className="search-list-box">
                     <div className="search-list-img">
                       <img

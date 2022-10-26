@@ -18,7 +18,7 @@ const SignUp = () => {
   };
 
   const connect = () => {
-    fetch('http://10.58.52.111:8000/user/signup', {
+    fetch('http://10.58.52.123:8000/user/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(info),
