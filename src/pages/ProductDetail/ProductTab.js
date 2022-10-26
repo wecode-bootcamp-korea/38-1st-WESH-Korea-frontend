@@ -29,7 +29,8 @@ const ProductTab = ({ detail }) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: localStorage.getItem('token'),
+        Authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzUsImlhdCI6MTY2NjMzMDY3M30.lMZdbVKSXULfPkCk-U9zyCK8NBexQAH40q_W61AXUIo',
       },
       body: JSON.stringify(user),
     });

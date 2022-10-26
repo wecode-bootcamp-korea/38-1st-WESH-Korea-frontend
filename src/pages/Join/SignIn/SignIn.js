@@ -16,7 +16,7 @@ const SignIn = () => {
   };
 
   const connect = () => {
-    fetch(`${API.join}/user`, {
+    fetch(`${API.join}/signin`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ const SignIn = () => {
       })
       .then(data => {
         if (data.data) {
-          localStorage.setItem('token');
+          localStorage.setItem('token', data.data);
           navigate('/', { replace: true });
         } else {
           alert('아이디 혹은 비밀번호를 확인 해 주세요');
@@ -64,12 +64,10 @@ const SignIn = () => {
             type="password"
             onChange={handleInputValue}
           />
-          <button className="login-button" onClick={connect}>
-            로그인
-          </button>
+          <button className="login-button">로그인</button>
         </form>
         <div className="etc">
-          <Link to="/sign-up" className="etc-tag">
+          <Link to="/signup" className="etc-tag">
             회원가입
           </Link>
           <a className="etc-tag" href="https://www.wecode.co.kr">
@@ -80,8 +78,8 @@ const SignIn = () => {
           </a>
         </div>
         <div className="cannot">
-          <div className="never">네이버 아이디로 로그인</div>
-          <div className="gakao">카카오 아이디로 로그인</div>
+          <div className="never">네이버 아이디로 로그인(준비중)</div>
+          <div className="gakao">카카오 아이디로 로그인(준비중)</div>
         </div>
       </div>
     </div>
