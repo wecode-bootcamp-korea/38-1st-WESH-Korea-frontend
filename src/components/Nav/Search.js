@@ -1,6 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { API } from '../../config';
 
 import './Search.scss';
 
@@ -12,9 +13,7 @@ const Search = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(
-      `http://10.58.52.125:3000/product-list/all?sort=best&offset=0&limit=57`
-    )
+    fetch(`${API.list}/all?sort=best&offset=0&limit=57`)
       .then(res => res.json())
       .then(res => {
         setSearch(res.data);

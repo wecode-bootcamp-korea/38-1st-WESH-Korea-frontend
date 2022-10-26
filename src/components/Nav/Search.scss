@@ -1,0 +1,114 @@
+.none {
+  display: none;
+}
+
+.search {
+  display: flex;
+  position: fixed;
+  margin-top: 40px;
+  z-index: 999;
+  transform: translate(-200px);
+  transition: all 0.3s linear;
+
+  .search-box {
+    background-color: rgb(255, 255, 255);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 10px;
+
+    .input-box {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+
+      .input {
+        padding: 0 20px 0 20px;
+        font-size: 35px;
+        width: 800px;
+        height: 80px;
+        text-align: center;
+        border: none;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .search-tag-img {
+        font-size: 80px;
+      }
+    }
+
+    .search-item-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(255, 255, 255);
+
+      .link {
+        text-decoration: none;
+        color: black;
+
+        .search-list-box {
+          display: flex;
+          align-items: center;
+          width: 700px;
+          height: 100px;
+          border-bottom: 1px solid gray;
+
+          .search-list-img {
+            width: 110px;
+            margin-bottom: 5px;
+            height: 100px;
+
+            .search-img {
+              padding: 5px;
+              width: 90px;
+              height: 90px;
+            }
+          }
+
+          .search-list-title {
+            width: 170px;
+            text-align: center;
+            font-size: 20px;
+          }
+
+          .search-list-price {
+            width: 400px;
+            font-size: 20px;
+            margin-left: 300px;
+          }
+        }
+      }
+    }
+
+    .search-best-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .search-best {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 500px;
+        height: 100%;
+        margin-bottom: 30px;
+
+        .best-search-tag {
+          margin: 50px 10px 0 10px;
+          font-size: 25px;
+        }
+      }
+    }
+  }
+}
