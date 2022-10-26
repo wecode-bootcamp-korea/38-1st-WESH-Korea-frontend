@@ -12,7 +12,7 @@ const Mainpage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const timeoutRef = useRef(null);
   const DELAY_TIME = 5000;
-  conast[(isLoading, setIsLoading)] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);

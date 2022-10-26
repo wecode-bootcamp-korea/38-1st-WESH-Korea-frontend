@@ -14,7 +14,6 @@ const ProductTab = ({ detail }) => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-
   const mappingObje = {
     info: <ProductInfo info={detail[0]} />,
     review: <ProductReview review={detail.slice(1, detail.length)} />,

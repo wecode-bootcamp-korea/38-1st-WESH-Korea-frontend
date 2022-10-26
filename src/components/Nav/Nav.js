@@ -74,11 +74,10 @@ const Nav = () => {
                   alt="bag"
                 />
               </Link>
-              <Link to="/signin">
+              <Link to="/sign-in">
                 <img
                   src="https://www.lush.co.kr/content/renewal/pc/images/ico/account.svg"
                   alt="account"
-
                 />
               </Link>
             </div>
@@ -102,21 +101,18 @@ const Nav = () => {
               </Link>
               <Link
                 to="/product-list/lotion?sort=best&offset=0&limit=16"
-
                 className="li-list"
               >
                 로션
               </Link>
               <Link
                 to="/product-list/oil?sort=best&offset=0&limit=16"
-
                 className="li-list"
               >
                 오일
               </Link>
               <Link
                 to="/product-list/perfume?sort=best&offset=0&limit=16"
-
                 className="li-list"
               >
                 향수
@@ -124,9 +120,7 @@ const Nav = () => {
             </div>
             <div className="nav-mock">
               {data.map(e => (
-                <>
-                  <Navcategory category={e.category} key={e.id} />
-                </>
+                <Navcategory category={e.category} key={e.id} />
               ))}
             </div>
           </div>

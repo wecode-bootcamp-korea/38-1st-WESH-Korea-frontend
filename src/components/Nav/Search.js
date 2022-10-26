@@ -52,7 +52,7 @@ const Search = () => {
                 placeholder="하루 10분, 피부에 신선함 채우기"
                 onChange={inputValue}
                 ref={ref}
-              ></input>
+              />
             </div>
             <div className="search-item-box">
               {searchFilter.map(search => (

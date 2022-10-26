@@ -21,10 +21,7 @@ const Productdetail = () => {
       });
   }, [id]);
 
-
   if (isLoading) return;
-
-
 
   return (
     <div>
