@@ -58,7 +58,7 @@ const Orderlist = ({
           type="button"
           className="order-button-left"
           disabled={quantityNum === 0 ? true : false}
-          onClick={minus}
+          onClick={isChecked === true && minus}
         >
           -
         </button>
@@ -67,7 +67,11 @@ const Orderlist = ({
           type="text"
           value={orderData + quantityNum - 1}
         />
-        <button type="button" className="order-button-right" onClick={plus}>
+        <button
+          type="button"
+          className="order-button-right"
+          onClick={isChecked === true && plus}
+        >
           +
         </button>
       </div>
