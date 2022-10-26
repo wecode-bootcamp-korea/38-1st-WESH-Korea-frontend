@@ -16,7 +16,7 @@ const SignIn = () => {
   };
 
   const connect = () => {
-    fetch(`${API.join}/user/signin`, {
+    fetch(`${API.join}/user`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ const SignIn = () => {
       })
       .then(data => {
         if (data.data) {
-          localStorage.setItem('token', data.data);
+          localStorage.setItem('token');
           navigate('/', { replace: true });
         } else {
           alert('아이디 혹은 비밀번호를 확인 해 주세요');
@@ -64,7 +64,9 @@ const SignIn = () => {
             type="password"
             onChange={handleInputValue}
           />
-          <button className="login-button">로그인</button>
+          <button className="login-button" onClick={connect}>
+            로그인
+          </button>
         </form>
         <div className="etc">
           <Link to="/sign-up" className="etc-tag">

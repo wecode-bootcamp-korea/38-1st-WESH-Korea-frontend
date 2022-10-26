@@ -16,7 +16,7 @@ const Mainpage = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`${API.main}?limit=10&offset=0`)
+    fetch(`${API.main}/products-events?limit=10&offset=0`)
       .then(res => res.json())
       .then(res => {
         setEventData(res.data);

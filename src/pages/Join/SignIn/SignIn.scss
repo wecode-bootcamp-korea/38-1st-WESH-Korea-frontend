@@ -1,10 +1,9 @@
 .signIn {
   display: flex;
   justify-content: center;
-  margin: 130px 0 120px;
 
   .contents {
-    margin: 60px 0px 50px 0px;
+    margin: 170px 0 100px;
     display: flex;
     flex-direction: column;
 
@@ -22,11 +21,9 @@
     }
 
     .login-input {
-      text-align: left;
       width: 328px;
       height: 48px;
       outline: none;
-      font-size: 15px;
       border: 1px solid rgb(182, 182, 182);
 
       &::placeholder {
@@ -74,7 +71,6 @@
         height: 64px;
         display: flex;
         align-items: center;
-        opacity: 50%;
         margin-top: 10px;
         display: flex;
         align-items: center;
@@ -82,7 +78,7 @@
       }
 
       .gakao {
-        background-color: #fee501;
+        background-color: #fed801;
         color: white;
         width: 328px;
         height: 64px;

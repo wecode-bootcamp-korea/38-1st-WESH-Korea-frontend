@@ -59,6 +59,17 @@ const ProductInfo = ({ info }) => {
               src="https://images.unsplash.com/photo-1505528638251-3ef301e4988e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
             />
           </div>
+          <div className="info-bottom-usage-box">
+            <img
+              alt="info-usage-img"
+              className="info-usage-img"
+              src="https://images.unsplash.com/photo-1505528638251-3ef301e4988e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+            />
+            <div className="usage-box">
+              <div className="usage-comment">{info.title}</div>
+              <div className="usage">{info.detail}</div>
+            </div>
+          </div>
 
           <div className="info-footer-box">
             <img

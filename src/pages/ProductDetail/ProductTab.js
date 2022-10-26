@@ -24,7 +24,7 @@ const ProductTab = ({ detail }) => {
     quantity: count,
   };
 
-  const fetchSomething = () => {
+  const fetchSomething = async () => {
     fetch(`${API.cart}`, {
       method: 'POST',
       headers: {
@@ -35,13 +35,14 @@ const ProductTab = ({ detail }) => {
     });
   };
 
-  const onClick = () => {
+  const onClick = async () => {
     if (localStorage.getItem('token')) {
-      fetchSomething();
+      await fetchSomething();
       alert(detail[0].title + '상품이 담겼습니다~~');
+      navigate('/cart');
     } else {
       alert('로그인 먼저 해주세요!~!~!~!');
-      navigate('/SignIn');
+      navigate('/Sign-in');
     }
   };
 
