@@ -9,7 +9,8 @@ const Orderlist = ({
   orderData,
   deleteClick,
 }) => {
-  const { product_name, product_price } = orderproduct;
+  const { product_name, product_price, product_img, product_quantity } =
+    orderproduct;
   const [totalProductPrice, setTotalProductPrice] = useState(0);
   const [quantityNum, setQuantityNum] = useState(0);
 
@@ -21,7 +22,15 @@ const Orderlist = ({
 
   const plus = e => {
     setTotalProductPrice(prev => parseInt(prev) + parseInt(product_price));
-    setTotalPrice(totalPrice => parseInt(totalPrice) + parseInt(product_price));
+    setTotalPrice(
+      totalPrice =>
+        parseInt(totalProductPrice * product_quantity) +
+        parseInt(
+          totalProductPrice +
+            (orderData + quantityNum) *
+              product_price.slice(0, product_price.length - 4)
+        )
+    );
     setQuantityNum(prev => prev + 1);
   };
 
@@ -32,6 +41,7 @@ const Orderlist = ({
     }
     setQuantityNum(prev => prev - 1);
   };
+  console.log();
 
   return (
     <div className="order-list">
@@ -45,10 +55,7 @@ const Orderlist = ({
       />
       <div className="order-product-info">
         <div className="product-img">
-          <img
-            src="https://cdn.pixabay.com/photo/2019/11/23/08/09/sunscreen-4646527_1280.png"
-            className="img-one"
-          />
+          <img src={orderproduct.product_img} className="img-one" />
         </div>
 
         <span className="product_name">{product_name}</span>
@@ -84,7 +91,11 @@ const Orderlist = ({
 
       <div className="order-total">
         <div className="order-total-price">
-          <span className="total">￦ {totalProductPrice}</span>
+          <span className="total">
+            ￦{' '}
+            {(orderData + quantityNum - 1) *
+              product_price.slice(0, product_price.length - 4)}
+          </span>
         </div>
         <div className="order-button-select">
           <button className="select" type="button" onClick={deleteClick}>
