@@ -6,17 +6,46 @@ import Nav from '../../components/Nav/Nav';
 
 const Cart = () => {
   const [orderData, setOrderData] = useState([]);
-  // useEffect(() => {
-  //   fetch('http://10.58.52.56:8000/cart', {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       Authorization: localStorage.getItem('token'),
-  //     },
-  //   })
-  //     .then(res => res.json())
-  //     .then(res => setOrderData(res));
-  // }, []);
+  useEffect(() => {
+    fetch('http://10.58.52.56:8000/cart', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: localStorage.getItem('token'),
+      },
+    })
+      .then(res => res.json())
+      .then(res => setOrderData(res));
+  }, []);
+
+  const deleteClick = () => {
+    fetch('http://10.58.52.56:8000/cart', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: localStorage.getItem('token'),
+      },
+    })
+      .then(res => res.json())
+      .then(res => setOrderData(res));
+  };
+  const order = () => {
+    fetch('http://10.58.52.56:8000/cart', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: localStorage.getItem('token'),
+      },
+    })
+      .then(res => res.json())
+      .then(res => setOrderData(res));
+  };
+
+  //
+  //
+  //
+  //
+  //
   useEffect(() => {
     fetch('/data/cart.json')
       .then(res => res.json())
@@ -25,7 +54,9 @@ const Cart = () => {
   // console.log(orderData);
   const [currentTab, setCurrentTab] = useState('normal');
   const cartList = {
-    normal: <Normal orderData={orderData} />,
+    normal: (
+      <Normal orderData={orderData} deleteClick={deleteClick} order={order} />
+    ),
     page: <Mypage orderData={orderData} />,
   };
   return (

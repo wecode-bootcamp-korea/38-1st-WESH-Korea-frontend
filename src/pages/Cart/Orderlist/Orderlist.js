@@ -7,6 +7,7 @@ const Orderlist = ({
   totalPrice,
   setTotalPrice,
   orderData,
+  deleteClick,
 }) => {
   const { product_name, product_price } = orderproduct;
   const [totalProductPrice, setTotalProductPrice] = useState(0);
@@ -82,7 +83,7 @@ const Orderlist = ({
           <span className="total">￦ {totalProductPrice}</span>
         </div>
         <div className="order-button-select">
-          <button className="select" type="button">
+          <button className="select" type="button" onClick={deleteClick}>
             선택 삭제
           </button>
         </div>

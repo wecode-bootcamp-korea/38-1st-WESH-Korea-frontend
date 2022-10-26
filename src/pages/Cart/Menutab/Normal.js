@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Orderlist from '../Orderlist/Orderlist';
 import './Normal.scss';
 
-const Normal = ({ orderData }) => {
+const Normal = ({ orderData, deleteClick, order }) => {
   const [checkedCount, setCheckedCount] = useState(0);
   const [isCheckAll, setIsCheckAll] = useState(false);
   const [checkedArr, setCheckedArr] = useState([]);
@@ -46,6 +46,7 @@ const Normal = ({ orderData }) => {
                         isCheckAll={isCheckAll}
                         setisCheckAll={setIsCheckAll}
                         orderData={orderproduct.product_quantity}
+                        deleteClick={deleteClick}
                       />
                     );
                   })}
@@ -96,7 +97,7 @@ const Normal = ({ orderData }) => {
           <button className="white-button" type="button">
             쇼핑 계속하기
           </button>
-          <button className="black-button" type="button">
+          <button className="black-button" type="button" onClick={order}>
             주문하기
           </button>
         </div>
