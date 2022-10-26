@@ -136,7 +136,7 @@ const Mainpage = () => {
                 </div>
                 <div className="best-item-list-box">
                   <div className="best-best">
-                    <Link to="productlist/all?limit=16&offset=0">BEST →</Link>
+                    <Link to="product-list/all?limit=16&offset=0">BEST →</Link>
                   </div>
                   <div
                     className="best-item-list"
