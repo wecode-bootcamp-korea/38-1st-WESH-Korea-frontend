@@ -6,7 +6,7 @@ import './Best.scss';
 const Best = ({ id, img, title, price, best }) => {
   return (
     <div className="best">
-      <Link to={`/productdetail/${id}`}>
+      <Link to={`/product-detail/${id}`}>
         <img className="best-item-img" src={img} alt={best} />
       </Link>
       <div className="best-title">{title}</div>

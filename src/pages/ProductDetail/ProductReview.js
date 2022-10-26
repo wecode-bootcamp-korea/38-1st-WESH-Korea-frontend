@@ -6,7 +6,7 @@ const ProductReview = () => {
   const [reviewData, setReviewData] = useState([]);
 
   useEffect(() => {
-    fetch('./data/productdetail/detaildata.json')
+    fetch('./data/product-detail/detaildata.json')
       .then(res => res.json())
       .then(res => setReviewData(res));
   }, []);

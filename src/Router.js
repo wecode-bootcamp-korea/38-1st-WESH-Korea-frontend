@@ -1,8 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-import SignUp from './pages/Join/SignUp/SignUp';
-import ProductList from './pages/ProductList/ProductList';
-import ProductDetail from './pages/ProductDetail/ProductDetail';
+import Productlist from './pages/ProductList/ProductList';
+import Productdetail from './pages/ProductDetail/ProductDetail';
 import MainPage from './pages/MainPage/MainPage';
 import Cart from './pages/Cart/Cart';
 import SignIn from './pages/Join/SignIn/SignIn';
@@ -13,7 +11,7 @@ import Footer from './components/Footer/Footer';
 const Router = () => {
   return (
     <BrowserRouter>
-      <Nav />
+    <Nav />
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/product-list/:categories" element={<ProductList />} />

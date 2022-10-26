@@ -4,7 +4,7 @@ import './ReviewList.scss';
 const ReviewList = () => {
   const [review, setReview] = useState([]);
   useEffect(() => {
-    fetch(`/data/productdetail/data.json
+    fetch(`/data/product-detail/data.json
       `)
       .then(res => res.json())
       .then(res => setReview(res));
