@@ -38,12 +38,10 @@ const Footer = () => {
                   className="TwiterImg"
                   link="https://twitter.com/?lang=ko"
                   src="https://www.lush.co.kr/content/renewal/mobile/images/ico/ico_twitter.png"
-                ></img>
+                />
               </li>
               {FOOTER_SNS_IMG.map(logo => {
-                return (
-                  <img src={logo.image} key={logo.id} alt={'logo-image'} />
-                );
+                return <img src={logo.image} key={logo.id} alt="logo-image" />;
               })}
             </ul>
           </div>
