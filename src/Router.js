@@ -8,9 +8,11 @@ import SignUp from './pages/Join/SignUp/SignUp';
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
 
+
 const Router = () => {
   return (
     <BrowserRouter>
+
     <Nav />
       <Routes>
         <Route path="/" element={<MainPage />} />
@@ -19,6 +21,7 @@ const Router = () => {
         <Route path="/Sign-in" element={<SignIn />} />
         <Route path="/Sign-up" element={<SignUp />} />
         <Route path="/cart" element={<Cart />} />
+
       </Routes>
       <Footer />
     </BrowserRouter>

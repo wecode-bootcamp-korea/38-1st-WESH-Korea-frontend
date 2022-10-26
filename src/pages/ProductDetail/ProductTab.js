@@ -1,62 +1,75 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import ProductInfo from './ProductInfo';
 import ProductReview from './ProductReview';
+import { API } from '../../config';
+
 import './ProductTab.scss';
 
-const ProductTab = () => {
-  const [detail, setDetail] = useState([]);
+const ProductTab = ({ detail }) => {
   const [count, setCount] = useState(1);
   const [price, setPrice] = useState(0);
   const [heart, setHeart] = useState('🖤');
   const [currentTab, setCurrentTab] = useState('info');
+  const { id } = useParams();
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    fetch(`/data/product-detail/detaildata.json
-      `)
-      .then(res => res.json())
-      .then(res => setDetail(res));
-  }, []);
 
   const mappingObje = {
-    info: <ProductInfo />,
-    review: <ProductReview />,
+    info: <ProductInfo info={detail[0]} />,
+    review: <ProductReview review={detail.slice(1, detail.length)} />,
   };
 
-  const up = () => {
-    setCount(count + 1);
+  const user = {
+    product_id: id,
+    quantity: count,
   };
 
-  const down = () => {
-    count !== 1 && setCount(count - 1);
+  const fetchSomething = () => {
+    fetch(`${API.cart}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: localStorage.getItem('token'),
+      },
+      body: JSON.stringify(user),
+    });
   };
 
-  const buyClick = () => {
-    setPrice(detail[0].price * count);
+  const onClick = () => {
+    if (localStorage.getItem('token')) {
+      fetchSomething();
+      alert(detail[0].title + '상품이 담겼습니다~~');
+    } else {
+      alert('로그인 먼저 해주세요!~!~!~!');
+      navigate('/SignIn');
+    }
   };
 
-  const onHeart = () => {
-    heart === '🖤' ? setHeart('❤️') : setHeart('🖤');
-  };
+  const up = () => setCount(count => count + 1);
+  const down = () => setCount(count => (count !== 1 ? count - 1 : 0));
+  //FIXME 백엔드 상의 후 수정
+  const buyClick = () => setPrice(detail[0].price * count);
+  const onHeart = () => (heart === '🖤' ? setHeart('❤️') : setHeart('🖤'));
 
   return (
-    <div className="product-tab">
-      {detail.map(detailInfo => {
-        return (
-          <div key={detailInfo.id} className="Product-tabBox">
+    <>
+      {detail[0] && (
+        <div className="product-tab">
+          <div className="Product-tabBox">
             <div className="top">
               <img
-                src={detailInfo.img}
+                src={detail[0].img}
                 className="top-img"
                 alt="data-main-image"
               />
               <div className="right">
-                <div className="banner-detail">{detailInfo.detail}</div>
-                <div className="banner-title">{detailInfo.title}</div>
+                <div className="banner-detail">{detail[0].detail}</div>
+                <div className="banner-title">{detail[0].title}</div>
                 <div className="banner-price-box">
                   <div className="banner-price-box-width">
                     <div className="banner-price">
-                      {detailInfo.price * count}
+                      {detail[0].price * count}
                     </div>
                     <div className="button-box">
                       <button className="plus" onClick={up}>
@@ -72,7 +85,7 @@ const ProductTab = () => {
                 <div className="all-price-box">
                   <div className="all-price-word">총 합계 금액</div>
                   <div className="all-price">
-                    ￦ {detailInfo.price * count} 원
+                    ￦ {detail[0].price * count} 원
                   </div>
                 </div>
                 <div className="banner-payment">
@@ -80,11 +93,15 @@ const ProductTab = () => {
                     {heart}
                   </button>
                   <button className="bag">
-                    <Link to="/">✓</Link>
+                    <Link to="/cart">✓</Link>
                   </button>
-                  <button className="buy" onClick={buyClick}>
+                  <Link
+                    className="buy"
+                    onClick={onClick}
+                    state={{ price: `${price}` }}
+                  >
                     바로구매
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -96,9 +113,9 @@ const ProductTab = () => {
               <div className="contents">{mappingObje[currentTab]}</div>
             </div>
           </div>
-        );
-      })}
-    </div>
+        </div>
+      )}
+    </>
   );
 };
 export default ProductTab;
