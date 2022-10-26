@@ -1,0 +1,165 @@
+.mypage-top {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 30px;
+  border: 1px solid black;
+  border-style: none;
+  background-color: #fafafa;
+
+  .mypage-info {
+    display: flex;
+    justify-content: center;
+    border-right: 1px solid #eee;
+
+    .profile {
+      width: 100px;
+      height: 100px;
+      margin-top: 20px;
+      margin-left: 30px;
+      border: 1px solid #eee;
+      border-radius: 50%;
+    }
+  }
+}
+
+.info-list {
+  width: 150px;
+  margin-top: 10px;
+  margin-left: 20px;
+  padding: 20px;
+
+  a {
+    color: #535353;
+    text-decoration: none;
+  }
+
+  .info-change,
+  .info-ship {
+    display: flex;
+  }
+
+  .info-text {
+    font-size: 24px;
+  }
+
+  .info-text,
+  .info-change,
+  .info-ship {
+    margin: 10px;
+  }
+}
+
+.mypage-benefit {
+  display: flex;
+
+  .coupon {
+    width: 150px;
+    height: 100px;
+    margin-top: 10px;
+    padding: 20px;
+    border-right: 1px solid #eee;
+    text-align: center;
+
+    .benefit-strong {
+      margin-top: 10px;
+      font-size: 24px;
+      text-decoration: underline;
+    }
+
+    .icon-one {
+      font-size: 30px;
+    }
+  }
+}
+
+.qna {
+  justify-content: center;
+  width: 150px;
+  height: 100px;
+  margin-top: 10px;
+  padding: 20px;
+  border-right: 1px solid #eee;
+  text-align: center;
+
+  .qna-strong {
+    margin-top: 10px;
+    font-size: 24px;
+    text-decoration: underline;
+  }
+
+  .icon-two {
+    font-size: 30px;
+  }
+}
+
+.mypage-ship {
+  padding: 30px;
+  .ing-ship {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .ing-ship-info {
+    color: #757575;
+    font-size: 14px;
+  }
+}
+
+.ship-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 0;
+  border-top: 2px solid #222222;
+  border-bottom: 1px solid #eee;
+  font-size: 18px;
+
+  > li {
+    position: relative;
+    width: 100%;
+    text-align: center;
+  }
+
+  > li:not(:nth-child(n + 5))::after {
+    content: '>';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    color: #757575;
+  }
+
+  li > p {
+    margin-bottom: 10px;
+  }
+
+  span {
+    display: block;
+    text-align: center;
+    text-decoration: underline;
+  }
+
+  li > p,
+  .delete > ul > li > span:first-child {
+    color: #757575;
+  }
+}
+
+.delete > ul > li > div > span:first-child {
+  margin-top: 5px;
+  margin-bottom: 7px;
+  color: #757575;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.user-info {
+  margin: 20px;
+
+  .user-name,
+  .user-id,
+  .user-address,
+  .user-phone {
+    margin: 10px;
+  }
+}

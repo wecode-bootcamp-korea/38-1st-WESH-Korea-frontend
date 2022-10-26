@@ -1,0 +1,56 @@
+.img-one {
+  width: 50px;
+}
+
+.order-list {
+  margin-top: 10px;
+  display: flex;
+  width: 1100px;
+
+  .order-product-info {
+    display: flex;
+    align-items: center;
+    width: 40%;
+  }
+
+  .order-quantity-btn {
+    display: flex;
+    justify-content: center;
+
+    button {
+      width: 30px;
+      height: 30px;
+      border: none;
+    }
+  }
+}
+
+.order-quantity-btn {
+  width: 20%;
+  margin-top: 10px;
+}
+.order-quantity {
+  width: 30px;
+  height: 30px;
+  border: none;
+  text-align: center;
+}
+
+.order-product-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+}
+
+.order-total {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 20%;
+}
+
+.order-button-select {
+  margin-left: 20px;
+  opacity: 0.5;
+}
