@@ -1,11 +1,12 @@
-.img-one {
-  width: 50px;
-}
-
 .order-list {
-  margin-top: 10px;
   display: flex;
   width: 1100px;
+  margin-top: 10px;
+
+  .img-one {
+    width: 50px;
+    height: 50px;
+  }
 
   .order-product-info {
     display: flex;
@@ -28,12 +29,13 @@
 .order-quantity-btn {
   width: 20%;
   margin-top: 10px;
-}
-.order-quantity {
-  width: 30px;
-  height: 30px;
-  border: none;
-  text-align: center;
+
+  .order-quantity {
+    width: 30px;
+    height: 30px;
+    border: none;
+    text-align: center;
+  }
 }
 
 .order-product-price {
@@ -48,9 +50,9 @@
   align-items: center;
   justify-content: flex-end;
   width: 20%;
-}
 
-.order-button-select {
-  margin-left: 20px;
-  opacity: 0.5;
+  .order-button-select {
+    margin-left: 20px;
+    opacity: 0.5;
+  }
 }

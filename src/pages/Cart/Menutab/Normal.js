@@ -2,11 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Orderlist from '../Orderlist/Orderlist';
 import './Normal.scss';
 
-const Normal = ({ orderData, deleteClick, order }) => {
+const Normal = ({ orderData, deleteClick, order, setProductlistid }) => {
   const [checkedCount, setCheckedCount] = useState(0);
-  const [isCheckAll, setIsCheckAll] = useState(false);
-  const [checkedArr, setCheckedArr] = useState([]);
-
   const [totalPrice, setTotalPrice] = useState(0);
 
   const checkProduct = e => {
@@ -39,12 +36,9 @@ const Normal = ({ orderData, deleteClick, order }) => {
                       <Orderlist
                         key={orderproduct.product_id}
                         orderproduct={orderproduct}
-                        checkedCount={checkedCount}
                         checkProduct={checkProduct}
                         setTotalPrice={setTotalPrice}
                         totalPrice={totalPrice}
-                        isCheckAll={isCheckAll}
-                        setisCheckAll={setIsCheckAll}
                         orderData={orderproduct.product_quantity}
                         deleteClick={deleteClick}
                       />

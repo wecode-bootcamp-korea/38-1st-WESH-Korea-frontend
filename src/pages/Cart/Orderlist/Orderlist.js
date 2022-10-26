@@ -7,14 +7,34 @@ const Orderlist = ({
   totalPrice,
   setTotalPrice,
   orderData,
-  deleteClick,
 }) => {
-  const { product_name, product_price, product_img, product_quantity } =
-    orderproduct;
+  const {
+    product_id,
+    product_name,
+    product_price,
+    product_img,
+    product_quantity,
+    setOrderData,
+  } = orderproduct;
   const [totalProductPrice, setTotalProductPrice] = useState(0);
   const [quantityNum, setQuantityNum] = useState(0);
-
   const [isChecked, setIsChecked] = useState(false);
+
+  const deleteClick = e => {
+    fetch('http://10.58.52.139:8000/cart', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: localStorage.getItem('token'),
+      },
+      body: JSON.stringify({
+        product_info: { product_id: orderproduct.product_id },
+      }),
+    });
+    const filter = orderData.filter(item => item.id != orderproduct.product_id);
+    setOrderData(filter);
+  };
+  const filter = e => {};
 
   const checkedValue = e => {
     setIsChecked(e.target.checked);
@@ -41,7 +61,6 @@ const Orderlist = ({
     }
     setQuantityNum(prev => prev - 1);
   };
-  console.log();
 
   return (
     <div className="order-list">

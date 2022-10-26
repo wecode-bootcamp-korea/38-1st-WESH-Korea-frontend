@@ -6,6 +6,8 @@ import Nav from '../../components/Nav/Nav';
 
 const Cart = () => {
   const [orderData, setOrderData] = useState([]);
+  const [productlistid, setProductlistid] = useState('');
+  // let arrFilter = [...orderData];
   useEffect(() => {
     fetch('http://10.58.52.139:8000/cart', {
       method: 'GET',
@@ -16,19 +18,8 @@ const Cart = () => {
     })
       .then(res => res.json())
       .then(res => setOrderData(res.data));
-  }, []);
+  }, [orderData]);
 
-  // const deleteClick = () => {
-  //   fetch('http://10.58.52.56:8000/cart', {
-  //     method: 'DELETE',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       Authorization: localStorage.getItem('token'),
-  //     },
-  //   })
-  //     .then(res => res.json())
-  //     .then(res => setOrderData(res));
-  // };
   // const order = () => {
   //   fetch('http://10.58.52.56:8000/cart', {
   //     method: 'POST',
@@ -49,16 +40,16 @@ const Cart = () => {
   useEffect(() => {
     fetch('/data/cart.json')
       .then(res => res.json())
-      .then(res => setOrderData(res.data));
+      .then(res => console.log(res.data));
   }, []);
-  // console.log(orderData);
+
   const [currentTab, setCurrentTab] = useState('normal');
   const cartList = {
     normal: (
       <Normal
         orderData={orderData}
-        // deleteClick={deleteClick}
-        // order={order}
+        setOrderData={setOrderData}
+        setProductlistid={setProductlistid}
       />
     ),
     page: <Mypage orderData={orderData} />,
