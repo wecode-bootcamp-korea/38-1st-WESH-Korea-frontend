@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ProductList from './pages/ProductList/ProductList';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import MainPage from './pages/MainPage/MainPage';
 import Cart from './pages/Cart/Cart';
-import ProductList from './pages/ProductList/ProductList';
-import Nav from './components/Nav/Nav';
-import Footer from './components/Footer/Footer';
 import SignIn from './pages/Join/SignIn/SignIn';
 import SignUp from './pages/Join/SignUp/SignUp';
+import Nav from './components/Nav/Nav';
+import Footer from './components/Footer/Footer';
 
 const Router = () => {
   return (
