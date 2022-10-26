@@ -93,7 +93,6 @@ const Mainpage = () => {
 
   return (
     <>
-      <Nav />
       {eventData.bestProducts && (
         <div className="mainpage">
           <div className="main-center">
