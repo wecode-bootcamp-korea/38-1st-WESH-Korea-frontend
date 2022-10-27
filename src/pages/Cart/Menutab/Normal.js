@@ -4,7 +4,7 @@ import './Normal.scss';
 
 const Normal = ({ orderData, onDelete }) => {
   const [checkedCount, setCheckedCount] = useState(0);
-  const [totalPrice, setTotalPrice] = useState();
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const checkProduct = e => {
     const { checked } = e.target;

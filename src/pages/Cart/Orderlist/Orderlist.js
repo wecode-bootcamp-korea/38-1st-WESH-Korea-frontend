@@ -16,8 +16,6 @@ const Orderlist = ({
   const [quantityNum, setQuantityNum] = useState(0);
   const [isChecked, setIsChecked] = useState(false);
   const [opacity, setOpacity] = useState('order-list');
-  const [, updateState] = useState();
-  const forceUpdate = useCallback(() => updateState({}), []);
 
   const deleteClick = e => {
     fetch(`${API.cart}`, {
@@ -50,7 +48,7 @@ const Orderlist = ({
 
   const minus = () => {
     if (totalPrice > 0) {
-      setTotalProductPrice(prev => prev - product_price);
+      setTotalProductPrice(prev => parseInt(prev) - parseInt(product_price));
       setTotalPrice(
         parseInt(totalProductPrice * product_quantity) +
           parseInt(
