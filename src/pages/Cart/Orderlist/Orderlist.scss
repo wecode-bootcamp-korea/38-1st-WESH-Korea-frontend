@@ -2,6 +2,35 @@
   display: flex;
   width: 1100px;
   margin-top: 10px;
+  opacity: 0.2;
+
+  .img-one {
+    width: 50px;
+    height: 50px;
+  }
+
+  .order-product-info {
+    display: flex;
+    align-items: center;
+    width: 40%;
+  }
+
+  .order-quantity-btn {
+    display: flex;
+    justify-content: center;
+
+    button {
+      width: 30px;
+      height: 30px;
+      border: none;
+    }
+  }
+}
+
+.order-list-real {
+  display: flex;
+  width: 1100px;
+  margin-top: 10px;
 
   .img-one {
     width: 50px;

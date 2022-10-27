@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
+import { API } from '../../../config';
 import './Orderlist.scss';
 
 const Orderlist = ({
@@ -7,49 +8,40 @@ const Orderlist = ({
   totalPrice,
   setTotalPrice,
   orderData,
+  onDelete,
 }) => {
-  const {
-    product_id,
-    product_name,
-    product_price,
-    product_img,
-    product_quantity,
-    setOrderData,
-  } = orderproduct;
+  const { product_id, product_name, product_price, product_quantity } =
+    orderproduct;
   const [totalProductPrice, setTotalProductPrice] = useState(0);
   const [quantityNum, setQuantityNum] = useState(0);
   const [isChecked, setIsChecked] = useState(false);
+  const [opacity, setOpacity] = useState('order-list');
 
   const deleteClick = e => {
-    fetch('http://10.58.52.139:8000/cart', {
+    fetch(`${API.cart}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
         Authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({
-        product_info: { product_id: orderproduct.product_id },
+        product_info: { product_id: product_id },
       }),
     });
-    const filter = orderData.filter(item => item.id != orderproduct.product_id);
-    setOrderData(filter);
+    onDelete(product_id);
   };
-  const filter = e => {};
-
   const checkedValue = e => {
     setIsChecked(e.target.checked);
+    opacity !== 'order-list-real'
+      ? setOpacity('order-list-real')
+      : setOpacity('order-list');
   };
 
   const plus = e => {
     setTotalProductPrice(prev => parseInt(prev) + parseInt(product_price));
     setTotalPrice(
-      totalPrice =>
-        parseInt(totalProductPrice * product_quantity) +
-        parseInt(
-          totalProductPrice +
-            (orderData + quantityNum) *
-              product_price.slice(0, product_price.length - 4)
-        )
+      parseInt(product_price * product_quantity) +
+        parseInt(quantityNum * product_price.slice(0, product_price.length - 4))
     );
     setQuantityNum(prev => prev + 1);
   };
@@ -57,13 +49,20 @@ const Orderlist = ({
   const minus = () => {
     if (totalPrice > 0) {
       setTotalProductPrice(prev => prev - product_price);
-      setTotalPrice(totalPrice => totalPrice - product_price);
+      setTotalPrice(
+        parseInt(totalProductPrice * product_quantity) +
+          parseInt(
+            totalProductPrice -
+              (orderData + quantityNum) *
+                product_price.slice(0, product_price.length - 4)
+          )
+      );
     }
     setQuantityNum(prev => prev - 1);
   };
 
   return (
-    <div className="order-list">
+    <div className={opacity}>
       <input
         type="checkbox"
         className="box-tag"
@@ -83,7 +82,7 @@ const Orderlist = ({
         <button
           type="button"
           className="order-button-left"
-          disabled={quantityNum === 0 ? true : false}
+          disabled={quantityNum + product_quantity === 1 ? true : false}
           onClick={isChecked === true && minus}
         >
           -
@@ -111,7 +110,7 @@ const Orderlist = ({
       <div className="order-total">
         <div className="order-total-price">
           <span className="total">
-            ￦{' '}
+            ￦
             {(orderData + quantityNum - 1) *
               product_price.slice(0, product_price.length - 4)}
           </span>

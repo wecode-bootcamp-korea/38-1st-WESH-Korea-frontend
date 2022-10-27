@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Normal from '../Cart/Menutab/Normal';
 import Mypage from '../Cart/Menutab/Mypage';
+import { API } from '../../config';
 import './Cart.scss';
-import Nav from '../../components/Nav/Nav';
 
 const Cart = () => {
   const [orderData, setOrderData] = useState([]);
-  const [productlistid, setProductlistid] = useState('');
-  // let arrFilter = [...orderData];
+
   useEffect(() => {
-    fetch('http://10.58.52.139:8000/cart', {
+    fetch(`${API.cart}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -18,30 +17,12 @@ const Cart = () => {
     })
       .then(res => res.json())
       .then(res => setOrderData(res.data));
-  }, [orderData]);
-
-  // const order = () => {
-  //   fetch('http://10.58.52.56:8000/cart', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       Authorization: localStorage.getItem('token'),
-  //     },
-  //   })
-  //     .then(res => res.json())
-  //     .then(res => setOrderData(res));
-  // };
-
-  //
-  //
-  //
-  //
-  //
-  useEffect(() => {
-    fetch('/data/cart.json')
-      .then(res => res.json())
-      .then(res => console.log(res.data));
   }, []);
+
+  const handleDeleteCart = id => {
+    const changed = orderData.filter(order => order.product_id !== id);
+    setOrderData(changed);
+  };
 
   const [currentTab, setCurrentTab] = useState('normal');
   const cartList = {
@@ -49,14 +30,13 @@ const Cart = () => {
       <Normal
         orderData={orderData}
         setOrderData={setOrderData}
-        setProductlistid={setProductlistid}
+        onDelete={handleDeleteCart}
       />
     ),
     page: <Mypage orderData={orderData} />,
   };
   return (
     <>
-      <Nav />
       {orderData && (
         <div className="cart-page">
           <div className="wrap">

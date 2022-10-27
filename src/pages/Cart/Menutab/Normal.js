@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Orderlist from '../Orderlist/Orderlist';
 import './Normal.scss';
 
-const Normal = ({ orderData, deleteClick, order, setProductlistid }) => {
+const Normal = ({ orderData, onDelete }) => {
   const [checkedCount, setCheckedCount] = useState(0);
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState();
 
   const checkProduct = e => {
     const { checked } = e.target;
@@ -14,7 +14,6 @@ const Normal = ({ orderData, deleteClick, order, setProductlistid }) => {
   };
 
   const DELIVERY_FEE = 2500;
-
   return (
     <div className="cart-page">
       <div className="wrap">
@@ -40,7 +39,7 @@ const Normal = ({ orderData, deleteClick, order, setProductlistid }) => {
                         setTotalPrice={setTotalPrice}
                         totalPrice={totalPrice}
                         orderData={orderproduct.product_quantity}
-                        deleteClick={deleteClick}
+                        onDelete={onDelete}
                       />
                     );
                   })}
@@ -71,7 +70,10 @@ const Normal = ({ orderData, deleteClick, order, setProductlistid }) => {
             <li className="total-price cart-price-text">
               <span className="cart-price-product">주문금액</span>
               <strong className="text-weight">
-                ￦ {totalPrice !== 0 ? totalPrice + DELIVERY_FEE : 0}
+                ￦
+                {totalPrice === undefined
+                  ? DELIVERY_FEE
+                  : totalPrice + DELIVERY_FEE}
               </strong>
             </li>
           </ul>
@@ -91,7 +93,7 @@ const Normal = ({ orderData, deleteClick, order, setProductlistid }) => {
           <button className="white-button" type="button">
             쇼핑 계속하기
           </button>
-          <button className="black-button" type="button" onClick={order}>
+          <button className="black-button" type="button">
             주문하기
           </button>
         </div>
