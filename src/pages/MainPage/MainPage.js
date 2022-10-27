@@ -35,7 +35,7 @@ const Mainpage = () => {
     timeoutRef.current = setTimeout(
       () =>
         setCurrentIndex(prevIndex =>
-          prevIndex === eventData.eventImages &&
+          prevIndex === eventData.eventImages.length - 1 &&
           eventData.eventImages.length - 1
             ? 0
             : prevIndex + 1
@@ -86,8 +86,8 @@ const Mainpage = () => {
       }
     };
   };
-  const delay = 100;
-  const onThrottleDragMove = throttle(onDragMove, delay);
+  const DELAY = 100;
+  const onThrottleDragMove = throttle(onDragMove, DELAY);
 
   if (isLoading) return;
 

@@ -1,9 +1,10 @@
 .signIn {
   display: flex;
   justify-content: center;
+  margin: 100px 0 100px;
 
   .contents {
-    margin: 170px 0 100px;
+    margin: 60px 0px 50px 0px;
     display: flex;
     flex-direction: column;
 
@@ -78,7 +79,7 @@
       }
 
       .gakao {
-        background-color: #fed801;
+        background-color: #fee501;
         color: white;
         width: 328px;
         height: 64px;

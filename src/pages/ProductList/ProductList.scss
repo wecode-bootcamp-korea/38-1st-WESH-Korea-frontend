@@ -1,5 +1,8 @@
-.list-page {
+.product-list {
   margin: 100px 0 100px;
+}
+
+.list-page {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,10 +46,6 @@
     flex-wrap: wrap;
     width: 1000px;
     height: 100%;
-
-    &:hover {
-      opacity: 0.4;
-    }
   }
   .button-click {
     display: flex;

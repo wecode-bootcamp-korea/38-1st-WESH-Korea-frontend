@@ -19,6 +19,29 @@ const Cart = () => {
       .then(res => setOrderData(res.data));
   }, []);
 
+  // const order = () => {
+  //   fetch('http://10.58.52.56:8000/cart', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       Authorization: localStorage.getItem('token'),
+  //     },
+  //   })
+  //     .then(res => res.json())
+  //     .then(res => setOrderData(res));
+  // };
+
+  //
+  //
+  //
+  //
+  //
+  useEffect(() => {
+    fetch('/data/cart.json')
+      .then(res => res.json())
+      .then(res => setOrderData(res.data));
+  }, []);
+
   const handleDeleteCart = id => {
     const changed = orderData.filter(order => order.product_id !== id);
     setOrderData(changed);

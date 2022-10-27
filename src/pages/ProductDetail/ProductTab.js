@@ -24,26 +24,24 @@ const ProductTab = ({ detail }) => {
     quantity: count,
   };
 
-  const fetchSomething = async () => {
+  const fetchSomething = () => {
     fetch(`${API.cart}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzUsImlhdCI6MTY2NjMzMDY3M30.lMZdbVKSXULfPkCk-U9zyCK8NBexQAH40q_W61AXUIo',
+        Authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify(user),
     });
   };
 
-  const onClick = async () => {
+  const onClick = () => {
     if (localStorage.getItem('token')) {
-      await fetchSomething();
+      fetchSomething();
       alert(detail[0].title + '상품이 담겼습니다~~');
-      navigate('/cart');
     } else {
       alert('로그인 먼저 해주세요!~!~!~!');
-      navigate('/Sign-in');
+      navigate('/SignIn');
     }
   };
 

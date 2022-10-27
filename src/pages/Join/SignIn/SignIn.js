@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './SignIn.scss';
 import { API } from '../../../config';
+import './SignIn.scss';
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -67,7 +67,7 @@ const SignIn = () => {
           <button className="login-button">로그인</button>
         </form>
         <div className="etc">
-          <Link to="/signup" className="etc-tag">
+          <Link to="/sign-up" className="etc-tag">
             회원가입
           </Link>
           <a className="etc-tag" href="https://www.wecode.co.kr">
@@ -78,8 +78,8 @@ const SignIn = () => {
           </a>
         </div>
         <div className="cannot">
-          <div className="never">네이버 아이디로 로그인(준비중)</div>
-          <div className="gakao">카카오 아이디로 로그인(준비중)</div>
+          <div className="never">네이버 아이디로 로그인</div>
+          <div className="gakao">카카오 아이디로 로그인</div>
         </div>
       </div>
     </div>

@@ -7,6 +7,10 @@
   align-items: center;
   width: 250px;
 
+  &:hover {
+    opacity: 0.5;
+  }
+
   .list-item-box {
     display: flex;
     width: 220px;

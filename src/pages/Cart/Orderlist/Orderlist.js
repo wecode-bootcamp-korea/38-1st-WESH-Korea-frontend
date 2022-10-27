@@ -16,6 +16,8 @@ const Orderlist = ({
   const [quantityNum, setQuantityNum] = useState(0);
   const [isChecked, setIsChecked] = useState(false);
   const [opacity, setOpacity] = useState('order-list');
+  const [, updateState] = useState();
+  const forceUpdate = useCallback(() => updateState({}), []);
 
   const deleteClick = e => {
     fetch(`${API.cart}`, {

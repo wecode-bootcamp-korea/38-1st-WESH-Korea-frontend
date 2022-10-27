@@ -10,7 +10,7 @@ const Best = ({ id, img, title, price, best }) => {
         <img className="best-item-img" src={img} alt={best} />
       </Link>
       <div className="best-title">{title}</div>
-      <div className=" best-price">{price}</div>
+      <div className=" best-price">{price.slice(0, price.length - 4)}</div>
     </div>
   );
 };

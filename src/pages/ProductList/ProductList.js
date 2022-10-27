@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams, useSearchParams } from 'react-router-dom';
+import {
+  Link,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from 'react-router-dom';
 import Product from './Product/Product';
 import Banner from './Banner';
 import Nav from '../../components/Nav/Nav';
@@ -12,7 +17,7 @@ const ProductList = () => {
   const [isLoading, setIsLoading] = useState(true);
   const limit = searchParams.get('limit');
   const offset = searchParams.get('offset');
-  const [sort, setSort] = useState('best');
+  const [sort, setSort] = useState('high');
   const { categories } = useParams();
 
   useEffect(() => {
@@ -81,10 +86,34 @@ const ProductList = () => {
               </div>
             </div>
             <select className="order" onChange={goSort}>
-              <option className="order-best">best</option>
-              <option className="order-low">low</option>
-              <option className="order-high">high</option>
-              <option className="order-review">review</option>
+              <option className="order-best">
+                <Link
+                  to={`/product-list/${categories}?sort=best&offset=0&limit=16`}
+                >
+                  best
+                </Link>
+              </option>
+              <option className="order-low">
+                <Link
+                  to={`/product-list/${categories}?sort=low&offset=0&limit=16`}
+                >
+                  low
+                </Link>
+              </option>
+              <option className="order-high">
+                <Link
+                  to={`/product-list/${categories}?sort=high&offset=0&limit=16`}
+                >
+                  high
+                </Link>
+              </option>
+              <option className="order-review">
+                <Link
+                  to={`/product-list/${categories}?sort=review&offset=0&limit=16`}
+                >
+                  review
+                </Link>
+              </option>
             </select>
           </div>
           <div className="page-box">
