@@ -1,6 +1,7 @@
 import './ProductInfo.scss';
 
 const ProductInfo = ({ info }) => {
+
   return (
     <div className="product-info-box">
       <div className="bottom-info">

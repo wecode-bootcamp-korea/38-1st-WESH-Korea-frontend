@@ -54,31 +54,31 @@ const ProductList = () => {
             <div className="filter">
               <div className="all">
                 <Link
-                  to="/product-list/all?sort=best&offset=0&limit=16"
+                  to={`/product-list/all?sort=best&offset=0&limit=16`}
                   className="link"
                 >
                   전체상품
                 </Link>
                 <Link
-                  to="/product-list/soap?sort=best&offset=0&limit=16"
+                  to={`/product-list/soap?sort=best&offset=0&limit=16`}
                   className="link"
                 >
                   비누
                 </Link>
                 <Link
-                  to="/product-list/lotion?sort=best&offset=0&limit=16"
+                  to={`/product-list/lotion?sort=best&offset=0&limit=16`}
                   className="link"
                 >
                   로션
                 </Link>
                 <Link
-                  to="/product-list/oil?sort=best&offset=0&limit=16"
+                  to={`/product-list/oil?sort=best&offset=0&limit=16`}
                   className="link"
                 >
                   오일
                 </Link>
                 <Link
-                  to="/product-list/perfume?sort=best&offset=0&limit=16"
+                  to={`/product-list/perfume?sort=best&offset=0&limit=16`}
                   className="link"
                 >
                   향수
