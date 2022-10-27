@@ -35,7 +35,7 @@ const Mainpage = () => {
     timeoutRef.current = setTimeout(
       () =>
         setCurrentIndex(prevIndex =>
-          prevIndex === eventData.eventImages.length - 1 &&
+          prevIndex === eventData.eventImages &&
           eventData.eventImages.length - 1
             ? 0
             : prevIndex + 1
@@ -46,7 +46,6 @@ const Mainpage = () => {
       resetTimeout();
     };
   }, [currentIndex]);
-
   const scrollRef = useRef(null);
   const [isDrag, setIsDrag] = useState(false);
   const [startX, setStartX] = useState();
@@ -106,7 +105,7 @@ const Mainpage = () => {
                     }}
                   >
                     {eventData.eventImages.map(data => (
-                      <Thumbnail key={data.id} img={data.img} />
+                      <Thumbnail key={data.img} img={data.img} />
                     ))}
                   </div>
                 </div>
@@ -155,7 +154,7 @@ const Mainpage = () => {
                   >
                     {eventData.bestProducts.map(best => (
                       <Best
-                        key={best.key}
+                        key={best.id}
                         id={best.id}
                         img={best.img}
                         title={best.title}
