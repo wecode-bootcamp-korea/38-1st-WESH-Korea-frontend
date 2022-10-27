@@ -56,7 +56,11 @@ const Search = () => {
             </div>
             <div className="search-item-box">
               {searchFilter.map(search => (
-                <Link to={`/product-detail/${search.id}`} className="link">
+                <Link
+                  to={`/product-detail/${search.id}`}
+                  className="link"
+                  key={search.id}
+                >
                   <div className="search-list-box">
                     <div className="search-list-img">
                       <img
@@ -76,7 +80,9 @@ const Search = () => {
             <div className="search-best-box">
               <div className="search-best">
                 {SEARCHDATA.map(category => (
-                  <div className="best-search-tag">{category.category}</div>
+                  <div className="best-search-tag" key={category.id}>
+                    {category.category}
+                  </div>
                 ))}
               </div>
             </div>

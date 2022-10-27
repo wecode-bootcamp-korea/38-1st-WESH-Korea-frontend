@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './SignUp.scss';
 import { useNavigate } from 'react-router-dom';
+import { API } from '../../../config';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const SignUp = () => {
   };
 
   const connect = () => {
-    fetch('http://10.58.52.123:8000/user/signup', {
+    fetch(`${API.join}/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(info),

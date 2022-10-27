@@ -3,7 +3,7 @@
     {
       "product_id": 7,
       "product_name": "GRAVITY",
-      "product_quantity": 1,
+      "product_quantity": 3,
       "product_price": "30000.000",
       "product_img": "https://cdn.pixabay.com/photo/2017/12/16/08/57/desktop-3022322_1280.jpg",
       "user_id": 35
@@ -11,7 +11,7 @@
     {
       "product_id": 10,
       "product_name": "WECODE SCENT",
-      "product_quantity": 1,
+      "product_quantity": 2,
       "product_price": "40000.000",
       "product_img": "https://cdn.pixabay.com/photo/2018/03/30/17/31/perfume-3275950_1280.jpg",
       "user_id": 35
@@ -19,7 +19,7 @@
     {
       "product_id": 22,
       "product_name": "SEA SALT",
-      "product_quantity": 1,
+      "product_quantity": 6,
       "product_price": "14000.000",
       "product_img": "https://images.unsplash.com/photo-1607006344380-b6775a0824a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1041&q=80",
       "user_id": 35

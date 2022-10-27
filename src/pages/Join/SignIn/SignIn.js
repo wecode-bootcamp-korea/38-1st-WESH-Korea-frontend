@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { API } from '../../../config';
 import './SignIn.scss';
 
 const SignIn = () => {
@@ -15,7 +16,7 @@ const SignIn = () => {
   };
 
   const connect = () => {
-    fetch('http://10.58.52.123:8000/user/signin', {
+    fetch(`${API.join}/signin`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -66,7 +67,7 @@ const SignIn = () => {
           <button className="login-button">로그인</button>
         </form>
         <div className="etc">
-          <Link to="/signup" className="etc-tag">
+          <Link to="/sign-up" className="etc-tag">
             회원가입
           </Link>
           <a className="etc-tag" href="https://www.wecode.co.kr">
@@ -77,8 +78,8 @@ const SignIn = () => {
           </a>
         </div>
         <div className="cannot">
-          <div className="never">네이버 아이디로 로그인(준비중)</div>
-          <div className="gakao">카카오 아이디로 로그인(준비중)</div>
+          <div className="never">네이버 아이디로 로그인</div>
+          <div className="gakao">카카오 아이디로 로그인</div>
         </div>
       </div>
     </div>

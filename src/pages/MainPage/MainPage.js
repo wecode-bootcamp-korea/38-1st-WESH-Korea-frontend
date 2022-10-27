@@ -12,11 +12,11 @@ const Mainpage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const timeoutRef = useRef(null);
   const DELAY_TIME = 5000;
-  conast[(isLoading, setIsLoading)] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`${API.main}?limit=10&offset=0`)
+    fetch(`${API.main}/products-events?limit=10&offset=0`)
       .then(res => res.json())
       .then(res => {
         setEventData(res.data);
@@ -46,7 +46,6 @@ const Mainpage = () => {
       resetTimeout();
     };
   }, [currentIndex]);
-
   const scrollRef = useRef(null);
   const [isDrag, setIsDrag] = useState(false);
   const [startX, setStartX] = useState();
@@ -86,8 +85,8 @@ const Mainpage = () => {
       }
     };
   };
-  const delay = 100;
-  const onThrottleDragMove = throttle(onDragMove, delay);
+  const DELAY = 100;
+  const onThrottleDragMove = throttle(onDragMove, DELAY);
 
   if (isLoading) return;
 
@@ -106,7 +105,7 @@ const Mainpage = () => {
                     }}
                   >
                     {eventData.eventImages.map(data => (
-                      <Thumbnail key={data.id} img={data.img} />
+                      <Thumbnail key={data.img} img={data.img} />
                     ))}
                   </div>
                 </div>
@@ -155,7 +154,7 @@ const Mainpage = () => {
                   >
                     {eventData.bestProducts.map(best => (
                       <Best
-                        key={best.key}
+                        key={best.id}
                         id={best.id}
                         img={best.img}
                         title={best.title}
