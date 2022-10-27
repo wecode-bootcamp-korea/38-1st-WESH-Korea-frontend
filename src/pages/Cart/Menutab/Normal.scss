@@ -1,0 +1,42 @@
+.order-table-head {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 0;
+
+  th {
+    width: 100%;
+    text-align: center;
+
+    &:nth-child(1) {
+      width: 40%;
+    }
+
+    &:nth-child(2) {
+      width: 20%;
+    }
+
+    &:nth-child(3) {
+      width: 20%;
+    }
+
+    &:nth-child(4) {
+      width: 20%;
+    }
+  }
+}
+
+.order-table-head {
+  border-bottom: 1px solid;
+}
+
+.order-table-row {
+  display: block;
+  width: 100%;
+}
+
+.order-table-data {
+  display: block;
+  width: 100%;
+  transform: translate(40px);
+}
