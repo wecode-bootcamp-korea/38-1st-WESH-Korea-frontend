@@ -48,7 +48,7 @@ const Orderlist = ({
 
   const minus = () => {
     if (totalPrice > 0) {
-      setTotalProductPrice(prev => prev - product_price);
+      setTotalProductPrice(prev => parseInt(prev) - parseInt(product_price));
       setTotalPrice(
         parseInt(totalProductPrice * product_quantity) +
           parseInt(

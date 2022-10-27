@@ -115,43 +115,44 @@
   border-bottom: 1px solid #eee;
   font-size: 18px;
 
-  > li {
+  .ship-list {
     position: relative;
     width: 100%;
     text-align: center;
-  }
 
-  > li:not(:nth-child(n + 5))::after {
-    content: '>';
-    position: absolute;
-    top: 50%;
-    right: 0;
-    color: #757575;
+    .ship-letter {
+      color: #757575;
+    }
   }
+}
 
-  li > p {
+.ship-list:not(:nth-child(n + 5))::after {
+  content: '>';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  color: #757575;
+}
+
+.ship-list {
+  .ship-letter {
     margin-bottom: 10px;
   }
 
-  span {
+  .ship-num {
     display: block;
     text-align: center;
     text-decoration: underline;
   }
-
-  li > p,
-  .delete > ul > li > span:first-child {
-    color: #757575;
-  }
 }
 
-.delete > ul > li > div > span:first-child {
-  margin-top: 5px;
-  margin-bottom: 7px;
-  color: #757575;
-  font-size: 14px;
-  text-decoration: none;
-}
+// .delete > ul > li > div > .delete-num:first-child {
+//   margin-top: 5px;
+//   margin-bottom: 7px;
+//   color: #757575;
+//   font-size: 14px;
+//   text-decoration: none;
+// }
 
 .user-info {
   margin: 20px;

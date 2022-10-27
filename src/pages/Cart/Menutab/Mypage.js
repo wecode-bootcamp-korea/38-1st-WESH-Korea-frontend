@@ -63,39 +63,39 @@ const Mypage = ({ orderData }) => {
         </div>
         <div className="order-ing">
           <ul className="ship-flex">
-            <li>
-              <p>결제완료</p>
-              <span>0</span>
+            <li className="ship-list">
+              <p className="ship-letter">결제완료</p>
+              <span className="ship-num">0</span>
             </li>
-            <li>
-              <p>배송준비중</p>
-              <span>0</span>
+            <li className="ship-list">
+              <p className="ship-letter">배송준비중</p>
+              <span className="ship-num">0</span>
             </li>
-            <li>
-              <p>배송중</p>
-              <span>0</span>
+            <li className="ship-list">
+              <p className="ship-letter">배송중</p>
+              <span className="ship-num">0</span>
             </li>
-            <li>
-              <p>배송완료</p>
-              <span>0</span>
+            <li className="ship-list">
+              <p className="ship-letter">배송완료</p>
+              <span className="ship-num">0</span>
             </li>
-            <li>
-              <p>구매확정</p>
-              <span>0</span>
+            <li className="ship-list">
+              <p className="ship-letter">구매확정</p>
+              <span className="ship-num">0</span>
             </li>
             <li className="delete">
-              <ul>
+              <ul className="delete-list">
                 <li className="delete-one">
-                  <div>
-                    <span>취소</span>
-                    <span>0</span>
+                  <div className="delete-one-block">
+                    <span className="delete-letter">취소</span>
+                    <span className="delete-num">0</span>
                   </div>
                 </li>
 
-                <li className="delete-three">
-                  <div>
-                    <span>반품</span>
-                    <span>0</span>
+                <li className="delete-one">
+                  <div className="delete-two-block">
+                    <span className="delete-letter">반품</span>
+                    <span className="delete-num">0</span>
                   </div>
                 </li>
               </ul>
