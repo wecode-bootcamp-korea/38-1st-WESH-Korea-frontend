@@ -9,7 +9,8 @@
 #프로젝트 소개</h2>
 <hr>
 <p>
-대한민국 인싸들의 배쓰용품, 러쉬를 클론 코딩 하였습니다. 개발은 초깅 세팅 부터 최종 발표까지 팀원들과 매번 소통을 하며 프로젝트를 진행하였고, 다양한 라이브러리와 API를 써보며 develop 목표로 진행되었습니다.
+대한민국 인싸들의 배쓰용품, 러쉬를 클론 코딩 하였습니다. 개발은 초깅 세팅 부터 최종 발표까지 팀원들과 매번 소통을 하며 프로젝트를 진행하였고, 다양한 라이브러리와 API를 써보며 develop 목표로 진행되었습니다.<p>
+<a href="https://www.youtube.com/watch?v=w0MkqnhkV_0&ab_channel=%EA%B7%9C%ED%9D%A0%EC%B5%9C">#Wesh 시연영상</a>
 
 <h2>
 #팀원 소개</h2>
@@ -68,7 +69,10 @@
 <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
 </div>
 <p>
-
+<h2>
+#담당 업무</h2>
+<hr>
+<p>
 <h2>
 #ERD</h2>
 <hr>
